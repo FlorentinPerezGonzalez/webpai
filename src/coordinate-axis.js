@@ -27,8 +27,27 @@
 
 'use strict';
 
+let Point;
+let Line;
+let Axis;
+if (typeof require !== 'undefined') {
+  Point = require('../src/point.js').Point;
+  Line = require('../src/line.js').Line;
+  Axis = require('../src/axis.js').Axis;
+} else {
+  Point = window.Point;
+  Line = window.Line;
+  Axis = window.Axis;
+}
+
 const MAX_DEFAULT_X = 100;
 const MAX_DEFAULT_Y = 100;
+const INITIAL_X = 30;
+const INITIAL_Y = 60;
+const X_DIFFERENCE = 5;
+const Y_DIFFERENCE = 5;
+
+const DIVISOR = 18;
 
 class CoordinateAxis {
   /**
@@ -57,6 +76,15 @@ class CoordinateAxis {
   }
   set yFactor(newFactor) {
     this._yFactor = newFactor;
+  }
+  draw(context, width, height) {
+    if (width <= 10 || height <= 10) {
+      throw new Error('No se puede dibujar el eje de coordenadas. Anchura y'+
+        'alturas especificadas demasiado pequeñas')
+    }
+    console.log(width, height);
+    (new Axis(Axis.X_TYPE, width - (width /*Divisor*/ / DIVISOR) * 2, this._xFactor)).draw(context, new Point(width / DIVISOR, height - (height / DIVISOR)), 5);
+    (new Axis(Axis.Y_TYPE, height - (height /*Divisor*/ / DIVISOR) * 2, this._yFactor)).draw(context, new Point(width / DIVISOR, height - (height / DIVISOR)), 5);
   }
 };
 
