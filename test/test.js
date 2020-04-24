@@ -6,6 +6,7 @@ let Line;
 let expect;
 let Axis
 let CoordinateAxis;
+let ParabolMovement;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
@@ -13,6 +14,7 @@ if (typeof require !== 'undefined') {
   expect = require('chai').expect;
   CoordinateAxis = require('../src/coordinate-axis.js').CoordinateAxis;
   Axis = require('../src/axis.js').Axis;
+  ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
 } else {
   Point = window.Point;
   Line = window.Line;
@@ -20,6 +22,7 @@ if (typeof require !== 'undefined') {
   expect = chai.expect;
   Axis = window.Axis;
   CoordinateAxis = window.CoordinateAxis;
+  ParabolMovement = window.ParabolMovement;
 }
 
 describe('canvasModule', () => {
@@ -178,5 +181,11 @@ describe('Class CoordinateAxis', () => {
     it('Should have a method to draw the axis', () => {
       expect(tempAxis.draw).to.be.a('function');
     });
+  });
+});
+
+describe('Class parabol movement', () => {
+  it('Should exist', () => {
+    expect(ParabolMovement).to.be.a('function');
   });
 });
