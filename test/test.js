@@ -106,6 +106,29 @@ describe('Class Line', () => {
     expect(CoordinateAxis).to.be.a('function');
   });
   context('Line functionality', () => {
-
+    let tempAxis;
+    beforeEach(() => {
+      tempAxis = new CoordinateAxis(3, 2);
+    });
+    it('Should have a factor related to X axis', () => {
+      expect(tempAxis.xFactor).to.be.a('number');
+    });
+    it('Should have a factor related to Y axis', () => {
+      expect(tempAxis.yFactor).to.be.a('number');
+    });
+    it('Should return xFactor', () => {
+      expect(tempAxis.xFactor).to.be.eql(3);
+    });
+    it('Should return yFactor', () => {
+      expect(tempAxis.yFactor).to.be.eql(2);
+    });
+    it('Should be possible to set xFactor', () => {
+      tempAxis.xFactor = 4;
+      expect(tempAxis.xFactor).to.be.eql(4);
+    });
+    it('Should be possible to set yFactor', () => {
+      tempAxis.yFactor = 1;
+      expect(tempAxis.yFactor).to.be.eql(1);
+    });
   });
 });

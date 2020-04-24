@@ -27,8 +27,37 @@
 
 'use strict';
 
-class CoordinateAxis {
+const MAX_DEFAULT_X = 100;
+const MAX_DEFAULT_Y = 100;
 
+class CoordinateAxis {
+  /**
+   * @desc Constructor de la calse CoordinateAxis.
+   * @param {Number} xFactor Factor multiplicativo para el eje X. 
+   * @param {Number} yFactor Factor multiplicativo para el eje y.
+   */
+  constructor(xFactor, yFactor) {
+    this._xFactor = xFactor;
+    this._yFactor = yFactor;
+  }
+  /**
+   * @desc Getter y Setter.
+   */
+  get xFactor() {
+    return this._xFactor;
+  }
+  /**
+   * @desc Getter y Setter.
+   */
+  get yFactor() {
+    return this._yFactor;
+  }
+  set xFactor(newFactor) {
+    this._xFactor = newFactor;
+  }
+  set yFactor(newFactor) {
+    this._yFactor = newFactor;
+  }
 };
 
 /* istanbul ignore next */
