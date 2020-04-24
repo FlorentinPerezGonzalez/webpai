@@ -4,6 +4,7 @@ let Point;
 let canvasModule;
 let Line;
 let expect;
+let CoordinateIndex;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
@@ -95,5 +96,14 @@ describe('Class Line', () => {
       const tempPoint = new Point(0, 1);
       expect(tempLine.distanceToLine(tempPoint)).to.be.equal(0.707);
     });
+  });
+});
+
+describe('Class Line', () => {
+  it('Should exist', () => {
+    expect(CoordinateIndex).to.be.a('function');
+  });
+  context('Line functionality', () => {
+
   });
 });
