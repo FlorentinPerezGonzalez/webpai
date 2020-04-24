@@ -124,7 +124,7 @@ describe('Class Axis', () => {
     });
     it('Type should be adjustable', () => {
       tempAxis.type = Axis.Y_TYPE;
-      expect(tempAxis.type).to.be.eql(Y_TYPE);
+      expect(tempAxis.type).to.be.eql(Axis.Y_TYPE);
     });
     it('Length should be adjustable ', () => {
       tempAxis.length = 200;
@@ -133,6 +133,15 @@ describe('Class Axis', () => {
     it('Factor should be adjustable', () => {
       tempAxis.factor = 3;
       expect(tempAxis.factor).to.be.eql(3);
+    });
+    it('Should have a method to draw the axis', () => {
+      expect(tempAxis.draw).to.be.a('function');
+    });
+    it('Should have a method to draw the numbers of the axis', () => {
+      expect(tempAxis._drawNumbers).to.be.a('function');
+    });
+    it('Should have a method to draw the small lines of the axis', () => {
+      expect(tempAxis._drawSmallLines).to.be.a('function');
     });
   });
 });
