@@ -119,8 +119,20 @@ describe('Class Axis', () => {
     it('Should have return the length', () => {
       expect(tempAxis.length).to.be.eql(100);
     });
-    it('Should have return the type', () => {
+    it('Should have return the factor', () => {
       expect(tempAxis.factor).to.be.eql(2);
+    });
+    it('Type should be adjustable', () => {
+      tempAxis.type = Axis.Y_TYPE;
+      expect(tempAxis.type).to.be.eql(Y_TYPE);
+    });
+    it('Length should be adjustable ', () => {
+      tempAxis.length = 200;
+      expect(tempAxis.length).to.be.eql(200);
+    });
+    it('Factor should be adjustable', () => {
+      tempAxis.factor = 3;
+      expect(tempAxis.factor).to.be.eql(3);
     });
   });
 });
