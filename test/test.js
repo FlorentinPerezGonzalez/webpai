@@ -130,5 +130,8 @@ describe('Class Line', () => {
       tempAxis.yFactor = 1;
       expect(tempAxis.yFactor).to.be.eql(1);
     });
+    it('Should have a method to draw the axis', () => {
+      expect(tempAxis.draw).to.be.a('function');
+    });
   });
 });
