@@ -35,6 +35,24 @@ class ParabolMovement {
     this._initialSpedd = initialSpeed;
     this._initialHeight = initialHeight;
   }
+  get angle() {
+    return this._angle;
+  }
+  get initialSpeed() {
+    return this._initialSpedd;
+  }
+  get initialHeight() {
+    return this._initialHeight;
+  }
+  set angle(newAngle) {
+    this._angle = newAngle;
+  }
+  set initialSpeed(newSpeed) {
+    this._initialSpedd = newSpeed;
+  }
+  set initialHeight(newHeight) {
+    this._initialHeight = newHeight;
+  }
 };
 
 /* istanbul ignore next */
