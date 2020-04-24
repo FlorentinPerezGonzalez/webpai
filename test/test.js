@@ -111,7 +111,16 @@ describe('Class Axis', () => {
   context('Axis functionality', () => {
     let tempAxis;
     beforeEach(() => {
-
+      tempAxis = new Axis(Axis.X_TYPE, 100, 2);
+    });
+    it('Should have return the type', () => {
+      expect(tempAxis.type).to.be.eql(Axis.X_TYPE);
+    });
+    it('Should have return the length', () => {
+      expect(tempAxis.length).to.be.eql(100);
+    });
+    it('Should have return the type', () => {
+      expect(tempAxis.factor).to.be.eql(2);
     });
   });
 });
