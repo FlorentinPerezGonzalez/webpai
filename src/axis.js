@@ -42,6 +42,15 @@ class Axis {
     this._type = type;
     this._factor = factor;
   }
+  get type() {
+    return this._type;
+  }
+  get length() {
+    return this._length;
+  }
+  get factor() {
+    return this._factor;
+  }
 };
 
 /* istanbul ignore next */
