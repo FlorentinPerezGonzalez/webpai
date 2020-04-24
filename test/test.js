@@ -4,17 +4,19 @@ let Point;
 let canvasModule;
 let Line;
 let expect;
-let CoordinateIndex;
+let CoordinateAxis;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
   canvasModule = require('../src/canvas-utility.js').canvasModule;
   expect = require('chai').expect;
+  CoordinateAxis = require('../src/coordinate-axis.js').CoordinateAxis;
 } else {
   Point = window.Point;
   Line = window.Line;
   canvasModule = window.canvasModule;
   expect = chai.expect;
+  CoordinateAxis = window.CoordinateAxis;
 }
 
 describe('canvasModule', () => {
@@ -101,7 +103,7 @@ describe('Class Line', () => {
 
 describe('Class Line', () => {
   it('Should exist', () => {
-    expect(CoordinateIndex).to.be.a('function');
+    expect(CoordinateAxis).to.be.a('function');
   });
   context('Line functionality', () => {
 

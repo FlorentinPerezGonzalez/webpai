@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/proyectil.css">
+    <meta charset="UTF-8">
+    <title>Pérez González Florentín Random Walk</title>
+    <script defer type="module" src="./src/point.js"></script>
+    <script defer type="module" src="./src/line.js"></script>
+    <script defer type="module" src="./src/canvas-utility.js"></script>
+    <script defer type="module" src="./src/generalUtility.js"></script>
+    <script defer type="module" src="./src/index.js"></script>
+  </head>
+  <body>
+    <script defer type="module" src="src/index.js"></script>
+    <script defer type="module">
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+      window.addEventListener("load", async function() {
+        await sleep(5);
+      });
+    </script>
+    <div>
+      <h1 id="name">Florentín Pérez González</h1>
+    </div>
+    <canvas id="canvas"></canvas>
+  </body>
+</html>
