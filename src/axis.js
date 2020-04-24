@@ -30,7 +30,7 @@ const MAX_DEFAULT_Y = 100;
 
 class Axis {
   static X_TYPE = 0;
-  static Y_type = 1;
+  static Y_TYPE = 1;
   /**
    * @desc Constructor de la clase Axis.
    * @param {Number} type Especificación del eje: 0 -> X, 1 -> Y.
@@ -42,14 +42,35 @@ class Axis {
     this._type = type;
     this._factor = factor;
   }
+  /**
+   * @desc Getter y Setter.
+   */
   get type() {
     return this._type;
   }
+  /**
+   * @desc Getter y Setter.
+   */
   get length() {
     return this._length;
   }
+  /**
+   * @desc Getter y Setter.
+   */
   get factor() {
     return this._factor;
+  }
+
+  set type(newType) {
+    this._type = newType;
+  }
+
+  set length(newLength) {
+    this._length = newLength;
+  }
+
+  set factor(newFactor) {
+    this._factor = newFactor;
   }
 };
 
