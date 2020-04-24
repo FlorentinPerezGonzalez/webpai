@@ -188,4 +188,19 @@ describe('Class parabol movement', () => {
   it('Should exist', () => {
     expect(ParabolMovement).to.be.a('function');
   });
+  context('ParabolMovement functionality', () => {
+    let tempMovement;
+    beforeEach(() => {
+      tempMovement = new ParabolMovement(Math.PI / 2, 10);
+    });
+    it('Should have an angle', () => {
+      expect(tempMovement.angle).not.to.be.a('undefined');
+    });
+    it('Should have an initial speed', () => {
+      expect(tempMovement.initialSpeed).not.to.be.a('undefined');
+    });
+    it('Should have an initial height', () => {
+      expect(tempMovement.initialHeight).not.to.be.a('undefined');
+    });
+  });
 });
