@@ -4,6 +4,7 @@ let Point;
 let canvasModule;
 let Line;
 let expect;
+let Axis
 let CoordinateAxis;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
@@ -11,11 +12,13 @@ if (typeof require !== 'undefined') {
   canvasModule = require('../src/canvas-utility.js').canvasModule;
   expect = require('chai').expect;
   CoordinateAxis = require('../src/coordinate-axis.js').CoordinateAxis;
+  Axis = require('../src/axis.js').Axis;
 } else {
   Point = window.Point;
   Line = window.Line;
   canvasModule = window.canvasModule;
   expect = chai.expect;
+  Axis = window.Axis;
   CoordinateAxis = window.CoordinateAxis;
 }
 
@@ -101,11 +104,23 @@ describe('Class Line', () => {
   });
 });
 
-describe('Class Line', () => {
+describe('Class Axis', () => {
+  it('Should exist', () => {
+    expect(Axis).to.be.a('function');
+  });
+  context('Axis functionality', () => {
+    let tempAxis;
+    beforeEach(() => {
+
+    });
+  });
+});
+
+describe('Class CoordinateAxis', () => {
   it('Should exist', () => {
     expect(CoordinateAxis).to.be.a('function');
   });
-  context('Line functionality', () => {
+  context('CoordinateAxis functionality', () => {
     let tempAxis;
     beforeEach(() => {
       tempAxis = new CoordinateAxis(3, 2);
