@@ -28,6 +28,7 @@
 'use strict';
 
 const TIME_UNIT = 0.25;
+const TIME_SLEEP = 100;
 
 let Point;
 let generalUtility
@@ -73,7 +74,7 @@ class Physics {
       xPosition = this._parabolMovement.xPosition;
       yPosition = this._parabolMovement.yPosition;
       time += TIME_UNIT;
-      await generalUtility.sleep(250);
+      await generalUtility.sleep(TIME_SLEEP);
     } while (yPosition > 0);
   }
 };

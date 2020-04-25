@@ -2,7 +2,7 @@ body, html {
   height: 100%;
 }
 
-canvas {
+#canvas {
   height: 95%;
   width: 95%;
   border: ridge 0.5rem #F5B041;
@@ -10,6 +10,24 @@ canvas {
   margin: auto;
   align-self: center;
   box-shadow: -17px -6px 23px -6px rgba(0,0,0,0.75)
+}
+
+#dataCanvas {
+  display: inline-block;
+  width: 40%;
+  height: 500px;
+  border: ridge 0.5rem #F5B041;
+  margin-top: 2rem;
+  margin-left: 5%;
+}
+
+#inputSection {
+  display: inline-block;
+  width: 40%;
+  border: ridge 0.5rem #F5B041;
+  height: 480px;
+  margin-top: 2rem;
+  margin-left: 5%;
 }
 
 div {

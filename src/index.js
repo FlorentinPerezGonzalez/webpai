@@ -28,19 +28,48 @@ if (typeof require !== 'undefined') {
   Physics = window.Physics;
 }
 
-function setup() {
-  const CANVAS = document.getElementById('canvas');
-  canvasModule.fixDpi(CANVAS);
-  const axis = new CoordinateAxis;
-  let movement = new ParabolMovement(Math.PI / 4, 100, 10);
-  axis.setAxisData(CANVAS.width, CANVAS.height);
-  const factors = getRightFactors(axis, movement);
-  axis.xFactor = factors[X_FACTOR];
-  axis.yFactor = factors[Y_FACTOR];
-  const CONTEXT = CANVAS.getContext('2d');
-  axis.draw(CONTEXT);
-  const PHYSICS = new Physics(movement);
-  PHYSICS.represent(axis, CONTEXT);
+let canvas;
+let context;
+let dataCanvas;
+let dataContext;
+let inputSpeed;
+let inputHeight;
+let inputAngle;
+
+const BUTTON = document.getElementById('sendData');
+if (BUTTON !== null) {
+  BUTTON.addEventListener('click', () => {
+    calculateParabolMovement();
+  });
+}
+
+function calculateParabolMovement() {
+
+}
+
+function calculateRadians(angle) {
+  return (Math.PI * angle / 180);
+}
+
+/* istanbul ignore next */
+async function setup() {
+  canvas = document.getElementById('canvas');
+  dataCanvas = document.getElementById('dataCanvas');
+  canvasModule.fixDpi(canvas);
+  canvasModule.fixDpi(dataCanvas);
+  context = canvas.getContext('2d');
+  dataContext = dataCanvas.getContext('2d');
+  // const axis = new CoordinateAxis;
+  // let movement = new ParabolMovement(Math.PI / 4, 100, 10);
+  // axis.setAxisData(canvas.width, canvas.height);
+  // const factors = getRightFactors(axis, movement);
+  // axis.xFactor = factors[X_FACTOR];
+  // axis.yFactor = factors[Y_FACTOR];
+  // canvasModule.clearScreen(dataContext, dataCanvas);
+  // axis.draw(context);
+  // const PHYSICS = new Physics(movement);
+  // await PHYSICS.represent(axis, context);
+  // displayData(movement, dataCanvas.height);
 }
 
 function getRightFactors(axis, movement) {
@@ -58,8 +87,26 @@ function getRightFactors(axis, movement) {
 }
 
 /* istanbul ignore next */
+function displayData(movement, height) {
+  dataContext.font = '20px arial';
+  const SPACE = height / 15;
+  let yCoordinate = height / 20;
+  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`, 0, yCoordinate);
+  yCoordinate += SPACE;
+  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`, 0, yCoordinate);
+  yCoordinate += SPACE;
+  dataContext.fillText(`Altura inicial: ${movement.initialHeight} m.`, 0, yCoordinate);
+  yCoordinate += SPACE;
+  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`, 0, yCoordinate);
+}
+
+/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
-  exports.setup = setup;
+  exports.main = {};
+  exports.main.setup = setup;
+  exports.main.calculateRadians = calculateRadians;
 } else { 
-  window.setup = setup;
+  window.main = {};
+  window.main.setup = setup;
+  window.main.calculateRadians = calculateRadians;
 }
