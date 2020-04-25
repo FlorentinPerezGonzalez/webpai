@@ -191,7 +191,7 @@ describe('Class parabol movement', () => {
   context('ParabolMovement functionality', () => {
     let tempMovement;
     beforeEach(() => {
-      tempMovement = new ParabolMovement(Math.PI / 2, 10);
+      tempMovement = new ParabolMovement(Math.PI / 4, 10, 10);
     });
     it('Should have an angle', () => {
       expect(tempMovement.angle).not.to.be.a('undefined');
@@ -201,6 +201,18 @@ describe('Class parabol movement', () => {
     });
     it('Should have an initial height', () => {
       expect(tempMovement.initialHeight).not.to.be.a('undefined');
+    });
+    it('Should return the x axis speed', () => {
+      expect(tempMovement.xSpeed).to.be.eql(Math.sqrt(2) * 5);
+    });
+    it('Should return the y axis speed', () => {
+      expect(tempMovement.ySpeed).to.be.eql(-98 + 5 * Math.sqrt(2));
+    });
+    it('Should return the x axis position', () => {
+      expect(tempMovement.xPosition).to.be.eql(50 * Math.sqrt(2));
+    });
+    it('Should return the y axis position', () => {
+      expect(tempMovement.yPosition).to.be.eql(0);
     });
   });
 });
