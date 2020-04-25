@@ -229,6 +229,10 @@ describe('Class parabol movement', () => {
     it('Should have the max X distance', () => {
       expect(tempMovement.maxDistance).to.be.eql(10.20411653794683);
     });
+    it('Should return the max height', () => {
+      expect(tempMovement.maxHeight).to.be.eql((Math.pow(10, 2) *
+        Math.pow(Math.sin(Math.PI / 4), 2)) / (2 * 9.8));
+    });
   });
 });
 
