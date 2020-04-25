@@ -28,10 +28,10 @@ if (typeof require !== 'undefined') {
 function setup() {
   const CANVAS = document.getElementById('canvas');
   canvasModule.fixDpi(CANVAS);
-  const axis = new CoordinateAxis(2, 2);
+  const axis = new CoordinateAxis(2, 1);
   const CONTEXT = CANVAS.getContext('2d');
   axis.draw(CONTEXT, CANVAS.clientWidth, CANVAS.height);
-  let movement = new ParabolMovement(Math.PI / 4, 50, 10);
+  let movement = new ParabolMovement(Math.PI / 4, 100, 10);
   const PHYSICS = new Physics(movement);
   PHYSICS.represent(axis, CONTEXT);
 }

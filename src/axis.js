@@ -107,13 +107,13 @@ class Axis {
     if (this._type === Axis.X_TYPE) {
       for (let i = initialPoint.x; i < initialPoint.x + this._length; i += increment) {
         const textSize = context.measureText(`${counter}`).width;
-        context.fillText(`${counter}`, (i - (textSize / 2)), initialPoint.y + 35);
+        context.fillText(`${counter * this._factor}`, (i - (textSize / 2)), initialPoint.y + 35);
         counter += increment;
       }
     } else if (this._type === Axis.Y_TYPE) {
       for (let i = initialPoint.y; i > initialPoint.y - this._length; i -= increment) {
         const textSize = context.measureText(`${counter}`).width;
-        context.fillText(`${counter}`, initialPoint.x - (35 + textSize), i + 0);
+        context.fillText(`${counter * this._factor}`, initialPoint.x - (35 + textSize), i + 0);
         counter += increment;
       }
     }

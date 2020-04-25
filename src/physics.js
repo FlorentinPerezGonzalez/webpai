@@ -66,8 +66,8 @@ class Physics {
     const initialPointOfAxis = coordinateAxis.initialPoint;
     do {
       const currentPoint = new Point(xPosition, yPosition, color);
-      currentPoint.x = currentPoint.x + initialPointOfAxis.x;
-      currentPoint.y = initialPointOfAxis.y - currentPoint.y;
+      currentPoint.x = currentPoint.x / coordinateAxis.xFactor + initialPointOfAxis.x;
+      currentPoint.y = initialPointOfAxis.y - currentPoint.y / coordinateAxis.yFactor;
       currentPoint.draw(context);
       this._parabolMovement.time = time;
       xPosition = this._parabolMovement.xPosition;
