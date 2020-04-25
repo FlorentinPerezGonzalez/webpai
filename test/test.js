@@ -7,6 +7,7 @@ let expect;
 let Axis
 let CoordinateAxis;
 let ParabolMovement;
+let Physics;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
@@ -15,6 +16,7 @@ if (typeof require !== 'undefined') {
   CoordinateAxis = require('../src/coordinate-axis.js').CoordinateAxis;
   Axis = require('../src/axis.js').Axis;
   ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
+  Physics = require('../src/physics.js').Physics;
 } else {
   Point = window.Point;
   Line = window.Line;
@@ -23,6 +25,7 @@ if (typeof require !== 'undefined') {
   Axis = window.Axis;
   CoordinateAxis = window.CoordinateAxis;
   ParabolMovement = window.ParabolMovement;
+  Physics = window.Physics;
 }
 
 describe('canvasModule', () => {
@@ -214,5 +217,11 @@ describe('Class parabol movement', () => {
     it('Should return the y axis position', () => {
       expect(tempMovement.yPosition).to.be.eql(0);
     });
+  });
+});
+
+describe('Class Physics', () => {
+  it('Should exists', () => {
+    expect(Physics).to.be.a('function');
   });
 });
