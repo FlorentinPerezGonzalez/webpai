@@ -55,7 +55,7 @@ class CoordinateAxis {
    * @param {Number} xFactor Factor multiplicativo para el eje X. 
    * @param {Number} yFactor Factor multiplicativo para el eje y.
    */
-  constructor(xFactor, yFactor) {
+  constructor(xFactor = 1, yFactor = 1) {
     this._xFactor = xFactor;
     this._yFactor = yFactor;
   }

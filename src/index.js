@@ -1,5 +1,8 @@
 'use strict'
 
+const X_FACTOR = 0;
+const Y_FACTOR = 1;
+
 let Point;
 let canvasModule;
 let Line;
@@ -28,13 +31,30 @@ if (typeof require !== 'undefined') {
 function setup() {
   const CANVAS = document.getElementById('canvas');
   canvasModule.fixDpi(CANVAS);
-  const axis = new CoordinateAxis(2, 1);
+  const axis = new CoordinateAxis;
+  let movement = new ParabolMovement(Math.PI / 4, 100, 10);
   axis.setAxisData(CANVAS.width, CANVAS.height);
+  const factors = getRightFactors(axis, movement);
+  axis.xFactor = factors[X_FACTOR];
+  axis.yFactor = factors[Y_FACTOR];
   const CONTEXT = CANVAS.getContext('2d');
   axis.draw(CONTEXT);
-  let movement = new ParabolMovement(Math.PI / 4, 100, 10);
   const PHYSICS = new Physics(movement);
   PHYSICS.represent(axis, CONTEXT);
+}
+
+function getRightFactors(axis, movement) {
+  const MAX_DISTANCE = movement.maxDistance;
+  const INITIAL_POINT = axis.initialPoint;
+  const MAX_X_VALUE = INITIAL_POINT.x + MAX_DISTANCE;
+  const CURRENT_MAX_X_AXIS = INITIAL_POINT.x + axis.xLength;
+  console.log(MAX_X_VALUE);
+  console.log(CURRENT_MAX_X_AXIS);
+  console.log(Math.ceil(MAX_X_VALUE / CURRENT_MAX_X_AXIS));
+  return [
+    Math.ceil((MAX_X_VALUE / CURRENT_MAX_X_AXIS)), 
+    1
+  ];
 }
 
 /* istanbul ignore next */
