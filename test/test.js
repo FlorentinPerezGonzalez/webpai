@@ -220,6 +220,9 @@ describe('Class parabol movement', () => {
     it('Should have the max flight time', () => {
       expect(tempMovement.flightTime).to.be.eql(1.44308);
     });
+    it('Should have tha max X distance', () => {
+      expect(tempMovement.maxDistance).to.be.eql(10.20411653794683);
+    });
   });
 });
 
