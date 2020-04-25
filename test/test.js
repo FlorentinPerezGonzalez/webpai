@@ -184,6 +184,12 @@ describe('Class CoordinateAxis', () => {
     it('Should have a method to draw the axis', () => {
       expect(tempAxis.draw).to.be.a('function');
     });
+    it('Should be able to set the axis data', () => {
+      tempAxis.setAxisData(27, 9);
+      expect(tempAxis.initialPoint).to.be.eql(new Point(1.5, 8.5));
+      expect(tempAxis.xLength).to.be.eql(24);
+      expect(tempAxis.yLength).to.be.eql(8);
+    });
   });
 });
 
@@ -220,7 +226,7 @@ describe('Class parabol movement', () => {
     it('Should have the max flight time', () => {
       expect(tempMovement.flightTime).to.be.eql(1.44308);
     });
-    it('Should have tha max X distance', () => {
+    it('Should have the max X distance', () => {
       expect(tempMovement.maxDistance).to.be.eql(10.20411653794683);
     });
   });
