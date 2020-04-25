@@ -73,7 +73,7 @@ class Point {
     context.fillStyle = this._colour;
     context.strokeStyle = this._colour;
     context.beginPath();
-    context.arc(point.x, point.y, lineWidth, 0, 2 * Math.PI);
+    context.arc(this._x, this._y, lineWidth, 0, 2 * Math.PI);
     context.fill();
     context.closePath();
     context.stroke();

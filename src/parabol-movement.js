@@ -70,13 +70,18 @@ class ParabolMovement {
     this._initialHeight = newHeight;
     this.calculate();
   }
+  set time(newTime) {
+    this._time = newTime;
+    this.calculate();
+  }
   calculate() {
     this._xSpeed = this._initialSpeed * Math.cos(this._angle);
     this._ySpeed = this._initialSpeed * Math.sin(this._angle) -
       GRAVITY_VALUE * this._time;
     this._xPosition = this._xSpeed * this._time;
-    this._yPosition = this._initialHeight + this._ySpeed * this._time -
-      0.5 * GRAVITY_VALUE * Math.pow(this._time, 2);
+    this._yPosition = this._initialHeight + this._initialSpeed *
+      Math.sin(this._angle) * this._time - 0.5 * GRAVITY_VALUE *
+      Math.pow(this._time, 2);
     if (this._yPosition < 0) {
       this._yPosition = 0;
     }

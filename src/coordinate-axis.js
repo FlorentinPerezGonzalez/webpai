@@ -71,6 +71,9 @@ class CoordinateAxis {
   get yFactor() {
     return this._yFactor;
   }
+  get initialPoint() {
+    return this._initialPoint;
+  }
   set xFactor(newFactor) {
     this._xFactor = newFactor;
   }
@@ -82,9 +85,9 @@ class CoordinateAxis {
       throw new Error('No se puede dibujar el eje de coordenadas. Anchura y'+
         'alturas especificadas demasiado pequeñas')
     }
-    console.log(width, height);
-    (new Axis(Axis.X_TYPE, width - (width /*Divisor*/ / DIVISOR) * 2, this._xFactor)).draw(context, new Point(width / DIVISOR, height - (height / DIVISOR)), 5);
-    (new Axis(Axis.Y_TYPE, height - (height /*Divisor*/ / DIVISOR) * 2, this._yFactor)).draw(context, new Point(width / DIVISOR, height - (height / DIVISOR)), 5);
+    this._initialPoint = new Point(width / DIVISOR, height - (height / DIVISOR));
+    (new Axis(Axis.X_TYPE, width - (width /*Divisor*/ / DIVISOR) * 2, this._xFactor)).draw(context, this._initialPoint, 5);
+    (new Axis(Axis.Y_TYPE, height - (height /*Divisor*/ / DIVISOR) * 2, this._yFactor)).draw(context, this._initialPoint, 5);
   }
 };
 

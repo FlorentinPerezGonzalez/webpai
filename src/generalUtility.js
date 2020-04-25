@@ -62,12 +62,24 @@ function makeUnique(originalArray) {
   return result;
 }
 
+/**
+ * @desc Función que permite obtener un número entero aleatorio dado un
+ * intervalor.
+ * @param {Number} min Valor mínimo posible (Incluído).
+ * @param {Number} max Valor máximo posible (No incluído).
+ */
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 if (typeof exports !== 'undefined') {
   exports.generalUtility = {};
   exports.generalUtility.sleep = sleep;
   exports.generalUtility.makeUnique = makeUnique;
+  exports.generalUtility.getRandomInt = getRandomInt;
 } else { 
   window.generalUtility = {};
   window.generalUtility.sleep = sleep;
   window.generalUtility.makeUnique = makeUnique;
+  window.generalUtility.getRandomInt = getRandomInt;
 }
