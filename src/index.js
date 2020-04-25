@@ -29,8 +29,9 @@ function setup() {
   const CANVAS = document.getElementById('canvas');
   canvasModule.fixDpi(CANVAS);
   const axis = new CoordinateAxis(2, 1);
+  axis.setAxisData(CANVAS.width, CANVAS.height);
   const CONTEXT = CANVAS.getContext('2d');
-  axis.draw(CONTEXT, CANVAS.clientWidth, CANVAS.height);
+  axis.draw(CONTEXT);
   let movement = new ParabolMovement(Math.PI / 4, 100, 10);
   const PHYSICS = new Physics(movement);
   PHYSICS.represent(axis, CONTEXT);

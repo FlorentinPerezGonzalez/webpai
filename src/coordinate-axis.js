@@ -74,20 +74,28 @@ class CoordinateAxis {
   get initialPoint() {
     return this._initialPoint;
   }
+  get xLength() {
+    return this._xLength;
+  }
+  get yLength() {
+    return this._yLength; 
+  }
   set xFactor(newFactor) {
     this._xFactor = newFactor;
   }
   set yFactor(newFactor) {
     this._yFactor = newFactor;
   }
-  draw(context, width, height) {
-    if (width <= 10 || height <= 10) {
-      throw new Error('No se puede dibujar el eje de coordenadas. Anchura y'+
-        'alturas especificadas demasiado pequeñas')
-    }
+  setAxisData(width, height) {
     this._initialPoint = new Point(width / DIVISOR, height - (height / DIVISOR));
-    (new Axis(Axis.X_TYPE, width - (width /*Divisor*/ / DIVISOR) * 2, this._xFactor)).draw(context, this._initialPoint, 5);
-    (new Axis(Axis.Y_TYPE, height - (height /*Divisor*/ / DIVISOR) * 2, this._yFactor)).draw(context, this._initialPoint, 5);
+    this._xLength = width - (width / DIVISOR) * 2;
+    this._yLength = height - (height / DIVISOR) * 2;
+  }
+  draw(context) {
+    (new Axis(Axis.X_TYPE, this._xLength, this._xFactor))
+      .draw(context, this._initialPoint, 5);
+    (new Axis(Axis.Y_TYPE, this._yLength, this._yFactor))
+      .draw(context, this._initialPoint, 5);
   }
 };
 
