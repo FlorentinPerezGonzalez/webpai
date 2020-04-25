@@ -35,6 +35,8 @@ let dataContext;
 let inputSpeed;
 let inputHeight;
 let inputAngle;
+let firstUseflag = true;
+let axis;
 
 const BUTTON = document.getElementById('sendData');
 if (BUTTON !== null) {
@@ -43,8 +45,30 @@ if (BUTTON !== null) {
   });
 }
 
-function calculateParabolMovement() {
-
+async function calculateParabolMovement() {
+  canvasModule.clearScreen(dataContext, dataCanvas);
+  const initialHeight = inputHeight.value;
+  const initialSpeed = inputSpeed.value;
+  let angle = inputAngle.value;
+  if (!initialSpeed || !initialHeight || !angle) {
+    dataContext.font = '20px arial';
+    let yCoordinate = 20;
+    dataContext.fillText(`Introduzca un valor válido para cada input`, 0, yCoordinate);
+  } else {
+    angle = calculateRadians(angle);
+    const movement = new ParabolMovement(angle, initialSpeed, 1, initialHeight);
+    if (firstUseflag) {
+      firstUseflag = !firstUseflag;
+      axis.setAxisData(canvas.width, canvas.height);
+      const factors = getRightFactors(axis, movement);
+      axis.xFactor = factors[X_FACTOR];
+      axis.yFactor = factors[Y_FACTOR];
+      axis.draw(context);
+    }
+    const PHYSICS = new Physics(movement);
+    await PHYSICS.represent(axis, context);
+    displayData(movement, dataCanvas.height);
+  }
 }
 
 function calculateRadians(angle) {
@@ -59,17 +83,10 @@ async function setup() {
   canvasModule.fixDpi(dataCanvas);
   context = canvas.getContext('2d');
   dataContext = dataCanvas.getContext('2d');
-  // const axis = new CoordinateAxis;
-  // let movement = new ParabolMovement(Math.PI / 4, 100, 10);
-  // axis.setAxisData(canvas.width, canvas.height);
-  // const factors = getRightFactors(axis, movement);
-  // axis.xFactor = factors[X_FACTOR];
-  // axis.yFactor = factors[Y_FACTOR];
-  // canvasModule.clearScreen(dataContext, dataCanvas);
-  // axis.draw(context);
-  // const PHYSICS = new Physics(movement);
-  // await PHYSICS.represent(axis, context);
-  // displayData(movement, dataCanvas.height);
+  inputSpeed = document.getElementById('initialSpeed');
+  inputAngle = document.getElementById('angle');
+  inputHeight = document.getElementById('initialHeight');
+  axis = new CoordinateAxis;
 }
 
 function getRightFactors(axis, movement) {
