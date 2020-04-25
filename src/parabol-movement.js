@@ -63,6 +63,9 @@ class ParabolMovement {
   get flightTime() {
     return this._flightTime;
   }
+  get maxDistance() {
+    return this._maxDistance;
+  }
   set angle(newAngle) {
     this._angle = newAngle;
     this.calculate();
@@ -95,9 +98,13 @@ class ParabolMovement {
       this._yPosition = 0;
     }
   }
+  calculateMaxDistance() {
+    this._maxDistance = this._xSpeed * this._flightTime;
+  }
   calculateFlightTime() {
     this._flightTime = Math.round((2 * this._initialSpeed * Math.sin(this._angle) /
       GRAVITY_VALUE) * 100000) / 100000;
+    this.calculateMaxDistance();
   }
 };
 
