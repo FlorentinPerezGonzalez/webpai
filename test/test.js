@@ -217,6 +217,9 @@ describe('Class parabol movement', () => {
     it('Should return the y axis position', () => {
       expect(tempMovement.yPosition).to.be.eql(0);
     });
+    it('Should have the max flight time', () => {
+      expect(tempMovement.flightTime).to.be.eql((50 * Math.sqrt(2) / 49));
+    });
   });
 });
 
