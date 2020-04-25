@@ -36,7 +36,9 @@ class ParabolMovement {
     this._initialHeight = initialHeight;
     this._time = time;
     this.calculate();
+    this.calculateFlightTime();
   }
+
   get angle() {
     return this._angle;
   }
@@ -58,22 +60,29 @@ class ParabolMovement {
   get yPosition() {
     return this._yPosition;
   }
+  get flightTime() {
+    return this._flightTime;
+  }
   set angle(newAngle) {
     this._angle = newAngle;
     this.calculate();
+    this.calculateFlightTime();
   }
   set initialSpeed(newSpeed) {
     this._initialSpedd = newSpeed;
     this.calculate();
+    this.calculateFlightTime();
   }
   set initialHeight(newHeight) {
     this._initialHeight = newHeight;
     this.calculate();
+    this.calculateFlightTime();
   }
   set time(newTime) {
     this._time = newTime;
     this.calculate();
   }
+
   calculate() {
     this._xSpeed = this._initialSpeed * Math.cos(this._angle);
     this._ySpeed = this._initialSpeed * Math.sin(this._angle) -
@@ -85,6 +94,10 @@ class ParabolMovement {
     if (this._yPosition < 0) {
       this._yPosition = 0;
     }
+  }
+  calculateFlightTime() {
+    this._flightTime = Math.round((2 * this._initialSpeed * Math.sin(this._angle) /
+      GRAVITY_VALUE) * 100000) / 100000;
   }
 };
 
