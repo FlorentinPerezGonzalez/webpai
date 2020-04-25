@@ -239,5 +239,8 @@ describe('Class Physics', () => {
       tempPhysics.parabolMovement = tempMovement;
       expect(tempPhysics.parabolMovement).to.be.eql(tempMovement);
     });
+    it('Should have a method to represent a movement on a canvas', () => {
+      expect(tempPhysics.represent).to.be.a('function');
+    });
   });
 });
