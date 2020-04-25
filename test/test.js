@@ -224,4 +224,20 @@ describe('Class Physics', () => {
   it('Should exists', () => {
     expect(Physics).to.be.a('function');
   });
+  context('Physics functionality', () => {
+    let tempPhysics;
+    let tempMovement;
+    beforeEach(() => {
+      tempMovement = new ParabolMovement(Math.PI / 4, 10, 10);
+      tempPhysics = new Physics(tempMovement);
+    });
+    it('Should be able to return the parabolMovement', () => {
+      expect(tempPhysics.parabolMovement).to.be.eql(tempMovement);
+    });
+    it('Should be able to modify the parabolMovement', () => {
+      tempMovement = new ParabolMovement(Math.PI / 3, 20, 3);
+      tempPhysics.parabolMovement = tempMovement;
+      expect(tempPhysics.parabolMovement).to.be.eql(tempMovement);
+    });
+  });
 });
