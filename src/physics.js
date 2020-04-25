@@ -31,6 +31,12 @@ class Physics {
   constructor(parabolMovement) {
     this._parabolMovement = parabolMovement;
   }
+  get parabolMovement() {
+    return this._parabolMovement;
+  }
+  set parabolMovement(newMovement) {
+    this._parabolMovement = newMovement;
+  }
 };
 
 /* istanbul ignore next */
