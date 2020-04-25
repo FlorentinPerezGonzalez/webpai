@@ -45,15 +45,15 @@ function setup() {
 
 function getRightFactors(axis, movement) {
   const MAX_DISTANCE = movement.maxDistance;
+  const MAX_HEIGHT = movement.maxHeight;
   const INITIAL_POINT = axis.initialPoint;
   const MAX_X_VALUE = INITIAL_POINT.x + MAX_DISTANCE;
+  const MAX_Y_VALUE = INITIAL_POINT.y - MAX_HEIGHT;
   const CURRENT_MAX_X_AXIS = INITIAL_POINT.x + axis.xLength;
-  console.log(MAX_X_VALUE);
-  console.log(CURRENT_MAX_X_AXIS);
-  console.log(Math.ceil(MAX_X_VALUE / CURRENT_MAX_X_AXIS));
+  const CURRENT_MAX_Y_AXIS = INITIAL_POINT.y - axis.yLength;
   return [
     Math.ceil((MAX_X_VALUE / CURRENT_MAX_X_AXIS)), 
-    1
+    Math.ceil((CURRENT_MAX_Y_AXIS / MAX_Y_VALUE))
   ];
 }
 
