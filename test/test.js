@@ -8,6 +8,7 @@ let Axis
 let CoordinateAxis;
 let ParabolMovement;
 let Physics;
+let main;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
@@ -17,6 +18,7 @@ if (typeof require !== 'undefined') {
   Axis = require('../src/axis.js').Axis;
   ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
   Physics = require('../src/physics.js').Physics;
+  main = require('../src/index.js').main;
 } else {
   Point = window.Point;
   Line = window.Line;
@@ -26,6 +28,7 @@ if (typeof require !== 'undefined') {
   CoordinateAxis = window.CoordinateAxis;
   ParabolMovement = window.ParabolMovement;
   Physics = window.Physics;
+  main = window.main;
 }
 
 describe('canvasModule', () => {
@@ -34,6 +37,15 @@ describe('canvasModule', () => {
   });
   it('Should have a method to fix the DPI of a canvas', () => {
     expect(canvasModule.fixDpi).to.be.a('function');
+  });
+});
+
+describe('index.js', () => {
+  it('Should have a method to convert grades to radiants', () => {
+    expect(main.calculateRadians).to.be.a('function');
+  });
+  it('Should return the correct angle in radiants', () => {
+    expect(main.calculateRadians(45)).to.be.eql(Math.PI / 4);
   });
 });
 
