@@ -38,10 +38,17 @@ let inputAngle;
 let firstUseflag = true;
 let axis;
 
+let isCheckBoxActive = false;
 const BUTTON = document.getElementById('sendData');
+const CHECK_BOX = document.getElementById('checkBox');
 if (BUTTON !== null) {
   BUTTON.addEventListener('click', () => {
     calculateParabolMovement();
+  });
+}
+if (CHECK_BOX !== null) {
+  CHECK_BOX.addEventListener('click', () => {
+    isCheckBoxActive = !isCheckBoxActive;
   });
 }
 
@@ -57,16 +64,18 @@ async function calculateParabolMovement() {
   } else {
     angle = calculateRadians(angle);
     const movement = new ParabolMovement(angle, initialSpeed, 1, initialHeight);
-    if (firstUseflag) {
-      firstUseflag = !firstUseflag;
-      axis.setAxisData(canvas.width, canvas.height);
-      const factors = getRightFactors(axis, movement);
-      axis.xFactor = factors[X_FACTOR];
-      axis.yFactor = factors[Y_FACTOR];
-      axis.draw(context);
+    if (!isCheckBoxActive) {
+      if (firstUseflag) {
+        firstUseflag = !firstUseflag;
+        axis.setAxisData(canvas.width, canvas.height);
+        const factors = getRightFactors(axis, movement);
+        axis.xFactor = factors[X_FACTOR];
+        axis.yFactor = factors[Y_FACTOR];
+        axis.draw(context);
+      }
+      const PHYSICS = new Physics(movement);
+      await PHYSICS.represent(axis, context);
     }
-    const PHYSICS = new Physics(movement);
-    await PHYSICS.represent(axis, context);
     displayData(movement, dataCanvas.height);
   }
 }
