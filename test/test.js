@@ -7,6 +7,7 @@ let expect;
 let Axis
 let CoordinateAxis;
 let ParabolMovement;
+let Arrow;
 let Physics;
 let main;
 if (typeof require !== 'undefined') {
@@ -18,6 +19,7 @@ if (typeof require !== 'undefined') {
   Axis = require('../src/axis.js').Axis;
   ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
   Physics = require('../src/physics.js').Physics;
+  Arrow = require('../src/arrow.js').Arrow;
   main = require('../src/index.js').main;
 } else {
   Point = window.Point;
@@ -25,6 +27,7 @@ if (typeof require !== 'undefined') {
   canvasModule = window.canvasModule;
   expect = chai.expect;
   Axis = window.Axis;
+  Arrow = window.Arrow;
   CoordinateAxis = window.CoordinateAxis;
   ParabolMovement = window.ParabolMovement;
   Physics = window.Physics;
@@ -270,5 +273,11 @@ describe('Class Physics', () => {
     it('Should have a method to represent a movement on a canvas', () => {
       expect(tempPhysics.represent).to.be.a('function');
     });
+  });
+});
+
+describe('Class Arrow', () => {
+  it('Should exists', () => {
+    expect(Arrow).to.be.a('function');
   });
 });

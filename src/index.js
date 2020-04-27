@@ -115,15 +115,15 @@ function getRightFactors(axis, movement) {
 /* istanbul ignore next */
 function displayData(movement, height) {
   dataContext.font = '20px arial';
-  const SPACE = height / 15;
-  let yCoordinate = height / 20;
-  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`, 0, yCoordinate);
+  const SPACE = height / 10;
+  let yCoordinate = 25;
+  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`, 10, yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`, 0, yCoordinate);
+  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`, 10, yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Altura inicial: ${movement.initialHeight} m.`, 0, yCoordinate);
+  dataContext.fillText(`Altura inicial: ${movement.initialHeight} m.`, 10, yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`, 0, yCoordinate);
+  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`, 10, yCoordinate);
 }
 
 /* istanbul ignore next */
