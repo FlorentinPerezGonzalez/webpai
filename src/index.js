@@ -9,6 +9,7 @@ let Line;
 let Axis
 let CoordinateAxis;
 let ParabolMovement;
+let Arrow;
 let Physics;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
@@ -18,11 +19,13 @@ if (typeof require !== 'undefined') {
   Axis = require('../src/axis.js').Axis;
   ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
   Physics = require('../src/physics.js').Physics;
+  Arrow = require('../src/arrow.js').Arrow;
 } else {
   Point = window.Point;
   Line = window.Line;
   canvasModule = window.canvasModule;
   Axis = window.Axis;
+  Arrow = window.Arrow;
   CoordinateAxis = window.CoordinateAxis;
   ParabolMovement = window.ParabolMovement;
   Physics = window.Physics;
@@ -37,6 +40,7 @@ let inputHeight;
 let inputAngle;
 let firstUseflag = true;
 let axis;
+const ARROW_SIZE = 80;
 
 let isCheckBoxActive = false;
 const BUTTON = document.getElementById('sendData');
@@ -73,6 +77,10 @@ async function calculateParabolMovement() {
         axis.yFactor = factors[Y_FACTOR];
         axis.draw(context);
       }
+      const INITIAL_POINT = new Point(axis.initialPoint.x,
+          axis.initialPoint.y - initialHeight);
+      const arrow = new Arrow(INITIAL_POINT, ARROW_SIZE);
+      arrow.draw(context, angle);
       const PHYSICS = new Physics(movement);
       await PHYSICS.represent(axis, context);
     }

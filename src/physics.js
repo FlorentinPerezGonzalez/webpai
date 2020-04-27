@@ -73,7 +73,6 @@ class Physics {
       this._parabolMovement.time = time;
       xPosition = this._parabolMovement.xPosition;
       yPosition = this._parabolMovement.yPosition;
-      //console.log(yPosition);
       time += TIME_UNIT;
       await generalUtility.sleep(TIME_SLEEP);
     } while (yPosition > 0);

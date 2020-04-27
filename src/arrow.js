@@ -26,6 +26,16 @@
  *    - 14.04.2020 - Versión presentada para evaluación.
  */
 
+let Point;
+let Line;
+if (typeof require !== 'undefined') {
+  Point = require('../src/point.js').Point;
+  Line = require('../src/line.js').Line;
+} else {
+  Point = window.Point;
+  Line = window.Line;
+}
+
 class Arrow {
  constructor(initialPoint, length) {
    this._initialPoint = initialPoint;
@@ -36,6 +46,22 @@ class Arrow {
  }
  set length(data) {
    this._length = data;
+ }
+ draw(context, angle) {
+  context.translate(this._initialPoint.x, this._initialPoint.y) ;
+  context.rotate(2 * Math.PI - angle) ;
+  context.translate(-this._initialPoint.x,-this._initialPoint.y) ;
+  context.moveTo(this._initialPoint.x, this._initialPoint.y);
+  const finalPoint = new Point(this._initialPoint.x + this._length,
+                this._initialPoint.y);
+  (new Line(new Point(this._initialPoint.x, this._initialPoint.y),
+                finalPoint)).draw(context, 3);
+  const minorLinesLength = this._length / 10;
+  (new Line(finalPoint, new Point(finalPoint.x - minorLinesLength,
+                finalPoint.y - minorLinesLength))).draw(context, 3);
+  (new Line(finalPoint, new Point(finalPoint.x - minorLinesLength,
+                finalPoint.y + minorLinesLength))).draw(context, 3);
+  context.setTransform(1, 0, 0, 1, 0, 0);
  }
 };
 

@@ -97,7 +97,6 @@ class ParabolMovement {
     this._yPosition = parseInt(this._initialHeight) + this._initialSpeed *
       Math.sin(this._angle) * this._time - 0.5 * GRAVITY_VALUE *
       Math.pow(this._time, 2);
-      console.log(this._yPosition, 'time', this._time, 'speed', this._initialSpeed, 'height', this._initialHeight, 'angle:', this._angle);
     if (this._yPosition < 0) {
       this._yPosition = 0;
     }

@@ -70,6 +70,7 @@ class Point {
    * @param {Number} lineWidth Grosor del punto
    */
   draw(context, lineWidth = 2) {
+    const PREVIOUS_COLOR = context.fillStyle;
     context.fillStyle = this._colour;
     context.strokeStyle = this._colour;
     context.beginPath();
@@ -77,6 +78,8 @@ class Point {
     context.fill();
     context.closePath();
     context.stroke();
+    context.fillStyle = PREVIOUS_COLOR;
+    context.strokeStyle = PREVIOUS_COLOR;
   }
 };
 
