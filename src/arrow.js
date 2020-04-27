@@ -27,7 +27,7 @@
  */
 
 class Arrow {
-
+ 
 };
 
  /* istanbul ignore next */
