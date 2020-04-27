@@ -280,4 +280,13 @@ describe('Class Arrow', () => {
   it('Should exists', () => {
     expect(Arrow).to.be.a('function');
   });
+  const ARROW = new Arrow();
+  context('Physics functionality', () => {
+    it('Should have a initialPoint', () => {
+      expect(ARROW.initialPoint).to.be.a('object');
+    });
+    it('Should have a length', () => {
+      expect(ARROW.length).to.be.a('number');
+    });
+  });
 });
