@@ -27,7 +27,16 @@
  */
 
 class Arrow {
- 
+ constructor(initialPoint, length) {
+   this._initialPoint = initialPoint;
+   this._length = length;
+ }
+ set initialPoint(point) {
+   this._initialPoint = initialPoint;
+ }
+ set length(data) {
+   this._length = data;
+ }
 };
 
  /* istanbul ignore next */
