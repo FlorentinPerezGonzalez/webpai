@@ -1,119 +1,137 @@
-body, html {
-  height: 100%;
+body {
+  margin: 0;
+  background-color: #ddeedd;
+  color: #3e4444;
 }
 
 #canvas {
-  height: 95%;
-  width: 95%;
-  border: ridge 0.5rem #F5B041;
   display: block;
+  height: 95vh;
+  width: 95vw;
+  border: solid 0.5rem #405d27;
   margin: auto;
-  align-self: center;
-  box-shadow: -17px -6px 23px -6px rgba(0,0,0,0.75)
+  background-color: white;
 }
 
-#dataCanvas {
-  display: inline-block;
-  width: 40%;
-  height: 500px;
-  border: ridge 0.5rem #F5B041;
+#dataCanvas, #inputSection, #information {
+  display: block;
   margin-top: 2rem;
-  margin-left: 5%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-top: solid 0.5rem #405d27;
+  border-bottom: solid 0.5rem #405d27;
+  height: 25vh;
+  width: 95vw;
+  background-color: rgb(181, 231, 160);
+  box-shadow: -10px -6px 18px -6px rgba(0,0,0,0.75)
 }
 
 #inputSection {
-  display: inline-block;
-  width: 40%;
-  border: ridge 0.5rem #F5B041;
-  height: 480px;
-  margin-top: 2rem;
-  margin-left: 5%;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35vw;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  letter-spacing: 0.1rem;
+  text-rendering: optimizeLegibility;
 }
 
-div {
+#inputSection div {
+  margin: auto;
+  text-align: left;
+  padding: 0.6rem;
+  font-size: 1.25rem;
+}
+
+button {
+  margin: auto;
+  display: flex;
+  max-width: 10vw;
+}
+
+header {
   text-align: center;
-  padding-top: 1.5rem;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: rgb(181, 231, 160);
+  margin-bottom: 1rem;
+  border-bottom: solid #405d27;
 }
 
-div ul {
-  display: block;
+#information {
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95rem;
+  height: 52rem;
+  text-align: center;
+  padding-bottom: 6rem;
 }
 
-div ul li {
-  display: block;
+#information h1,h2 {
+  display: inline-block;
+  margin: auto;
+  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  letter-spacing: 0.7rem;
+  font-size: 2.3rem;
+  width: 85%;
+  border-bottom: solid 0.36rem;
   padding-top: 1rem;
 }
 
-div li a {
-  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-  letter-spacing: 0.2rem;
-  font-size: 1.5rem;
-  color: blue;
+#information h1 {
+  padding-top: 3rem !important;
 }
 
-div li a:hover{
-  color: #F5B041;
-  font-style: italic;
-  font-weight: bold;
+h2 {
+  font-size: 1.8rem !important;
+  width: 65% !important;
 }
 
-div p {
+#information p, ul {
   font-size: 1.5rem;
   margin-right: 7rem;
   margin-left: 7rem;
   text-align: justify;
 }
 
-div h1 {
-  display: inline-block;
-  margin: auto;
+a {
+  display: block;
   font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-  background-color: rgb(255,165,0, 85%);
-  letter-spacing: 0.7rem;
-  font-size: 2.3rem;
-  color: whitesmoke;
-  width: 85%;
-  padding-top: 0.5rem;
-  box-shadow: -17px -6px 23px -6px rgba(0,0,0,0.75);
-  border-radius: 25px;
-}
-
-.row {
-  display: flex;
-  margin-right: 7rem;
-  margin-left: 7rem;
-  background-color: rgb(255,165,0, 85%);
-  box-shadow: -17px -6px 23px -6px rgba(0,0,0,0.75);
-  padding-left: 2rem;
-  border-radius: 25px;
-  padding-right: 2rem;
-}
-
-.column {
-  flex: 33.33%;
-  padding: 5px;
-}
-
-.column h3 {
-  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-  color: whitesmoke;
-  letter-spacing: 0.13rem;
+  letter-spacing: 0.2rem;
   font-size: 1.5rem;
+  color: blue;
+  padding-top: 2rem;
 }
 
-@media screen and (max-width: 500px) {
-  .column {
-    width: 100%;
-  }
+a:hover {
+  color: green;
+  font-style: italic;
+  font-weight: bold;
 }
 
-img {
-  height: 300px;
-  min-height: 300px;
-  box-shadow: -26px 3px 22px -24px rgba(0, 0, 0, 0.74);
+header h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  letter-spacing: 0.2rem;
+  font-size: 42px;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  text-shadow: -17px -6px 23px -6px rgba(0,0,0,0.75);
+  color: #3e4444;
 }
 
-#name {
-  margin-top: 0rem;
-  margin-bottom: 1.5rem;
+footer {
+  margin-top: 3.5rem !important; 
+  background-color: rgb(181, 231, 160);
+  bottom: 0em;
+  text-align: center;
+  margin-top: 1rem;
+  border-top: solid #405d27;
+}
+
+footer h3 {
+  display: inline-block;
+  margin: 1.5rem;
 }
