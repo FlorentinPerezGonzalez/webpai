@@ -30,6 +30,7 @@
 let Point;
 let Line;
 let Axis;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
@@ -115,9 +116,9 @@ class CoordinateAxis {
   }
 };
 
+/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.CoordinateAxis = CoordinateAxis;
-  /* istanbul ignore next */
 } else { 
   window.CoordinateAxis = CoordinateAxis;
 }

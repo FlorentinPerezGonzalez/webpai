@@ -34,11 +34,11 @@ const TIME_SLEEP = 100;
 let Point;
 let generalUtility
 let ParabolMovement;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   generalUtility = require('../src/generalUtility.js').generalUtility;
   ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
-  /* istanbul ignore next */
 } else {
   Point = window.Point;
   generalUtility = window.generalUtility;
@@ -100,9 +100,9 @@ class Physics {
   }
 };
 
+/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.Physics = Physics;
-  /* istanbul ignore next */
 } else { 
   window.Physics = Physics;
 }

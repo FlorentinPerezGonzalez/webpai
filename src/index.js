@@ -42,6 +42,7 @@ let ParabolMovement;
 let Arrow;
 let Physics;
 
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
@@ -51,7 +52,6 @@ if (typeof require !== 'undefined') {
   ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
   Physics = require('../src/physics.js').Physics;
   Arrow = require('../src/arrow.js').Arrow;
-  /* istanbul ignore next */
 } else {
   Point = window.Point;
   Line = window.Line;
@@ -156,6 +156,7 @@ async function setup() {
   axis = new CoordinateAxis;
 }
 
+/* istanbul ignore next */
 /**
  * @desc Función que permite obtener el valor multiplicativo a aplicar
  * a un eje de coordenadas para obtener la escala deseada.
@@ -208,8 +209,10 @@ if (typeof exports !== 'undefined') {
   exports.main = {};
   exports.main.setup = setup;
   exports.main.calculateRadians = calculateRadians;
+  exports.main.getRightFactors = getRightFactors;
 } else { 
   window.main = {};
   window.main.setup = setup;
   window.main.calculateRadians = calculateRadians;
+  window.main.getRightFactors = getRightFactors;
 }

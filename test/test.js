@@ -248,6 +248,18 @@ describe('Class parabol movement', () => {
       expect(tempMovement.maxHeight).to.be.eql((Math.pow(10, 2) *
         Math.pow(Math.sin(Math.PI / 4), 2)) / (2 * 9.8));
     });
+    it('Should be able to set angle', () => {
+      tempMovement.angle = 10;
+      expect(tempMovement.angle).to.be.eql(10);
+    });
+    it('Should be able to set initialSpeed', () => {
+      tempMovement.initialSpeed = 10;
+      expect(tempMovement.initialSpeed).to.be.eql(10);
+    });
+    it('Should be able to set initialHeight', () => {
+      tempMovement.initialHeight = 10;
+      expect(tempMovement.initialHeight).to.be.eql(10);
+    });
   });
 });
 

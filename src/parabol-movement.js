@@ -191,9 +191,9 @@ class ParabolMovement {
   }
 };
 
+/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.ParabolMovement = ParabolMovement;
-  /* istanbul ignore next */
 } else { 
   window.ParabolMovement = ParabolMovement;
 }
