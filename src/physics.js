@@ -90,13 +90,16 @@ class Physics {
     let stop = false;
     do {
       const currentPoint = new Point(xPosition, yPosition, color);
-      currentPoint.x = currentPoint.x / coordinateAxis.xFactor + initialPointOfAxis.x;
+      currentPoint.x = currentPoint.x / coordinateAxis.xFactor +
+        initialPointOfAxis.x;
       if (currentPoint.x > xMax) {
         currentPoint.x = xMax;
         stop = true;
       }
-      currentPoint.y = initialPointOfAxis.y - currentPoint.y / coordinateAxis.yFactor;
+      currentPoint.y = initialPointOfAxis.y - currentPoint.y /
+        coordinateAxis.yFactor;
       currentPoint.draw(context);
+      console.log(currentPoint);
       if (stop) {
         break;
       }

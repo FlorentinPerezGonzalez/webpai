@@ -195,17 +195,17 @@ function displayData(movement, height) {
   dataContext.font = '20px arial';
   const SPACE = height / (INITIAL_Y / 2);
   let yCoordinate = Y_COORDINATE;
-  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`, (INITIAL_Y / 2),
-    yCoordinate);
+  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`,
+    (INITIAL_Y / 2), yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`, (INITIAL_Y / 2),
-    yCoordinate);
+  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`,
+    (INITIAL_Y / 2), yCoordinate);
   yCoordinate += SPACE;
   dataContext.fillText(`Altura recorrida: ${movement.maxHeight * 2 -
     movement.initialHeight} m.`, (INITIAL_Y / 2), yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`, (INITIAL_Y / 2),
-    yCoordinate);
+  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`,
+  (INITIAL_Y / 2), yCoordinate);
 }
 
 /* istanbul ignore next */

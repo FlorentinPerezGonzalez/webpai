@@ -185,8 +185,8 @@ class ParabolMovement {
    * @desc Actualiza únicamente el valor de tiempo de vuelo del objeto.
    */
   calculateFlightTime() {
-    this._flightTime = Math.round((2 * this._initialSpeed * Math.sin(this._angle) /
-      GRAVITY_VALUE) * 100000) / 100000;
+    this._flightTime = Math.round((2 * this._initialSpeed *
+      Math.sin(this._angle) / GRAVITY_VALUE) * 100000) / 100000;
     this.calculateMaxDistance();
   }
 };
