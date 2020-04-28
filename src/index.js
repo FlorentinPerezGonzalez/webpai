@@ -107,6 +107,7 @@ async function calculateParabolMovement() {
         firstUseflag = !firstUseflag;
         axis.setAxisData(canvas.width, canvas.height);
         const factors = getRightFactors(axis, movement);
+        console.log(factors);
         axis.xFactor = factors[X_FACTOR];
         axis.yFactor = factors[Y_FACTOR];
         axis.draw(context);
@@ -174,12 +175,17 @@ function getRightFactors(axis, movement) {
   const MAX_HEIGHT = movement.maxHeight;
   const INITIAL_POINT = axis.initialPoint;
   const MAX_X_VALUE = INITIAL_POINT.x + MAX_DISTANCE;
-  const MAX_Y_VALUE = INITIAL_POINT.y - MAX_HEIGHT;
+  let maxYValue = INITIAL_POINT.y - MAX_HEIGHT;
+  console.log(maxYValue);
+
   const CURRENT_MAX_X_AXIS = INITIAL_POINT.x + axis.xLength;
-  const CURRENT_MAX_Y_AXIS = INITIAL_POINT.y - axis.yLength;
+  const CURRENT_MAX_Y_AXIS = INITIAL_POINT.y + axis.yLength;
+  if (maxYValue < 0) {
+    maxYValue = Math.abs(CURRENT_MAX_Y_AXIS) + Math.abs(maxYValue);
+  }
   return [
     Math.ceil((MAX_X_VALUE / CURRENT_MAX_X_AXIS)), 
-    Math.ceil((CURRENT_MAX_Y_AXIS / MAX_Y_VALUE))
+    Math.ceil((Math.abs(maxYValue) / CURRENT_MAX_Y_AXIS)) + 1
   ];
 }
 

@@ -100,6 +100,7 @@ class Physics {
         coordinateAxis.yFactor;
       currentPoint.draw(context);
       console.log(currentPoint);
+      console.log(coordinateAxis.yFactor);
       if (stop) {
         break;
       }
