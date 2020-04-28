@@ -29,7 +29,7 @@
 'use strict';
 
 const TIME_UNIT = 0.25;
-const TIME_SLEEP = 100;
+const TIME_SLEEP = (1/60) * 1000;
 
 let Point;
 let generalUtility
