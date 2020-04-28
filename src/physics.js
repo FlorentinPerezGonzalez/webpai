@@ -86,11 +86,20 @@ class Physics {
     let yPosition = 0;
     let time = TIME_UNIT;
     const initialPointOfAxis = coordinateAxis.initialPoint;
+    const xMax = coordinateAxis.initialPoint.x + coordinateAxis.xLength;
+    let stop = false;
     do {
       const currentPoint = new Point(xPosition, yPosition, color);
       currentPoint.x = currentPoint.x / coordinateAxis.xFactor + initialPointOfAxis.x;
+      if (currentPoint.x > xMax) {
+        currentPoint.x = xMax;
+        stop = true;
+      }
       currentPoint.y = initialPointOfAxis.y - currentPoint.y / coordinateAxis.yFactor;
       currentPoint.draw(context);
+      if (stop) {
+        break;
+      }
       this._parabolMovement.time = time;
       xPosition = this._parabolMovement.xPosition;
       yPosition = this._parabolMovement.yPosition;
