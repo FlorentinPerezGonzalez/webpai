@@ -73,6 +73,8 @@ let inputAngle;
 let firstUseflag = true;
 let axis;
 const ARROW_SIZE = 80;
+const INITIAL_Y = 20;
+const Y_COORDINATE = 25;
 let BUTTON;
 let CHECK_BOX;
 
@@ -92,9 +94,11 @@ async function calculateParabolMovement() {
   let angle = inputAngle.value;
   if (!initialSpeed || !initialHeight || !angle) {
     dataContext.font = '20px arial';
-    let yCoordinate = 20;
+    let yCoordinate = INITIAL_Y;
+    context.fillStyle = "red";
     dataContext.fillText(`Introduzca un valor válido para cada input`, 0,
       yCoordinate);
+    context.fillStyle = "black";
   } else {
     angle = calculateRadians(angle);
     const movement = new ParabolMovement(angle, initialSpeed, 1, initialHeight);
@@ -189,18 +193,18 @@ function getRightFactors(axis, movement) {
  */
 function displayData(movement, height) {
   dataContext.font = '20px arial';
-  const SPACE = height / 10;
-  let yCoordinate = 25;
-  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`, 10,
+  const SPACE = height / (INITIAL_Y / 2);
+  let yCoordinate = Y_COORDINATE;
+  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`, (INITIAL_Y / 2),
     yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`, 10,
+  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`, (INITIAL_Y / 2),
     yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Altura inicial: ${movement.initialHeight} m.`, 10,
-    yCoordinate);
+  dataContext.fillText(`Altura recorrida: ${movement.maxHeight * 2 -
+    movement.initialHeight} m.`, (INITIAL_Y / 2), yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`, 10,
+  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`, (INITIAL_Y / 2),
     yCoordinate);
 }
 
