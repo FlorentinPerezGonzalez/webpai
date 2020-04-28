@@ -110,14 +110,14 @@ class Axis {
     context.font = '14px arial';
     if (this._type === Axis.X_TYPE) {
       for (let i = initialPoint.x; i < initialPoint.x + this._length; i += increment) {
-        const textSize = context.measureText(`${counter}`).width;
-        context.fillText(`${counter * this._factor}`, (i - (textSize / 2)), initialPoint.y + 35);
+        const textSize = context.measureText(`${counter * this._factor} m`).width;
+        context.fillText(`${counter * this._factor} m`, (i - (textSize / 2)), initialPoint.y + 35);
         counter += increment;
       }
     } else if (this._type === Axis.Y_TYPE) {
       for (let i = initialPoint.y; i > initialPoint.y - this._length; i -= increment) {
-        const textSize = context.measureText(`${counter}`).width;
-        context.fillText(`${counter * this._factor}`, initialPoint.x - (35 + textSize), i + 0);
+        const textSize = context.measureText(`${counter * this._factor} m`).width;
+        context.fillText(`${counter * this._factor} m`, initialPoint.x - (35 + textSize), i + 0);
         counter += increment;
       }
     }
