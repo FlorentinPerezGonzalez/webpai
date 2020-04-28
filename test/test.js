@@ -301,6 +301,8 @@ describe('Class Arrow', () => {
       expect(ARROW).to.have.a.property('_length');
     });
     it('Should have a method to draw the arrow', () => {
+      ARROW.initialPoint = 2;
+      ARROW.length = 3;
       expect(ARROW).to.have.a.property('draw');
     }); 
   });

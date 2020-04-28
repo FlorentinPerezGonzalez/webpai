@@ -83,9 +83,9 @@ class Point {
   }
 };
 
+/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.Point = Point;
-  /* istanbul ignore next */
 } else { 
   window.Point = Point;
 }

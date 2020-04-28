@@ -104,9 +104,9 @@ class Line {
   }
 };
 
+/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.Line = Line;
-  /* istanbul ignore next */
 } else { 
   window.Line = Line;
 }

@@ -29,10 +29,10 @@
 
 let Point;
 let Line;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
-  /* istanbul ignore next */
 } else {
   Point = window.Point;
   Line = window.Line;
@@ -145,9 +145,9 @@ class Axis {
   }
 };
 
+/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.Axis = Axis;
-  /* istanbul ignore next */
 } else { 
   window.Axis = Axis;
 }
