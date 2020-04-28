@@ -4,8 +4,7 @@
  * @file Módulo que exporta la clase Axis.
  * @copyright Florentín Pérez Glez 2020
  * @since 24.04.2020
- * @exports sleep
- * @exports makeUnique
+ * @exports Axis
  * @desc
  * Universidad: Universidad de La Laguna
  *
@@ -13,13 +12,14 @@
  *
  * Curso: 3º
  *
- * Práctica 9. Random Walk.
+ * Práctica 10. Tiro parabólico.
  *
  * Contenido detallado: Contiene la implementación de la clase Axis que
  * representa a un eje de coordenadas, ya sea el X o el Y.
  *
  * Referencias:
  *    - Enunciado de la práctica:
+ *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
  *
  * Historial de revisiones:
  *    - 28.04.2020 - Versión presentada para evaluación.
@@ -32,6 +32,7 @@ let Line;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
+  /* istanbul ignore next */
 } else {
   Point = window.Point;
   Line = window.Line;
@@ -86,6 +87,7 @@ class Axis {
     this._factor = newFactor;
   }
 
+  /* istanbul ignore next */
   draw(context, initialPoint, lineWidth) {
     if (this._type === Axis.X_TYPE) {
       (new Line(new Point(initialPoint.x - AXIS_REST_SIZE, initialPoint.y), new Point(initialPoint.x + this._length,
@@ -99,6 +101,7 @@ class Axis {
       this._drawSmallLines(context, initialPoint);
     }
   }
+  /* istanbul ignore next */
   _drawNumbers(context, initialPoint) {
     const increment = 200;
     let counter = 0;
@@ -118,6 +121,7 @@ class Axis {
       }
     }
   }
+  /* istanbul ignore next */
   _drawSmallLines(context, initialPoint) {
     const increment = 20;
     const greatIncrement = 200;
@@ -141,9 +145,9 @@ class Axis {
   }
 };
 
-/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.Axis = Axis;
+  /* istanbul ignore next */
 } else { 
   window.Axis = Axis;
 }

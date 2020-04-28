@@ -1,11 +1,10 @@
 /**
  * @version 1.0.0
  * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
- * @file Módulo que exporta la clase ParabolMovement.
+ * @file Módulo que exporta la clase Physics.
  * @copyright Florentín Pérez Glez 2020
  * @since 24.04.2020
- * @exports sleep
- * @exports makeUnique
+ * @exports Physics
  * @desc
  * Universidad: Universidad de La Laguna
  *
@@ -13,10 +12,12 @@
  *
  * Curso: 3º
  *
- * Práctica 9. Random Walk.
+ * Práctica 10. Tiro parabólico.
  *
- * Contenido detallado: Contiene la implementación de la clase ParabolMovement 
- * que representa un movimiento parabólico.
+ * Contenido detallado: Contiene la implementación de la clase Physics 
+ * que permite reprentar sobre un canvas una serie de físicas. En concreto
+ * y en la versión actual, solo permite la representación de tiros
+ * parabólicos.
  *
  * Referencias:
  *    - Enunciado de la práctica:
@@ -37,6 +38,7 @@ if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   generalUtility = require('../src/generalUtility.js').generalUtility;
   ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
+  /* istanbul ignore next */
 } else {
   Point = window.Point;
   generalUtility = window.generalUtility;
@@ -44,15 +46,34 @@ if (typeof require !== 'undefined') {
 }
 
 class Physics {
+  /**
+   * @desc Constructor de la clase Physics
+   * @param {Object} parabolMovement Movimiento parabólico a representar.
+   */
   constructor(parabolMovement) {
     this._parabolMovement = parabolMovement;
   }
+
+  /**
+   * @desc Getter y Setter.
+   * @type {Object}
+   */ 
   get parabolMovement() {
     return this._parabolMovement;
   }
+
   set parabolMovement(newMovement) {
     this._parabolMovement = newMovement;
   }
+
+  /* istanbul ignore next */
+  /**
+   * @desc Método que representa el movimiento parabólico especificado
+   * sobre un canvas.
+   * @param {Object} coordinateAxis Objeto que representa un eje de coordenadas. 
+   * @param {Context} context Contexto del canvas sobre el que se representará
+   * el resultado.
+   */
   async represent(coordinateAxis, context) {
     function randomColor() {
       const RED = generalUtility.getRandomInt(0, 256);
@@ -79,9 +100,9 @@ class Physics {
   }
 };
 
-/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.Physics = Physics;
+  /* istanbul ignore next */
 } else { 
   window.Physics = Physics;
 }

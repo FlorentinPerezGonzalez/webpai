@@ -1,3 +1,33 @@
+/**
+ * @version 1.0.0
+ * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
+ * @file Contiene la implementación de un script que permite
+ * representar un eje de coordanas sobre un canvas y representar
+ * tiros parabólicos en el mismo.
+ * @copyright Florentín Pérez Glez 2020
+ * @since 28.04.2020
+ * @exports Arrow
+ * @desc
+ * Universidad: Universidad de La Laguna.
+ *
+ * Asignatura: Programación de Aplicaciones Interactivas.
+ *
+ * Curso: 3º
+ *
+ * Práctica 10. Tiro parabólico.
+ *
+ * Contenido detallado: Contiene una serie de funciones definidas
+ * que están dirigidas a permitir la representación de tiros
+ * parabólicos sobre un sistema de coordenadas generado dinámicamente.
+ *
+ * Referencias:
+ *    - Enunciado de la práctica:
+ *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
+ *
+ * Historial de revisiones:
+ *    - 28.04.2020 - Versión presentada para evaluación.
+ */
+
 'use strict'
 
 const X_FACTOR = 0;
@@ -11,6 +41,7 @@ let CoordinateAxis;
 let ParabolMovement;
 let Arrow;
 let Physics;
+
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   Line = require('../src/line.js').Line;
@@ -20,6 +51,7 @@ if (typeof require !== 'undefined') {
   ParabolMovement = require('../src/parabol-movement.js').ParabolMovement;
   Physics = require('../src/physics.js').Physics;
   Arrow = require('../src/arrow.js').Arrow;
+  /* istanbul ignore next */
 } else {
   Point = window.Point;
   Line = window.Line;
@@ -41,21 +73,18 @@ let inputAngle;
 let firstUseflag = true;
 let axis;
 const ARROW_SIZE = 80;
+let BUTTON;
+let CHECK_BOX;
 
 let isCheckBoxActive = false;
-const BUTTON = document.getElementById('sendData');
-const CHECK_BOX = document.getElementById('checkBox');
-if (BUTTON !== null) {
-  BUTTON.addEventListener('click', () => {
-    calculateParabolMovement();
-  });
-}
-if (CHECK_BOX !== null) {
-  CHECK_BOX.addEventListener('click', () => {
-    isCheckBoxActive = !isCheckBoxActive;
-  });
-}
 
+/* istanbul ignore next */
+/**
+ * @desc Función que se encarga de calcular un movimiento parabólico y
+ * representarlo sobre un canvas. De igual manera, también representa
+ * un eje de coordenadas y una flecha que indica la dirección del
+ * tiro parabólico.
+ */
 async function calculateParabolMovement() {
   canvasModule.clearScreen(dataContext, dataCanvas);
   const initialHeight = inputHeight.value;
@@ -64,7 +93,8 @@ async function calculateParabolMovement() {
   if (!initialSpeed || !initialHeight || !angle) {
     dataContext.font = '20px arial';
     let yCoordinate = 20;
-    dataContext.fillText(`Introduzca un valor válido para cada input`, 0, yCoordinate);
+    dataContext.fillText(`Introduzca un valor válido para cada input`, 0,
+      yCoordinate);
   } else {
     angle = calculateRadians(angle);
     const movement = new ParabolMovement(angle, initialSpeed, 1, initialHeight);
@@ -88,11 +118,19 @@ async function calculateParabolMovement() {
   }
 }
 
+/**
+ * @desc Función que permite pasar un ángulo de grados a radianes.
+ * @param {Number} angle Ángulo en grados. 
+ */
 function calculateRadians(angle) {
   return (Math.PI * angle / 180);
 }
 
 /* istanbul ignore next */
+/**
+ * @desc Función gestiora del proceso. Se encarga de inicializar
+ * las referrencias a nodos del DOM.
+ */
 async function setup() {
   canvas = document.getElementById('canvas');
   dataCanvas = document.getElementById('dataCanvas');
@@ -103,9 +141,29 @@ async function setup() {
   inputSpeed = document.getElementById('initialSpeed');
   inputAngle = document.getElementById('angle');
   inputHeight = document.getElementById('initialHeight');
+  BUTTON = document.getElementById('sendData');
+  CHECK_BOX = document.getElementById('checkBox');
+  if (BUTTON !== null) {
+    BUTTON.addEventListener('click', () => {
+      calculateParabolMovement();
+    });
+  }
+  if (CHECK_BOX !== null) {
+    CHECK_BOX.addEventListener('click', () => {
+      isCheckBoxActive = !isCheckBoxActive;
+    });
+  }
   axis = new CoordinateAxis;
 }
 
+/**
+ * @desc Función que permite obtener el valor multiplicativo a aplicar
+ * a un eje de coordenadas para obtener la escala deseada.
+ * @param {Object} axis Objeto que representa un eje de coordenadas.
+ * @param {Object} movement Objeto que representa un tiro parabólico.
+ * @return {Array} Array de dos elementos. El primero, es la escala a
+ * aplicar al eje X. El segundo, la del eje Y.
+ */
 function getRightFactors(axis, movement) {
   const MAX_DISTANCE = movement.maxDistance;
   const MAX_HEIGHT = movement.maxHeight;
@@ -121,17 +179,28 @@ function getRightFactors(axis, movement) {
 }
 
 /* istanbul ignore next */
+/**
+ * @desc Función que permite mostrar los datos referentes a un tiro parabólico
+ * sobre un canvas concreto.
+ * @param {Object} Movement Objeto que representa al tiro parabólico.
+ * @param {Number} height Altura del canvas sobre el que se representarán
+ * los datos.
+ */
 function displayData(movement, height) {
   dataContext.font = '20px arial';
   const SPACE = height / 10;
   let yCoordinate = 25;
-  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`, 10, yCoordinate);
+  dataContext.fillText(`Tiempo transcurrido: ${movement.flightTime} s.`, 10,
+    yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`, 10, yCoordinate);
+  dataContext.fillText(`Distancia recorrida: ${movement.maxDistance} m.`, 10,
+    yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Altura inicial: ${movement.initialHeight} m.`, 10, yCoordinate);
+  dataContext.fillText(`Altura inicial: ${movement.initialHeight} m.`, 10,
+    yCoordinate);
   yCoordinate += SPACE;
-  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`, 10, yCoordinate);
+  dataContext.fillText(`Altura máxima: ${movement.maxHeight} m.`, 10,
+    yCoordinate);
 }
 
 /* istanbul ignore next */

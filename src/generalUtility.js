@@ -7,6 +7,7 @@
  * @since 17.04.2020
  * @exports sleep
  * @exports makeUnique
+ * @exports getRandomInt
  * @desc
  * Universidad: Universidad de La Laguna
  *
@@ -14,7 +15,7 @@
  *
  * Curso: 3º
  *
- * Práctica 9. Random Walk.
+ * Práctica 10. Tiro parabólico.
  *
  * Contenido detallado: Contiene la implementación de varios funciones de
  * utilidad general que pueden ser usadas en proyectos JS de
@@ -23,7 +24,7 @@
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P09-RandomWalk/blob/master/2019-2020_p09_RandomWalk.md
+ *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
  *
  * Historial de revisiones:
  *    - 14.04.2020 - Versión presentada para evaluación.
@@ -77,6 +78,7 @@ if (typeof exports !== 'undefined') {
   exports.generalUtility.sleep = sleep;
   exports.generalUtility.makeUnique = makeUnique;
   exports.generalUtility.getRandomInt = getRandomInt;
+  /* istanbul ignore next */
 } else { 
   window.generalUtility = {};
   window.generalUtility.sleep = sleep;

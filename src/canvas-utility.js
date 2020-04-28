@@ -15,7 +15,7 @@
  *
  * Curso: 3º
  *
- * Práctica 9. Random Walk.
+ * Práctica 10. Tiro parabólico.
  *
  * Contenido detallado: Contiene la implementación de varios funciones de
  * utilidad general exclusiva para canvas. Estas funciones permiten hacer
@@ -25,14 +25,15 @@
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P09-RandomWalk/blob/master/2019-2020_p09_RandomWalk.md
+ *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
  *
  * Historial de revisiones:
- *    - 14.04.2020 - Versión presentada para evaluación.
+ *    - 28.04.2020 - Versión presentada para evaluación.
  */
 
 'use strict';
 
+/* istanbul ignore next */
 /**
  * @desc Función que permite borrar todo el contenido de un canvas
  * @param {Context} CONTEXT - Contexto del canvas que se desea borrar
@@ -42,6 +43,7 @@ function clearScreen(CONTEXT, CANVAS) {
   CONTEXT.clearRect(0, 0, CANVAS.width, CANVAS.height);
 }
 
+/* istanbul ignore next */
 /**
  * @desc Función que permite ajustar los puntos por pulgada de un canvas,
  * consiguiendo que, tras su redimensión a un tamaño mayor del estándar,
@@ -65,6 +67,7 @@ if (typeof exports !== 'undefined') {
   exports.canvasModule = {};
   exports.canvasModule.clearScreen = clearScreen;
   exports.canvasModule.fixDpi = fixDpi;
+  /* istanbul ignore next */
 } else { 
   window.canvasModule = {};
   window.canvasModule.clearScreen = clearScreen;

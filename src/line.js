@@ -4,7 +4,7 @@
  * @file Contiene la implementació de la clase Line, que representa
  * una línea.
  * @copyright Florentín Pérez Glez 2020
- * @since 08.04.2020
+ * @since 28.04.2020
  * @exports Line
  * @desc
  * Universidad: Universidad de La Laguna.
@@ -13,17 +13,17 @@
  *
  * Curso: 3º
  *
- * Práctica 9. Random Walk.
+ * Práctica 10. Tiro parabólico.
  *
  * Contenido detallado: Contiene la implementación de la clase Line,
  * que permite representar una línea comprendida entre dos puntos.
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P08-Poker/blob/master/2019-2020_p08_Poker.md
+ *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
  *
  * Historial de revisiones:
- *    - 14.04.2020 - Versión presentada para evaluación.
+ *    - 28.04.2020 - Versión presentada para evaluación.
  */
 
 class Line {
@@ -104,9 +104,9 @@ class Line {
   }
 };
 
-/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.Line = Line;
+  /* istanbul ignore next */
 } else { 
   window.Line = Line;
 }

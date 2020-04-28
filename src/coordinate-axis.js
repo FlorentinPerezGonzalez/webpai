@@ -3,7 +3,7 @@
  * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
  * @file Módulo que exporta la clase CoordinateAxis.
  * @copyright Florentín Pérez Glez 2020
- * @since 17.04.2020
+ * @since 24.04.2020
  * @exports sleep
  * @exports makeUnique
  * @desc
@@ -13,7 +13,7 @@
  *
  * Curso: 3º
  *
- * Práctica 9. Random Walk.
+ * Práctica 10. Tiro parabólico.
  *
  * Contenido detallado: Contiene la implementación de la clase CoordinateAxis, que
  * representa un eje de coordenadas bidimensional.
@@ -40,13 +40,6 @@ if (typeof require !== 'undefined') {
   Axis = window.Axis;
 }
 
-const MAX_DEFAULT_X = 100;
-const MAX_DEFAULT_Y = 100;
-const INITIAL_X = 30;
-const INITIAL_Y = 60;
-const X_DIFFERENCE = 5;
-const Y_DIFFERENCE = 5;
-
 const DIVISOR = 18;
 
 class CoordinateAxis {
@@ -71,26 +64,49 @@ class CoordinateAxis {
   get yFactor() {
     return this._yFactor;
   }
+
+  /**
+   * @desc Getter.
+   */
   get initialPoint() {
     return this._initialPoint;
   }
+
+  /**
+   * @desc Getter.
+   * @return {Number} Longitud eje X.
+   */
   get xLength() {
     return this._xLength;
   }
+
+  /**
+   * @desc Getter.
+   * @return {Number} Longitud eje Y.
+   */
   get yLength() {
     return this._yLength; 
   }
+
   set xFactor(newFactor) {
     this._xFactor = newFactor;
   }
+
   set yFactor(newFactor) {
     this._yFactor = newFactor;
   }
+
   setAxisData(width, height) {
     this._initialPoint = new Point(width / DIVISOR, height - (height / DIVISOR));
     this._xLength = width - (width / DIVISOR) * 2;
     this._yLength = height - (height / DIVISOR) * 2;
   }
+  /* istanbul ignore next */
+  /**
+   * @desc Método que permite dibujar el eje de coordenadas sobre un canvas.
+   * @param {Context} context Contexto del canvas sobre el que se dibujarán
+   * los resultados.
+   */
   draw(context) {
     (new Axis(Axis.X_TYPE, this._xLength, this._xFactor))
       .draw(context, this._initialPoint, 5);
@@ -99,9 +115,9 @@ class CoordinateAxis {
   }
 };
 
-/* istanbul ignore next */
 if (typeof exports !== 'undefined') {
   exports.CoordinateAxis = CoordinateAxis;
+  /* istanbul ignore next */
 } else { 
   window.CoordinateAxis = CoordinateAxis;
 }
