@@ -1,35 +1,32 @@
 'use strict'
 
-let SquareChess;
+let ChessBoard;
 let expect;
 if (typeof require !== 'undefined') {
-  SquareChess = require('../src/square-chess.js').Point;
+  ChessBoard = require('../src/square-chess.js').ChessBoard;
   expect = require('chai').expect;
 } else {
-  SquareChess = window.SquareChess;
+  ChessBoard = window.ChessBoard;
   expect = chai.expect;
 }
 
-describe('SquareChess class', () => {
+describe('ChessBoard class', () => {
   it('Should exist', () => {
-    expect(SquareChess).to.be.a('function');
+    expect(ChessBoard).to.be.a('function');
   });
-  context('SquareChess functionality', () => {
-    let square;
+  context('ChessBoard functionality', () => {
+    let board;
     beforeEach(() => {
-      square = new SquareChess(2, 4, 100);;
+      square = new ChessBoard(2, 4, 100);;
     });
-    it('should have a center point', () => {
+    it('should have a number of rows equal to 8', () => {
       expect(square).to.have.a.property('centerPoint');
     });
-    it('should have a side length', () => {
+    it('should have a number of cols equal to 8', () => {
       expect(square).to.have.a.property('sideLength');
     });
-    it('should have a row asigned', () => {
+    it('should have a method to draw the board', () => {
       expect(square).to.have.a.property('row');
-    });
-    it('should have a col asigned', () => {
-      expect(square).to.have.a.property('col');
     });
   });
 });
