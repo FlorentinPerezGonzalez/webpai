@@ -7,6 +7,7 @@ class ChessBoard {
     this._cols = CHESS_COLS; 
     this.reset();
   }
+  
   get rows() {
     return this._rows;
   }
@@ -50,7 +51,12 @@ class ChessBoard {
   }
 
   showBoard(domElement) {
-    
+    for (let row = 0; row < CHESS_ROWS; row++) {
+      for (let col = 0; col < CHESS_COLS; col++) {
+        const output = this._data[row][col].showPosition();
+        domElement.innerText += output;
+      }
+    }
   }
 
 };
