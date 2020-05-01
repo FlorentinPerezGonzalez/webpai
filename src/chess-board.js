@@ -5,13 +5,7 @@ class ChessBoard {
   constructor() {
     this._rows = CHESS_ROWS;
     this._cols = CHESS_COLS; 
-    this._data = [];
-    for (let row = 0; row < CHESS_ROWS; row++) {
-      this._data[row] = [];
-      for (let col = 0; col < CHESS_COLS; col++) {
-        this._data[row][col] = null;
-      }
-    }
+    this.reset();
   }
   get rows() {
     return this._rows;
@@ -43,6 +37,20 @@ class ChessBoard {
       throw new Error('Columna especificada inválida');
     }
     this._data[row][col] = piece;
+  }
+
+  reset() {
+    this._data = [];
+    for (let row = 0; row < CHESS_ROWS; row++) {
+      this._data[row] = [];
+      for (let col = 0; col < CHESS_COLS; col++) {
+        this._data[row][col] = null;
+      }
+    }
+  }
+
+  showBoard(domElement) {
+    
   }
 
 };
