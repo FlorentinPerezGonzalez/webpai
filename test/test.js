@@ -1,10 +1,13 @@
 'use strict'
 
 let SquareChess;
+let expect;
 if (typeof require !== 'undefined') {
   SquareChess = require('../src/square-chess.js').Point;
+  expect = require('chai').expect;
 } else {
   SquareChess = window.SquareChess;
+  expect = chai.expect;
 }
 
 describe('SquareChess class', () => {
