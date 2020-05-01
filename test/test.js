@@ -3,17 +3,29 @@
 let ChessBoard;
 let ChessPiece;
 let Pawn;
+let Bishop;
+let Queen;
+let King;
+let Knight;
 let expect;
 if (typeof require !== 'undefined') {
   ChessBoard = require('../src/square-chess.js').ChessBoard;
   expect = require('chai').expect;
   ChessPiece = require('../src/chess-piece.js').ChessPiece;
   Pawn = require('../src/pawn.js').Pawn;
+  Bishop = require('../src/bishop.js').Bishop;
+  Queen = require('../src/queen.js').Queen;
+  King = require('../src/king.js').King;
+  Knight = require('../src/knight').Knight;
 } else {
   ChessBoard = window.ChessBoard;
   expect = chai.expect;
   ChessPiece = window.ChessPiece;
   Pawn = window.Pawn;
+  Bishop = window.Bishop;
+  Queen = window.Queen;
+  King = window.King;
+  Knight = window.Knight;
 }
 
 describe('ChessBoard class', () => {
@@ -99,6 +111,81 @@ describe('ChessPiece class', () => {
     });
     it('Should return its position in algebraic notation', () => {
       expect(pawn.showPosition()).to.be.eql('b1');
+    });
+  });
+  context('Queen Piece', () => {
+    let queen;
+    beforeEach(() => {
+      queen = new Queen(1, 2, 0);
+    });
+    it('Should return its type letter', () => {
+      expect(queen.type).to.be.eql('Q');
+    });
+    it('Should return its color', () => {
+      expect(queen.color).to.be.eql(0);
+    });
+    it('Should return its position in algebraic notation', () => {
+      expect(queen.showPosition()).to.be.eql('Qb1');
+    });
+  });
+  context('King Piece', () => {
+    let king;
+    beforeEach(() => {
+      king = new King(1, 2, 0);
+    });
+    it('Should return its type letter', () => {
+      expect(king.type).to.be.eql('K');
+    });
+    it('Should return its color', () => {
+      expect(king.color).to.be.eql(0);
+    });
+    it('Should return its position in algebraic notation', () => {
+      expect(king.showPosition()).to.be.eql('Kb1');
+    });
+  });
+  context('Rook Piece', () => {
+    let rook;
+    beforeEach(() => {
+      rook = new Rook(1, 2, 0);
+    });
+    it('Should return its type letter', () => {
+      expect(rook.type).to.be.eql('R');
+    });
+    it('Should return its color', () => {
+      expect(rook.color).to.be.eql(0);
+    });
+    it('Should return its position in algebraic notation', () => {
+      expect(rook.showPosition()).to.be.eql('Rb1');
+    });
+  });
+  context('Bishop Piece', () => {
+    let bishop;
+    beforeEach(() => {
+      bishop = new Bishop(1, 2, 0);
+    });
+    it('Should return its type letter', () => {
+      expect(bishop.type).to.be.eql('B');
+    });
+    it('Should return its color', () => {
+      expect(bishop.color).to.be.eql(0);
+    });
+    it('Should return its position in algebraic notation', () => {
+      expect(bishop.showPosition()).to.be.eql('Bb1');
+    });
+  });
+  context('Knight Piece', () => {
+    let knight;
+    beforeEach(() => {
+      knight = new Knight(1, 2, 0);
+    });
+    it('Should return its type letter', () => {
+      expect(knight.type).to.be.eql('N');
+    });
+    it('Should return its color', () => {
+      expect(knight.color).to.be.eql(0);
+    });
+    it('Should return its position in algebraic notation', () => {
+      expect(knight.showPosition()).to.be.eql('Nb1');
     });
   });
 });
