@@ -26,6 +26,10 @@ class ChessPiece {
     return this._col;
   }
 
+  get type() {
+    return this._type;
+  }
+
   get img(){
     return this._img;
   }
