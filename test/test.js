@@ -17,16 +17,16 @@ describe('ChessBoard class', () => {
   context('ChessBoard functionality', () => {
     let board;
     beforeEach(() => {
-      square = new ChessBoard(2, 4, 100);;
+      board = new ChessBoard(2, 4, 100);;
     });
     it('should have a number of rows equal to 8', () => {
-      expect(square).to.have.a.property('centerPoint');
+      expect(board.rows).to.be.eql(8);
     });
     it('should have a number of cols equal to 8', () => {
-      expect(square).to.have.a.property('sideLength');
+      expect(board.cols).to.be.eql(8);
     });
     it('should have a method to draw the board', () => {
-      expect(square).to.have.a.property('row');
+      expect(board).to.have.a.property('draw');
     });
   });
 });
