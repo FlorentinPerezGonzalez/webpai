@@ -38,5 +38,16 @@ describe('ChessBoard class', () => {
       board.setData(1, 0, 0);
       expect(board.getData(0, 0)).to.be.eql(1);
     });
+    it('Should have a method to reset the board', () => {
+      expect(board).to.have.a.property('reset');
+    });
+    it('reset should work correctly', () => {
+      board.setData(1, 0, 0);
+      board.reset();
+      expect(board.getData(0, 0)).to.be.eql(null);
+    });
+    it('should have a method to get the algebraic notation', () => {
+      expect(board).to.have.a.property('showBoard');
+    });
   });
 });
