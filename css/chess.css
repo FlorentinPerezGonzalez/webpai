@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+}
+
+header {
+  background-color: yellow;
+  height: 3rem;
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding:5px; /* this */
+}
+
+#izquierda {
+  display: flex;
+  flex-direction: column;
+  width: 40vh;
+  height: 100%;
+  order: 1;
+  margin-right: 10px;
+}
+
+#information {
+  background-color: teal;
+  flex-grow: 1;
+  margin-bottom: 10px;
+}
+
+#chat {
+  background-color: crimson;
+  flex-grow: 2;
+}
+
+#canvas {
+  background-color: thistle;
+  width: 80vh;
+  height: 100%;
+  order: 2;
+}
+
+#steps {
+  background-color: chartreuse;
+  order: 3;
+  height: 50%;
+  width: 40vh;
+  margin-left: 10px;
+}
