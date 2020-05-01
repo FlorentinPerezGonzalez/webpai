@@ -28,5 +28,15 @@ describe('ChessBoard class', () => {
     it('should have a method to draw the board', () => {
       expect(board).to.have.a.property('draw');
     });
+    it('Should have a method to access certain positions', () => {
+      expect(board).to.have.a.property('getData');
+    });
+    it('Should return the element in a certain position', () => {
+      expect(board.getData(0, 0)).to.be.eql(null);
+    });
+    it('Should let insert an element in a certain position', () => {
+      board.setData(1, 0, 0);
+      expect(board.getData(0, 0)).to.be.eql(1);
+    });
   });
 });
