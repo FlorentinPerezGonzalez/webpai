@@ -47,7 +47,7 @@ class ChessPiece {
   }
 
   showPosition() {
-    return `${this._type}${colDictionary[this._col]}${this._row}`;
+    return `${this._type}${ChessPiece.colDictionary[this._col]}${this._row}`;
   }
 
 };
