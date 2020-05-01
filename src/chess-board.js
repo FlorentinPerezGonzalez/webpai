@@ -78,11 +78,15 @@ class ChessBoard {
     }
   }
 
-  displayPieces(context) {
+  displayPieces(context, length) {
+    const LENGHT_INCREMENT = length / BOARD_LINES;
     for (let row = 0; row < CHESS_ROWS; row++) {
       for (let col = 0; col < CHESS_COLS; col++) {
-        if (this._data[row][col]) {
-          const img = this._data[row][col].getImg;
+        if (this._data[row][col] !== null) {
+          const img = this._data[row][col].img;
+          console.log(img);
+          context.drawImage(img, LENGHT_INCREMENT * col, LENGHT_INCREMENT * row,
+            LENGHT_INCREMENT, LENGHT_INCREMENT);
         }
       }
     }

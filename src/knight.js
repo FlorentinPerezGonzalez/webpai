@@ -13,6 +13,11 @@ class Knight extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = 'N';
+    if (color) {
+      this._img = imgLoader.pieceImg.caballoB;
+    } else {
+      this._img = imgLoader.pieceImg.caballoN;
+    }
   }
 };
 

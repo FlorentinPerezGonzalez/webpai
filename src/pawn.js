@@ -13,6 +13,11 @@ class Pawn extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = '';
+    if (color) {
+      this._img = imgLoader.pieceImg.peonB;
+    } else {
+      this._img = imgLoader.pieceImg.peonN;
+    }
   }
 };
 

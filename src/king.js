@@ -13,6 +13,11 @@ class King extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = 'K';
+    if (color) {
+      this._img = imgLoader.pieceImg.reyB;
+    } else {
+      this._img = imgLoader.pieceImg.reyN;
+    }
   }
 };
 

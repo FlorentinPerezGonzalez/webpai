@@ -13,6 +13,11 @@ class Bishop extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = 'B';
+    if (color) {
+      this._img = imgLoader.pieceImg.alfilB;
+    } else {
+      this._img = imgLoader.pieceImg.alfilN;
+    }
   }
 };
 

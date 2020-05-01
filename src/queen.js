@@ -13,6 +13,11 @@ class Queen extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = 'Q';
+    if (color) {
+      this._img = imgLoader.pieceImg.reinaB;
+    } else {
+      this._img = imgLoader.pieceImg.reinaN;
+    }
   }
 };
 
