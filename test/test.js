@@ -1,13 +1,16 @@
 'use strict'
 
 let ChessBoard;
+let ChessPiece;
 let expect;
 if (typeof require !== 'undefined') {
   ChessBoard = require('../src/square-chess.js').ChessBoard;
   expect = require('chai').expect;
+  ChessPiece = require('../src/chess-piece.js').ChessPiece;
 } else {
   ChessBoard = window.ChessBoard;
   expect = chai.expect;
+  ChessPiece = window.ChessPiece;
 }
 
 describe('ChessBoard class', () => {
@@ -48,6 +51,30 @@ describe('ChessBoard class', () => {
     });
     it('should have a method to get the algebraic notation', () => {
       expect(board).to.have.a.property('showBoard');
+    });
+  });
+});
+
+describe('ChessPiece class', () => {
+  it('Should exist', () => {
+    expect(ChessPiece).to.be.a('function');
+  });
+  context('ChessPiece functionality', () => {
+    let piece;
+    beforeEach(() => {
+      piece = new ChessPiece(1, 2);
+    });
+    it('Should return the row where the piece is', () => {
+      expect(piece.row).to.be.eql(1);
+    });
+    it('Should return the col where the piece is', () => {
+      expect(piece.col).to.be.eql(2);
+    });
+    it('Should have a method to show the position in algebraic notation', () => {
+      expect(piece).to.have.a.property('showPosition');
+    });
+    it('Should return the img', () => {
+      expect(piece.img).to.be.eql(undefined);
     });
   });
 });
