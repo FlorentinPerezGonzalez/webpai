@@ -97,5 +97,8 @@ describe('ChessPiece class', () => {
     it('Should return its color', () => {
       expect(pawn.color).to.be.eql(0);
     });
+    it('Should return its position in algebraic notation', () => {
+      expect(pawn.showPosition()).to.be.eql('b1');
+    });
   });
 });
