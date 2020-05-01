@@ -15,6 +15,7 @@ class ChessPiece {
     this._col = col;
     this._type = undefined;
     this._img = undefined;
+    this._color = undefined;
   }
 
   get row() {
@@ -35,6 +36,10 @@ class ChessPiece {
 
   set col(col) {
     this._col = col;
+  }
+
+  get color() {
+    return this._color;
   }
 
   showPosition() {

@@ -78,6 +78,16 @@ class ChessBoard {
     }
   }
 
+  displayPieces(context) {
+    for (let row = 0; row < CHESS_ROWS; row++) {
+      for (let col = 0; col < CHESS_COLS; col++) {
+        if (this._data[row][col]) {
+          const img = this._data[row][col].getImg;
+        }
+      }
+    }
+  }
+
 };
 
 /* istanbul ignore next */

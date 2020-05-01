@@ -52,6 +52,9 @@ describe('ChessBoard class', () => {
     it('should have a method to get the algebraic notation', () => {
       expect(board).to.have.a.property('showBoard');
     });
+    it('should have a method to display the pieces', () => {
+      expect(board).to.have.a.property('displayPieces');
+    });
   });
 });
 
@@ -75,6 +78,9 @@ describe('ChessPiece class', () => {
     });
     it('Should return the img', () => {
       expect(piece.img).to.be.eql(undefined);
+    });
+    it('Should have a color tag', () => {
+      expect(piece.color).to.be.eql(undefined);
     });
   });
 });
