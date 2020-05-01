@@ -2,15 +2,18 @@
 
 let ChessBoard;
 let ChessPiece;
+let Pawn;
 let expect;
 if (typeof require !== 'undefined') {
   ChessBoard = require('../src/square-chess.js').ChessBoard;
   expect = require('chai').expect;
   ChessPiece = require('../src/chess-piece.js').ChessPiece;
+  Pawn = require('../src/pawn.js').Pawn;
 } else {
   ChessBoard = window.ChessBoard;
   expect = chai.expect;
   ChessPiece = window.ChessPiece;
+  Pawn = window.Pawn;
 }
 
 describe('ChessBoard class', () => {
@@ -81,6 +84,18 @@ describe('ChessPiece class', () => {
     });
     it('Should have a color tag', () => {
       expect(piece.color).to.be.eql(undefined);
+    });
+  });
+  context('Pawn Piece', () => {
+    let pawn;
+    beforeEach(() => {
+      pawn = new Pawn(1, 2, 0);
+    });
+    it('Should return its type letter', () => {
+      expect(pawn.type).to.be.eql('');
+    });
+    it('Should return its color', () => {
+      expect(pawn.color).to.be.eql(0);
     });
   });
 });
