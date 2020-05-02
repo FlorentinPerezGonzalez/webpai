@@ -13,6 +13,11 @@ class Rook extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = 'R';
+    if (color) {
+      this._img = imgLoader.pieceImg.torreB;
+    } else {
+      this._img = imgLoader.pieceImg.torreN;
+    }
   }
 };
 

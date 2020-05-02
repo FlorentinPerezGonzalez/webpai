@@ -8,6 +8,7 @@ let Queen;
 let King;
 let Knight;
 let expect;
+let NQueens;
 if (typeof require !== 'undefined') {
   ChessBoard = require('../src/square-chess.js').ChessBoard;
   expect = require('chai').expect;
@@ -17,6 +18,7 @@ if (typeof require !== 'undefined') {
   Queen = require('../src/queen.js').Queen;
   King = require('../src/king.js').King;
   Knight = require('../src/knight').Knight;
+  NQueens = require('../src/nqueens.js').NQueens;
 } else {
   ChessBoard = window.ChessBoard;
   expect = chai.expect;
@@ -26,6 +28,7 @@ if (typeof require !== 'undefined') {
   Queen = window.Queen;
   King = window.King;
   Knight = window.Knight;
+  NQueens = window.NQueens;
 }
 
 describe('ChessBoard class', () => {
