@@ -2,6 +2,7 @@
 
 let ChessBoard;
 let ChessPiece;
+let ChessRepresentation;
 let Pawn;
 let Bishop;
 let Queen;
@@ -25,6 +26,8 @@ if (typeof require !== 'undefined') {
   Line = require('../src/line.js').Line;
   Point = require('../src/point.js').Point;
   generalUtility = require('../src/generalUtility.js').generalUtility;
+  ChessRepresentation =
+    require('../src/chess-representation.js').ChessRepresentation;
 } else {
   ChessBoard = window.ChessBoard;
   expect = chai.expect;
@@ -38,6 +41,7 @@ if (typeof require !== 'undefined') {
   Line = window.Line;
   Point = window.Point;
   generalUtility = window.generalUtility;
+  ChessRepresentation = window.ChessRepresentation;
 }
 
 describe('Class Point', () => {
@@ -289,6 +293,30 @@ describe('Class NQueens', () => {
     });
     it('Should have a method to resolve the problem', () => {
       expect(nQueens).to.have.a.property('resolve');
+    });
+  });
+});
+
+describe('Class ChessRepresentation', () => {
+  it('Should exist', () => {
+    expect(ChessRepresentation).to.be.a('function');
+  });
+  context('Chess functionality' ,() => {
+    let chess;
+    beforeEach(() => {
+      chess = new NQueens(8);
+    });
+    it('Should have a property board', () => {
+      expect(chess).to.have.a.property('_board');
+    });
+    it('Should have a method to initialize a game', () => {
+      expect(chess).to.have.a.property('buildInitial');
+    });
+    it('Should have a method to display the pieces on the board', () => {
+      expect(chess).to.have.a.property('displayPieces');
+    });
+    it('Should have a method to load a board configuration', () => {
+      expect(chess).to.have.a.property('loadConfiguration');
     });
   });
 });
