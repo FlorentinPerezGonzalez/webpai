@@ -132,9 +132,6 @@ describe('ChessBoard class', () => {
     it('should have a number of cols equal to 8', () => {
       expect(board.cols).to.be.eql(8);
     });
-    it('should have a method to draw the board', () => {
-      expect(board).to.have.a.property('draw');
-    });
     it('Should have a method to access certain positions', () => {
       expect(board).to.have.a.property('getData');
     });
@@ -155,9 +152,6 @@ describe('ChessBoard class', () => {
     });
     it('should have a method to get the algebraic notation', () => {
       expect(board).to.have.a.property('showBoard');
-    });
-    it('should have a method to display the pieces', () => {
-      expect(board).to.have.a.property('displayPieces');
     });
   });
 });
@@ -304,7 +298,7 @@ describe('Class ChessRepresentation', () => {
   context('Chess functionality' ,() => {
     let chess;
     beforeEach(() => {
-      chess = new NQueens(8);
+      chess = new ChessRepresentation(8);
     });
     it('Should have a property board', () => {
       expect(chess).to.have.a.property('_board');
@@ -317,6 +311,12 @@ describe('Class ChessRepresentation', () => {
     });
     it('Should have a method to load a board configuration', () => {
       expect(chess).to.have.a.property('loadConfiguration');
+    });
+    it('should have a method to draw the board', () => {
+      expect(chess).to.have.a.property('draw');
+    });
+    it('should have a method to display the pieces', () => {
+      expect(chess).to.have.a.property('displayPieces');
     });
   });
 });
