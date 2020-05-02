@@ -52,27 +52,27 @@ class ChessBoard {
     return this._cols;
   }
 
-  draw(context, length) {
-    const BROWN_COLOR = 'tan';
-    const WHITE_COLOR = '	cornsilk';
-    const LENGHT_INCREMENT = length / this._rows;
-    let isBrown = false;
-    for (let row = 0; row < CHESS_ROWS; row++) {
-      isBrown = !isBrown;
-      for (let col = 0; col < CHESS_COLS; col++) {
-        if (isBrown) {
-          context.fillStyle = BROWN_COLOR;
-        } else {
-          context.fillStyle = WHITE_COLOR;
-        }
-        isBrown = !isBrown;
-        context.fillRect(LENGHT_INCREMENT * col,
-                        LENGHT_INCREMENT * row,
-                        LENGHT_INCREMENT,
-                        LENGHT_INCREMENT)
-      }
-    }
-  }
+  // draw(context, length) {
+  //   const BROWN_COLOR = 'tan';
+  //   const WHITE_COLOR = '	cornsilk';
+  //   const LENGHT_INCREMENT = length / this._rows;
+  //   let isBrown = false;
+  //   for (let row = 0; row < CHESS_ROWS; row++) {
+  //     isBrown = !isBrown;
+  //     for (let col = 0; col < CHESS_COLS; col++) {
+  //       if (isBrown) {
+  //         context.fillStyle = BROWN_COLOR;
+  //       } else {
+  //         context.fillStyle = WHITE_COLOR;
+  //       }
+  //       isBrown = !isBrown;
+  //       context.fillRect(LENGHT_INCREMENT * col,
+  //                       LENGHT_INCREMENT * row,
+  //                       LENGHT_INCREMENT,
+  //                       LENGHT_INCREMENT)
+  //     }
+  //   }
+  // }
 
   getData(row, col) {
     if (row >= CHESS_COLS || row < 0) {
@@ -113,30 +113,18 @@ class ChessBoard {
     }
   }
 
-  displayPieces(context, length) {
-    const LENGHT_INCREMENT = length / BOARD_LINES;
-    for (let row = 0; row < CHESS_ROWS; row++) {
-      for (let col = 0; col < CHESS_COLS; col++) {
-        if (this._data[row][col] !== null) {
-          const img = this._data[row][col].img;
-          context.drawImage(img, LENGHT_INCREMENT * col, LENGHT_INCREMENT * row,
-            LENGHT_INCREMENT, LENGHT_INCREMENT);
-        }
-      }
-    }
-  }
-
-  builInitial() {
-    for (const piece in ChessBoard.initialBoard) {
-      const row = ChessBoard.initialBoard[piece].row;
-      const col = ChessBoard.initialBoard[piece].col;
-      const type = ChessBoard.initialBoard[piece].type;
-      const color = ChessBoard.initialBoard[piece].color;
-      if (type === 'pawn') {
-        
-      }
-    }
-  }
+  // displayPieces(context, length) {
+  //   const LENGHT_INCREMENT = length / BOARD_LINES;
+  //   for (let row = 0; row < CHESS_ROWS; row++) {
+  //     for (let col = 0; col < CHESS_COLS; col++) {
+  //       if (this._data[row][col] !== null) {
+  //         const img = this._data[row][col].img;
+  //         context.drawImage(img, LENGHT_INCREMENT * col, LENGHT_INCREMENT * row,
+  //           LENGHT_INCREMENT, LENGHT_INCREMENT);
+  //       }
+  //     }
+  //   }
+  // }
 
 };
 

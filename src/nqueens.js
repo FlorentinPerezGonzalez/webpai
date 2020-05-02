@@ -73,7 +73,7 @@ class NQueens {
         }
       }
     }
-    return result;
+    return this._buildConfiguration(result);
   }
 
 /**
@@ -105,6 +105,23 @@ class NQueens {
       }
     }
     return result;
+  }
+
+  _buildConfiguration(result) {
+    const configurations = [];
+    for (const board of result) {
+      configurations.push(Object.create(null));
+      configurations[configurations.length - 1].size = this._size;
+      let counter = 0;
+      for (const piece of board) {
+        configurations[configurations.length - 1][`piece${counter}`] = {};
+        configurations[configurations.length - 1][`piece${counter}`].color = piece.color;
+        configurations[configurations.length - 1][`piece${counter}`].type = 'queen';
+        configurations[configurations.length - 1][`piece${counter}`].row = piece.row;
+        configurations[configurations.length - 1][`piece${counter++}`].col = piece.col;
+      }
+    }
+    return configurations;
   }
 
 };
