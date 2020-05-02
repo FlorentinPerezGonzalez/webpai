@@ -1,32 +1,43 @@
+'use strict'
+
 let ChessBoard;
 let ChessPiece;
 let Pawn;
-let CanvasModule;
 let Bishop;
 let Queen;
-let Rook;
 let King;
 let Knight;
+let NQueens;
+let Line;
+let Point;
+let generalUtility;
+let CanvasModule;
 if (typeof require !== 'undefined') {
-  CanvasModule = require('../src/canvas-utility.js');
-  ChessBoard = require('../src/square-chess.js').ChessBoard;
+  ChessBoard = require('../src/chess-board.js').ChessBoard;
   ChessPiece = require('../src/chess-piece.js').ChessPiece;
   Pawn = require('../src/pawn.js').Pawn;
   Bishop = require('../src/bishop.js').Bishop;
   Queen = require('../src/queen.js').Queen;
   King = require('../src/king.js').King;
   Knight = require('../src/knight').Knight;
-  Rook = require('../src/rook.js').Rook;
+  NQueens = require('../src/nqueens.js').NQueens;
+  Line = require('../src/line.js').Line;
+  Point = require('../src/point.js').Point;
+  CanvasModule = require('../src/canvas-utility.js').canvasModule;
+  generalUtility = require('../src/generalUtility.js').generalUtility;
 } else {
   ChessBoard = window.ChessBoard;
-  CanvasModule = window.canvasModule;
   ChessPiece = window.ChessPiece;
   Pawn = window.Pawn;
   Bishop = window.Bishop;
   Queen = window.Queen;
   King = window.King;
   Knight = window.Knight;
-  Rook = window.Rook;
+  NQueens = window.NQueens;
+  Line = window.Line;
+  Point = window.Point;
+  generalUtility = window.generalUtility;
+  CanvasModule = window.canvasModule;
 }
 
 imgLoader.waitCharge(setup);
@@ -39,6 +50,8 @@ function setup() {
   board.draw(CONTEXT, CANVAS.width);
   buildInitial(board);
   board.displayPieces(CONTEXT, CANVAS.width);
+  const nqueen = new NQueens(8);
+  const result = nqueen.resolve();
 }
 
 function buildInitial(board) {

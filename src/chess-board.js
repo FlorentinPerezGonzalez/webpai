@@ -38,9 +38,9 @@ class ChessBoard {
     "reinaB": {"color": 1,"type": "knight","row": 0,"col": 4}
   }
 
-  constructor() {
-    this._rows = CHESS_ROWS;
-    this._cols = CHESS_COLS; 
+  constructor(rows = 8, cols = 8) {
+    this._rows = rows;
+    this._cols = cols; 
     this.reset();
   }
 
@@ -55,7 +55,7 @@ class ChessBoard {
   draw(context, length) {
     const BROWN_COLOR = 'tan';
     const WHITE_COLOR = '	cornsilk';
-    const LENGHT_INCREMENT = length / BOARD_LINES;
+    const LENGHT_INCREMENT = length / this._rows;
     let isBrown = false;
     for (let row = 0; row < CHESS_ROWS; row++) {
       isBrown = !isBrown;
@@ -119,8 +119,6 @@ class ChessBoard {
       for (let col = 0; col < CHESS_COLS; col++) {
         if (this._data[row][col] !== null) {
           const img = this._data[row][col].img;
-          console.log(this._data[row][col]);
-          console.log(img);
           context.drawImage(img, LENGHT_INCREMENT * col, LENGHT_INCREMENT * row,
             LENGHT_INCREMENT, LENGHT_INCREMENT);
         }
