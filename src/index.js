@@ -45,21 +45,49 @@ if (typeof require !== 'undefined') {
 }
 
 imgLoader.waitCharge(setup);
+let solutionCounter = 0;
+let result8Queens;
 
 function setup() {
   const CANVAS = document.getElementById('canvas');
   CanvasModule.fixDpi(CANVAS);
-  const chess = new ChessRepresentation;
   const CONTEXT = CANVAS.getContext('2d');
-  chess.buildInitial();
+  const GEN_SOLUTION = document.getElementById('GenerarSolucion');
+  const NEXT_SOLUTION = document.getElementById('SiguienteSolucion');
+  const CHESS_GAME = document.getElementById('PartidaAjedrez');
+  const CHECKBOX = document.getElementById('cbox1');
+  const NOTATION = document.getElementById('notacion');
+  let nqueen;
+  let chess = new ChessRepresentation;
   chess.draw(CONTEXT, CANVAS.width);
-  chess.displayPieces(CONTEXT, CANVAS.width);
-  const nqueen = new NQueens(8);
-  const result = nqueen.resolve();
-  canvasModule.clearScreen(CONTEXT, CANVAS);
-  chess.draw(CONTEXT, CANVAS.width);
-  chess.loadConfiguration(result[0]);
-  chess.displayPieces(CONTEXT, CANVAS.width);
-  console.log(result[0]);
+  GEN_SOLUTION.addEventListener('click', () => {
+    solutionCounter = 0;
+    canvasModule.clearScreen(CONTEXT, CANVAS);
+    chess.draw(CONTEXT, CANVAS.width);
+    if (result8Queens === undefined) {
+      nqueen = new NQueens(8);
+      result8Queens = nqueen.resolve();
+    }
+    chess.loadConfiguration(result8Queens[0]);
+    chess.displayPieces(CONTEXT, CANVAS.width);
+    chess.showBoard(NOTATION);
+  });
+  CHESS_GAME.addEventListener('click', () => {
+    canvasModule.clearScreen(CONTEXT, CANVAS);
+    chess.draw(CONTEXT, CANVAS.width);
+    chess.buildInitial();
+    chess.displayPieces(CONTEXT, CANVAS.width);
+  });
+  NEXT_SOLUTION.addEventListener('click', () => {
+    console.log(result8Queens.lenght);
+    if (solutionCounter + 1 < result8Queens.length) {
+      solutionCounter++;
+      canvasModule.clearScreen(CONTEXT, CANVAS);
+      chess.draw(CONTEXT, CANVAS.width);
+      chess.loadConfiguration(result8Queens[solutionCounter]);
+      chess.displayPieces(CONTEXT, CANVAS.width);
+      chess.showBoard(NOTATION);
+    }
+  });
 }
 

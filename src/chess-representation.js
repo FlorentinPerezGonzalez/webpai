@@ -138,6 +138,19 @@ class ChessRepresentation {
     }
   }
 
+  showBoard(domElement) {
+    domElement.innerText = '';
+    for (let row = 0; row < this._boardSize; row++) {
+      for (let col = 0; col < this._boardSize; col++) {
+        if (this._board.getData(row, col)) {
+          console.log(this._board.getData(row, col));
+          const output = this._board.getData(row, col).showPosition() + '\n';
+          domElement.innerText += output;
+        }
+      }
+    }
+  }
+
 };
 
 /* istanbul ignore next */
