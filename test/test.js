@@ -10,6 +10,7 @@ let King;
 let Knight;
 let expect;
 let NQueens;
+let NQueensNG;
 let Line;
 let Point;
 let generalUtility;
@@ -23,6 +24,7 @@ if (typeof require !== 'undefined') {
   King = require('../src/king.js').King;
   Knight = require('../src/knight').Knight;
   NQueens = require('../src/nqueens.js').NQueens;
+  NQueensNG = require('../src/nqueens-ng.js').NQueensNG;
   Line = require('../src/line.js').Line;
   Point = require('../src/point.js').Point;
   generalUtility = require('../src/generalUtility.js').generalUtility;
@@ -38,6 +40,7 @@ if (typeof require !== 'undefined') {
   King = window.King;
   Knight = window.Knight;
   NQueens = window.NQueens;
+  NQueensNG = window.NQueensNG;
   Line = window.Line;
   Point = window.Point;
   generalUtility = window.generalUtility;
@@ -284,6 +287,24 @@ describe('Class NQueens', () => {
     });
     it('Should have a method to resolve the problem', () => {
       expect(nQueens).to.have.a.property('resolve');
+    });
+  });
+});
+
+describe('Class NQueensNG', () => {
+  it('Should exist', () => {
+    expect(NQueensNG).to.be.a('function');
+  });
+  context('NQueens functionality' ,() => {
+    let nQueensNG;
+    beforeEach(() => {
+      nQueensNG = new NQueensNG(8);
+    });
+    it('Should have a property size', () => {
+      expect(nQueensNG).to.have.a.property('_size');
+    });
+    it('Should have a method to resolve the problem', () => {
+      expect(nQueensNG).to.have.a.property('resolve');
     });
   });
 });
