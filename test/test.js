@@ -150,9 +150,6 @@ describe('ChessBoard class', () => {
       board.reset();
       expect(board.getData(0, 0)).to.be.eql(null);
     });
-    it('should have a method to get the algebraic notation', () => {
-      expect(board).to.have.a.property('showBoard');
-    });
   });
 });
 
@@ -193,7 +190,7 @@ describe('ChessPiece class', () => {
       expect(pawn.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(pawn.showPosition()).to.be.eql('b1');
+      expect(pawn.showPosition()).to.be.eql('c2');
     });
   });
   context('Queen Piece', () => {
@@ -208,7 +205,7 @@ describe('ChessPiece class', () => {
       expect(queen.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(queen.showPosition()).to.be.eql('Qb1');
+      expect(queen.showPosition()).to.be.eql('Qc2');
     });
   });
   context('King Piece', () => {
@@ -223,7 +220,7 @@ describe('ChessPiece class', () => {
       expect(king.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(king.showPosition()).to.be.eql('Kb1');
+      expect(king.showPosition()).to.be.eql('Kc2');
     });
   });
   context('Rook Piece', () => {
@@ -238,7 +235,7 @@ describe('ChessPiece class', () => {
       expect(rook.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(rook.showPosition()).to.be.eql('Rb1');
+      expect(rook.showPosition()).to.be.eql('Rc2');
     });
   });
   context('Bishop Piece', () => {
@@ -253,7 +250,7 @@ describe('ChessPiece class', () => {
       expect(bishop.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(bishop.showPosition()).to.be.eql('Bb1');
+      expect(bishop.showPosition()).to.be.eql('Bc2');
     });
   });
   context('Knight Piece', () => {
@@ -268,7 +265,7 @@ describe('ChessPiece class', () => {
       expect(knight.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(knight.showPosition()).to.be.eql('Nb1');
+      expect(knight.showPosition()).to.be.eql('Nc2');
     });
   });
 });
@@ -317,6 +314,9 @@ describe('Class ChessRepresentation', () => {
     });
     it('should have a method to display the pieces', () => {
       expect(chess).to.have.a.property('displayPieces');
+    });
+    it('should have a method to get the algebraic notation', () => {
+      expect(chess).to.have.a.property('showBoard');
     });
   });
 });
