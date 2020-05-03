@@ -117,8 +117,8 @@ class ChessRepresentation {
   }
 
   draw(context, length) {
-    const BROWN_COLOR = 'tan';
-    const WHITE_COLOR = '	cornsilk';
+    const BROWN_COLOR = '#946f51';
+    const WHITE_COLOR = '	#F0D9B5';
     const LENGHT_INCREMENT = length / this._boardSize;
     let isBrown = false;
     for (let row = 0; row < this._boardSize; row++) {
