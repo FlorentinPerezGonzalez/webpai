@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 let ChessBoard;
 let Pawn;
@@ -62,15 +62,27 @@ class ChessRepresentation {
     "reinaB": {"color": 1,"type": "queen","row": 0,"col": 4}
   }
 
+  /**
+   * @desc Constructor de la clase ChessRepresentation.
+   * @param {Number} boardSize Ancho y largo del tablero.
+   */
   constructor(boardSize = 8) {
     this._board = undefined;
     this._boardSize = boardSize;
   }
 
+  /**
+   * @desc Asigna al tablero de ajedrez la posiciones iniciales de las
+   * piezas.
+   */
   buildInitial() {
     this.loadConfiguration(ChessRepresentation.initialBoard);
   }
 
+  /**
+   * @desc Carga una configuración del tablero.
+   * @param {Object} boardConfig Configuración del tablero a cargar.
+   */
   loadConfiguration(boardConfig) {
     this._boardSize = boardConfig.size;
     this._board = new ChessBoard(this._boardSize, this._boardSize);
@@ -101,6 +113,13 @@ class ChessRepresentation {
     }
   }
 
+  /**
+   * @desc Muestra las fichas de ajedrez que existen sobre el tablero.
+   * @param {Context} context Contexto del canvas en el que se realizará la
+   * representación.
+   * @param {Number} length Dimensión de uno de los lados del Canvas (se sobreentiende
+   * que este debe ser cuadrado).
+   */
   displayPieces(context, length) {
     if (this._board !== undefined) {
       const LENGHT_INCREMENT = length / this._boardSize;
@@ -116,6 +135,13 @@ class ChessRepresentation {
     }
   }
 
+  /**
+   * @desc Dibuja el tablero sobre un canvas. No representa ficha alguna.
+   * @param {Context} context Contexto del canvas en el que se realizará la
+   * representación.
+   * @param {Number} length Dimensión de uno de los lados del Canvas (se sobreentiende
+   * que este debe ser cuadrado).
+   */
   draw(context, length) {
     const BROWN_COLOR = '#946f51';
     const WHITE_COLOR = '	#F0D9B5';
@@ -138,12 +164,17 @@ class ChessRepresentation {
     }
   }
 
+  /**
+   * @desc Muestra en un objeto del DOM la notación algebraica de todas
+   * las fichas existentes sobre el tablero.
+   * @param {Object} domElement Objeto del DOM al que se asignarán
+   * los valores textuales de la notación algebraica.
+   */
   showBoard(domElement) {
     domElement.innerText = '';
     for (let row = 0; row < this._boardSize; row++) {
       for (let col = 0; col < this._boardSize; col++) {
         if (this._board.getData(row, col)) {
-          console.log(this._board.getData(row, col));
           const output = this._board.getData(row, col).showPosition() + '\n';
           domElement.innerText += output;
         }

@@ -4,7 +4,7 @@
  * @file Contiene la implementació de la clase Line, que representa
  * una línea.
  * @copyright Florentín Pérez Glez 2020
- * @since 28.04.2020
+ * @since 03.05.2020
  * @exports Line
  * @desc
  * Universidad: Universidad de La Laguna.
@@ -13,18 +13,20 @@
  *
  * Curso: 3º
  *
- * Práctica 10. Tiro parabólico.
+ * Práctica 11. Ajedrez.
  *
  * Contenido detallado: Contiene la implementación de la clase Line,
  * que permite representar una línea comprendida entre dos puntos.
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
+ *      https://github.com/fsande/PAI-P11-Chess/blob/master/2019-2020_p10_Chess.md
  *
  * Historial de revisiones:
- *    - 28.04.2020 - Versión presentada para evaluación.
+ *    - 03.05.2020 - Versión presentada para evaluación.
  */
+
+'use strict';
 
 class Line {
     /**
@@ -57,10 +59,18 @@ class Line {
     return this._finalPoint;
   }
 
+  /**
+   * @desc Getter.
+   * @type {Number}
+   */
   get slope() {
     return this._slope;
   }
 
+  /**
+   * @desc Getter.
+   * @type {Number}
+   */
   get yIntercept() {
     return this._yIntercept;
   }
@@ -73,6 +83,9 @@ class Line {
     this._finalPoint = point;
   }
 
+  /**
+   * @desc MÉTODO PROTEGIDO. Calcula la pendiente de la recta.
+   */
   _calculateSlope() {
     this._slope = (this._finalPoint.y -
                   this._initialPoint.y) /
@@ -80,6 +93,9 @@ class Line {
                   this._initialPoint.x);
   }
 
+  /**
+   * @desc MÉTODO PROTEGIDO. Calcula la ordenada en el origen de la recta.
+   */
   _calculateYIntercept() {
     this._yIntercept = (this._initialPoint.y) -
                       (this._slope * this._initialPoint.x);

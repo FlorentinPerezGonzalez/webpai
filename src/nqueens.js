@@ -1,3 +1,34 @@
+/**
+ * @version 1.0.0
+ * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
+ * @file Contiene la implementación de la clase NQueens, que permite
+ * resolver el problema de las N Reinas en el ajedrez..
+ * @copyright Florentín Pérez Glez 2020
+ * @since 03.05.2020
+ * @exports NQueens
+ * @desc
+ * Universidad: Universidad de La Laguna.
+ *
+ * Asignatura: Programación de Aplicaciones Interactivas.
+ *
+ * Curso: 3º
+ *
+ * Práctica 11. Ajedrez.
+ *
+ * Contenido detallado: Contiene la implementación de la clase NQueens,
+ * que permite resolver de manera iterativa el problema de las N Reinas en
+ * el ajedrez.
+ *
+ * Referencias:
+ *    - Enunciado de la práctica:
+ *      https://github.com/fsande/PAI-P11-Chess/blob/master/2019-2020_p10_Chess.md
+ *
+ * Historial de revisiones:
+ *    - 05.05.2020 - Versión presentada para evaluación.
+ */
+
+'use strict';
+
 let ChessBoard;
 let Queen;
 let Line;
@@ -18,10 +49,24 @@ if (typeof require !== 'undefined') {
 }
 
 class NQueens {
+  /**
+   * @desc Constructor de la clase NQueensNG
+   * @param {Number} size Cantidad de reinas que tendrá el
+   * problema.
+   */
   constructor(size) {
     this._size = size;
   }
 
+    /**
+   * @desc MÉTODO PROTEGIDO. Crea una estructura de datos auxiliar para resolver
+   * el problema de las N Reinas de manera iterativa.
+   * @param {Array} xCoordinates Columnas del tablero libres (eje X).
+   * @param {Number} xToChoose Siguiente posición en el eje X a elegir.
+   * @param {Number} yToChoose Siguiente posición en el eje Y a elegir.
+   * @return {Object} Estructura de datos auxiliar para el problema de
+   *  las N Reinas.
+   */
   _createDataContainer(xCoordinates, xToChoose, yToChoose) {
     return {
       xArray: xCoordinates,
@@ -30,9 +75,14 @@ class NQueens {
     };
   }
 
+  /**
+   * @desc Resuelve el problema de las N Reinas.
+   * @return {Array} Array de objetos donde cada uno representa una
+   * configuración para un tablero de ajedrez con la disposición de las
+   * reinas que determinan una solución.
+   */
   resolve() {
     const result = [];
-    //const dictionary = buildDictionary(size);
     const board = [];
     const dataContainer = [];
     const initialData = this._createDataContainer(
@@ -77,11 +127,11 @@ class NQueens {
   }
 
 /**
- * Comrpruba si las reinas de un tablero entran en clonflicto
- * con una nueva especificada por 'point'
- * @param {Object} board - Colección de puntos
- * @param {Object} toCheckPoint - Punto nuevo a validar
- * @return {Boolean} - True si no se da conflicto alguno
+ * @desc MÉTODO PROTEGIDO. Comprueba si las reinas de un tablero
+ * entran en conflicto con una nueva especificada por 'point'
+ * @param {Object} board Colección de reinas.
+ * @param {Object} toCheckQueen Reina nueva a validar
+ * @return {Boolean} True si no se da conflicto alguno
  */
   _checkIfConflict(board, toCheckQueen) {
     if (!Number.isInteger(toCheckQueen.row) ||
@@ -107,6 +157,12 @@ class NQueens {
     return result;
   }
 
+    /**
+   * @desc MÉTODO PROTEGIDO. Construya una configuración de tablero de ajedrez.
+   * @param {Array} result Array con dispociciones de reinas que conforman
+   * soluciones para el problema de las N Reinas.
+   * @return {Array} Array de configuraciones de tableros de ajedrez.
+   */
   _buildConfiguration(result) {
     const configurations = [];
     for (const board of result) {

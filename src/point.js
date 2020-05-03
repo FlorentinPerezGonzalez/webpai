@@ -1,10 +1,10 @@
 /**
  * @version 1.0.0
  * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
- * @file Contiene la implementació de la clase Point, que representa
+ * @file Contiene la implementación de la clase Point, que representa
  * un punto.
  * @copyright Florentín Pérez Glez 2020
- * @since 28.04.2020
+ * @since 03.05.2020
  * @exports Point
  * @desc
  * Universidad: Universidad de La Laguna.
@@ -13,18 +13,20 @@
  *
  * Curso: 3º
  *
- * Práctica 10. Tiro parabólico.
+ * Práctica 11. Ajedrez.
  *
  * Contenido detallado: Contiene la implementación de la clase Point,
  * que permite representar un punto dada unas coordenada X e Y.
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
+ *      https://github.com/fsande/PAI-P11-Chess/blob/master/2019-2020_p10_Chess.md
  *
  * Historial de revisiones:
- *    - 28.04.2020 - Versión presentada para evaluación.
+ *    - 05.05.2020 - Versión presentada para evaluación.
  */
+
+'use strict';
 
 class Point {
   /**

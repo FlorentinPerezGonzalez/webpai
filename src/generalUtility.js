@@ -8,6 +8,7 @@
  * @exports sleep
  * @exports makeUnique
  * @exports getRandomInt
+ * @exports range
  * @desc
  * Universidad: Universidad de La Laguna
  *
