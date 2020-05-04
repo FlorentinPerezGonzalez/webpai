@@ -53,7 +53,7 @@ pieceImg.reinaN = new Image();
 let imgCounter = 0;
 
 for (const key in pieceImg) {
-  pieceImg[key].src = `./../img/${key}.png`;
+  pieceImg[key].src = `./img/${key}.png`;
   pieceImg[key].addEventListener('load', function() {
     imgCounter++;
   });
