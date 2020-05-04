@@ -103,7 +103,7 @@ class ChessPiece {
    * @return {String} Cadena de texto con la representación algebraica.
    */
   showPosition() {
-    return `${this._type}${ChessPiece.colDictionary[this._col + 1]}${this._row + 1}`;
+    return `${this._type}${ChessPiece.colDictionary[8 - this._col ]}${this._row + 1}`;
   }
 
 };

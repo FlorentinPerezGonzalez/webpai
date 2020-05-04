@@ -29,20 +29,17 @@
 
 'use strict';
 
-let ChessBoard;
 let Queen;
 let Line;
 let Point;
 let generalUtility;
 /* istanbul ignore next */
 if (typeof require !== 'undefined') {
-  ChessBoard = require('../src/chess-board.js').ChessBoard;
   Line = require('../src/line.js').Line;
   Point = require('../src/point.js').Point;
   Queen = require('../src/queen.js').Queen;
   generalUtility = require('../src/generalUtility.js').generalUtility;
 } else {
-  ChessBoard = window.ChessBoard;
   Line = window.Line;
   Point = window.Point;
   Queen = window.Queen;

@@ -41,7 +41,7 @@ let Queen;
 let King;
 let Knight;
 let NQueens;
-let NQueensNG;
+let NQueensG;
 let Line;
 let Point;
 let generalUtility;
@@ -54,7 +54,7 @@ if (typeof require !== 'undefined') {
   King = require('../src/king.js').King;
   Knight = require('../src/knight').Knight;
   NQueens = require('../src/nqueens.js').NQueens;
-  NQueensNG = require('../src/nqueens-ng.js').NQueensNG;
+  NQueensG = require('./nqueens-generalized.js').NQueensG;
   Line = require('../src/line.js').Line;
   CanvasModule = require('../src/canvas-utility.js').canvasModule;
   Point = require('../src/point.js').Point;
@@ -70,7 +70,7 @@ if (typeof require !== 'undefined') {
   King = window.King;
   Knight = window.Knight;
   NQueens = window.NQueens;
-  NQueensNG = window.NQueensNG;
+  NQueensG = window.NQueensG;
   Line = window.Line;
   Point = window.Point;
   CanvasModule = window.canvasModule;
@@ -102,16 +102,17 @@ function setup() {
   let chess = new ChessRepresentation;
   chess.draw(CONTEXT, CANVAS.width);
   GEN_SOLUTION.addEventListener('click', () => {
-    solutionCounter = 0;
     canvasModule.clearScreen(CONTEXT, CANVAS);
     chess.draw(CONTEXT, CANVAS.width);
     if (CHECKBOX.checked) {
+      solutionCounterNG = 0;
       if (result8QueensNG === undefined) {
-        const NQUEENS_NG = new NQueensNG(8);
+        const NQUEENS_NG = new NQueensG(8);
         result8QueensNG = NQUEENS_NG.resolve();
       }
       chess.loadConfiguration(result8QueensNG[0]);
     } else {
+      solutionCounter = 0;
       if (result8Queens === undefined) {
         nqueen = new NQueens(8);
         result8Queens = nqueen.resolve();

@@ -10,7 +10,7 @@ let King;
 let Knight;
 let expect;
 let NQueens;
-let NQueensNG;
+let NQueensG;
 let Line;
 let Point;
 let Rook;
@@ -25,7 +25,7 @@ if (typeof require !== 'undefined') {
   King = require('../src/king.js').King;
   Knight = require('../src/knight').Knight;
   NQueens = require('../src/nqueens.js').NQueens;
-  NQueensNG = require('../src/nqueens-ng.js').NQueensNG;
+  NQueensG = require('../src/nqueens-generalized.js').NQueensG;
   Line = require('../src/line.js').Line;
   Point = require('../src/point.js').Point;
   generalUtility = require('../src/generalUtility.js').generalUtility;
@@ -42,7 +42,7 @@ if (typeof require !== 'undefined') {
   King = window.King;
   Knight = window.Knight;
   NQueens = window.NQueens;
-  NQueensNG = window.NQueensNG;
+  NQueensG = window.NQueensG;
   Line = window.Line;
   Point = window.Point;
   generalUtility = window.generalUtility;
@@ -196,7 +196,7 @@ describe('ChessPiece class', () => {
       expect(pawn.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(pawn.showPosition()).to.be.eql('c2');
+      expect(pawn.showPosition()).to.be.eql('f2');
     });
   });
   context('Queen Piece', () => {
@@ -211,7 +211,7 @@ describe('ChessPiece class', () => {
       expect(queen.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(queen.showPosition()).to.be.eql('Qc2');
+      expect(queen.showPosition()).to.be.eql('Qf2');
     });
   });
   context('King Piece', () => {
@@ -226,7 +226,7 @@ describe('ChessPiece class', () => {
       expect(king.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(king.showPosition()).to.be.eql('Kc2');
+      expect(king.showPosition()).to.be.eql('Kf2');
     });
   });
   context('Rook Piece', () => {
@@ -241,7 +241,7 @@ describe('ChessPiece class', () => {
       expect(rook.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(rook.showPosition()).to.be.eql('Rc2');
+      expect(rook.showPosition()).to.be.eql('Rf2');
     });
   });
   context('Bishop Piece', () => {
@@ -256,7 +256,7 @@ describe('ChessPiece class', () => {
       expect(bishop.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(bishop.showPosition()).to.be.eql('Bc2');
+      expect(bishop.showPosition()).to.be.eql('Bf2');
     });
   });
   context('Knight Piece', () => {
@@ -271,7 +271,7 @@ describe('ChessPiece class', () => {
       expect(knight.color).to.be.eql(0);
     });
     it('Should return its position in algebraic notation', () => {
-      expect(knight.showPosition()).to.be.eql('Nc2');
+      expect(knight.showPosition()).to.be.eql('Nf2');
     });
   });
 });
@@ -297,23 +297,23 @@ describe('Class NQueens', () => {
   });
 });
 
-describe('Class NQueensNG', () => {
+describe('Class NQueensG', () => {
   it('Should exist', () => {
-    expect(NQueensNG).to.be.a('function');
+    expect(NQueensG).to.be.a('function');
   });
   context('NQueens functionality' ,() => {
-    let nQueensNG;
+    let nQueens;
     beforeEach(() => {
-      nQueensNG = new NQueensNG(8);
+      nQueens = new NQueensG(8);
     });
     it('Should have a property size', () => {
-      expect(nQueensNG).to.have.a.property('_size');
+      expect(nQueens).to.have.a.property('_size');
     });
     it('Should have a method to resolve the problem', () => {
-      expect(nQueensNG).to.have.a.property('resolve');
+      expect(nQueens).to.have.a.property('resolve');
     });
     it('Resolve should give a correct solution', () => {
-      expect(nQueensNG.resolve()).to.be.an('array');
+      expect(nQueens.resolve()).to.be.an('array');
     });
   });
 });
