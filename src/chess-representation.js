@@ -25,6 +25,8 @@ if (typeof require !== 'undefined') {
   Rook = window.Rook;
 }
 
+const LETTER_INCREMENT_PX = 5;
+
 class ChessRepresentation {
   static initialBoard = {
     "size": 8,
@@ -143,10 +145,13 @@ class ChessRepresentation {
    * que este debe ser cuadrado).
    */
   draw(context, length) {
+    function nextChar(character) {
+      return String.fromCharCode(character.charCodeAt(0) + 1);
+    }
     const BROWN_COLOR = '#946f51';
     const WHITE_COLOR = '	#F0D9B5';
     const LENGHT_INCREMENT = length / this._boardSize;
-    let isBrown = false;
+    let isBrown = true;
     for (let row = 0; row < this._boardSize; row++) {
       isBrown = !isBrown;
       for (let col = 0; col < this._boardSize; col++) {
@@ -161,6 +166,32 @@ class ChessRepresentation {
                         LENGHT_INCREMENT,
                         LENGHT_INCREMENT)
       }
+    }
+    let letterCounter = 'a';
+    context.font = "1rem Noto Sans";
+    isBrown = true;
+    for (let col = 1; col <= this._boardSize; col++) {
+      if (isBrown) {
+        context.fillStyle = BROWN_COLOR;
+      } else {
+        context.fillStyle = WHITE_COLOR;
+      }
+      context.fillText(letterCounter, length - col * LENGHT_INCREMENT +
+        LETTER_INCREMENT_PX, length - LETTER_INCREMENT_PX);
+      isBrown = !isBrown;
+      letterCounter = nextChar(letterCounter);
+    }
+    isBrown = false;
+    for (let col = 0; col < this._boardSize; col++) {
+      if (isBrown) {
+        context.fillStyle = BROWN_COLOR;
+      } else {
+        context.fillStyle = WHITE_COLOR;
+      }
+      context.fillText(col + 1, length - LETTER_INCREMENT_PX * 2, col *
+        LENGHT_INCREMENT + LETTER_INCREMENT_PX * 3);
+      isBrown = !isBrown;
+      letterCounter = nextChar(letterCounter);
     }
   }
 

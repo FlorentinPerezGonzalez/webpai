@@ -15,7 +15,7 @@ let Line;
 let Point;
 let generalUtility;
 if (typeof require !== 'undefined') {
-  ChessBoard = require('../src/square-chess.js').ChessBoard;
+  ChessBoard = require('../src/chess-board.js').ChessBoard;
   expect = require('chai').expect;
   ChessPiece = require('../src/chess-piece.js').ChessPiece;
   Pawn = require('../src/pawn.js').Pawn;

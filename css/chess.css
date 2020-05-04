@@ -62,7 +62,7 @@ header {
   justify-content: center;
   align-items: center;
   height: 70vh;
-  padding:5px; /* this */
+  padding:5px; 
 }
 
 #izquierda {
@@ -145,7 +145,7 @@ hr {
 }
 
 footer {
-  width: 100%;
+  width: 100vw;
   display: block;
   justify-content: center;
   position: absolute;
