@@ -7,6 +7,7 @@ let Queen;
 let King;
 let Knight;
 let Rook;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   ChessBoard = require('../src/chess-board.js').ChessBoard;
   Pawn = require('../src/pawn.js').Pawn;
@@ -115,6 +116,7 @@ class ChessRepresentation {
     }
   }
 
+  /* istanbul ignore next */
   /**
    * @desc Muestra las fichas de ajedrez que existen sobre el tablero.
    * @param {Context} context Contexto del canvas en el que se realizará la
@@ -137,6 +139,7 @@ class ChessRepresentation {
     }
   }
 
+  /* istanbul ignore next */
   /**
    * @desc Dibuja el tablero sobre un canvas. No representa ficha alguna.
    * @param {Context} context Contexto del canvas en el que se realizará la
@@ -195,6 +198,7 @@ class ChessRepresentation {
     }
   }
 
+  /* istanbul ignore next */
   /**
    * @desc Muestra en un objeto del DOM la notación algebraica de todas
    * las fichas existentes sobre el tablero.

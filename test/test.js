@@ -13,6 +13,7 @@ let NQueens;
 let NQueensNG;
 let Line;
 let Point;
+let Rook;
 let generalUtility;
 if (typeof require !== 'undefined') {
   ChessBoard = require('../src/chess-board.js').ChessBoard;
@@ -30,6 +31,7 @@ if (typeof require !== 'undefined') {
   generalUtility = require('../src/generalUtility.js').generalUtility;
   ChessRepresentation =
     require('../src/chess-representation.js').ChessRepresentation;
+  Rook = require('../src/rook.js').Rook;
 } else {
   ChessBoard = window.ChessBoard;
   expect = chai.expect;
@@ -45,6 +47,7 @@ if (typeof require !== 'undefined') {
   Point = window.Point;
   generalUtility = window.generalUtility;
   ChessRepresentation = window.ChessRepresentation;
+  Rook = window.Rook;
 }
 
 describe('Class Point', () => {
@@ -288,6 +291,9 @@ describe('Class NQueens', () => {
     it('Should have a method to resolve the problem', () => {
       expect(nQueens).to.have.a.property('resolve');
     });
+    it('Resolve should give a correct solution', () => {
+      expect(nQueens.resolve()).to.be.an('array');
+    });
   });
 });
 
@@ -305,6 +311,9 @@ describe('Class NQueensNG', () => {
     });
     it('Should have a method to resolve the problem', () => {
       expect(nQueensNG).to.have.a.property('resolve');
+    });
+    it('Resolve should give a correct solution', () => {
+      expect(nQueensNG.resolve()).to.be.an('array');
     });
   });
 });
@@ -329,6 +338,18 @@ describe('Class ChessRepresentation', () => {
     });
     it('Should have a method to load a board configuration', () => {
       expect(chess).to.have.a.property('loadConfiguration');
+    });
+    it('Should allow to load a configuration', () => {
+      expect(chess.loadConfiguration(
+        {
+        "size": 8,
+        "peonN1": {"color": 0,"type": "pawn","row": 6,"col": 0},
+        "torreN2": {"color": 0,"type": "rook","row": 7,"col": 7},
+        "caballoN2": {"color": 0,"type": "knight","row": 7,"col": 6},
+        "alfilN2": {"color": 0,"type": "bishop","row": 7,"col": 5},
+        "reyN": {"color": 0,"type": "king","row": 7,"col": 3},
+        "reinaN": {"color": 0,"type": "queen","row": 7,"col": 4},
+      })).to.be.eql(undefined);
     });
     it('should have a method to draw the board', () => {
       expect(chess).to.have.a.property('draw');

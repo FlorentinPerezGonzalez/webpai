@@ -31,6 +31,7 @@
 
 let ChessPiece;
 let imgLoader;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   ChessPiece = require('../src/chess-piece.js').ChessPiece;
 } else {
@@ -49,10 +50,13 @@ class King extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = 'K';
-    if (color) {
-      this._img = imgLoader.pieceImg.reyB;
-    } else {
-      this._img = imgLoader.pieceImg.reyN;
+    if (imgLoader) { // No se puede cargar imágenes en Node
+      /* istanbul ignore next */
+      if (color) {
+        this._img = imgLoader.pieceImg.reyB;
+      } else {
+        this._img = imgLoader.pieceImg.reyN;
+      }
     }
   }
 };

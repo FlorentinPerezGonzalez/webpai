@@ -31,6 +31,7 @@
 
 let ChessPiece;
 let imgLoader;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   ChessPiece = require('../src/chess-piece.js').ChessPiece;
 } else {
@@ -49,10 +50,13 @@ class Bishop extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = 'B';
-    if (color) {
-      this._img = imgLoader.pieceImg.alfilB;
-    } else {
-      this._img = imgLoader.pieceImg.alfilN;
+    if (imgLoader) {
+      /* istanbul ignore next */
+      if (color) {
+        this._img = imgLoader.pieceImg.alfilB;
+      } else {
+        this._img = imgLoader.pieceImg.alfilN;
+      }
     }
   }
 };

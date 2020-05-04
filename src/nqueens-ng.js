@@ -37,6 +37,7 @@ let Queen;
 let Line;
 let Point;
 let generalUtility;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   ChessBoard = require('../src/chess-board.js').ChessBoard;
   Line = require('../src/line.js').Line;

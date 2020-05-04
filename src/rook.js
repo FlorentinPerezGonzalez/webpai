@@ -31,6 +31,7 @@
 
 let ChessPiece;
 let imgLoader;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') {
   ChessPiece = require('../src/chess-piece.js').ChessPiece;
 } else {
@@ -49,10 +50,13 @@ class Rook extends ChessPiece {
     super(row, col);
     this._color = color;
     this._type = 'R';
-    if (color) {
-      this._img = imgLoader.pieceImg.torreB;
-    } else {
-      this._img = imgLoader.pieceImg.torreN;
+    if (imgLoader) { // Vaĺido para Broser, no para node.
+      /* istanbul ignore next */
+      if (color) {
+        this._img = imgLoader.pieceImg.torreB;
+      } else {
+        this._img = imgLoader.pieceImg.torreN;
+      }
     }
   }
 };
