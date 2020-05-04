@@ -41,7 +41,11 @@ class ChessPiece {
     '7': 'g',
     '8': 'h',
   }
-
+  /**
+   * @desc Constructor de la clase ChessPiece.
+   * @param {Number} row Fila del tablero que ocupa la ficha.
+   * @param {Number} col Columna del tablero que ocupa la ficha.
+   */
   constructor(row, col) {
     this._row = row;
     this._col = col;

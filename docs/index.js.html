@@ -29,6 +29,7 @@
             <pre class="prettyprint source linenums"><code>/**
  * @version 1.0.0
  * @author Florentín Pérez Glez. &lt;alu0101100654@ull.edu.es>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
  * @file Módulo principal. Gestiona el funcionamiento del programa a través
  * de la asignación de eventos y obtención de referencias a componentes
  * del DOM.
@@ -36,6 +37,14 @@
  * @since 03.05.2020
  * @exports waitCharge
  * @exports pieceImg
+=======
+ * @file Contiene la implementación de un script que permite
+ * representar un eje de coordanas sobre un canvas y representar
+ * tiros parabólicos en el mismo.
+ * @copyright Florentín Pérez Glez 2020
+ * @since 28.04.2020
+ * @exports Arrow
+>>>>>>> 6f255971c8ae7993441026795b12f04cbabe9245
  * @desc
  * Universidad: Universidad de La Laguna.
  *
@@ -69,7 +78,7 @@ let Queen;
 let King;
 let Knight;
 let NQueens;
-let NQueensNG;
+let NQueensG;
 let Line;
 let Point;
 let generalUtility;
@@ -82,7 +91,7 @@ if (typeof require !== 'undefined') {
   King = require('../src/king.js').King;
   Knight = require('../src/knight').Knight;
   NQueens = require('../src/nqueens.js').NQueens;
-  NQueensNG = require('../src/nqueens-ng.js').NQueensNG;
+  NQueensG = require('./nqueens-generalized.js').NQueensG;
   Line = require('../src/line.js').Line;
   CanvasModule = require('../src/canvas-utility.js').canvasModule;
   Point = require('../src/point.js').Point;
@@ -98,7 +107,7 @@ if (typeof require !== 'undefined') {
   King = window.King;
   Knight = window.Knight;
   NQueens = window.NQueens;
-  NQueensNG = window.NQueensNG;
+  NQueensG = window.NQueensG;
   Line = window.Line;
   Point = window.Point;
   CanvasModule = window.canvasModule;
@@ -130,16 +139,17 @@ function setup() {
   let chess = new ChessRepresentation;
   chess.draw(CONTEXT, CANVAS.width);
   GEN_SOLUTION.addEventListener('click', () => {
-    solutionCounter = 0;
     canvasModule.clearScreen(CONTEXT, CANVAS);
     chess.draw(CONTEXT, CANVAS.width);
     if (CHECKBOX.checked) {
+      solutionCounterNG = 0;
       if (result8QueensNG === undefined) {
-        const NQUEENS_NG = new NQueensNG(8);
+        const NQUEENS_NG = new NQueensG(8);
         result8QueensNG = NQUEENS_NG.resolve();
       }
       chess.loadConfiguration(result8QueensNG[0]);
     } else {
+      solutionCounter = 0;
       if (result8Queens === undefined) {
         nqueen = new NQueens(8);
         result8Queens = nqueen.resolve();
@@ -188,13 +198,13 @@ function setup() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="bishop.module_js.html">bishop.js</a></li><li><a href="canvas-utility.module_js.html">canvas-utility.js</a></li><li><a href="chess-board.module_js.html">chess-board.js</a></li><li><a href="chess-piece.module_js.html">chess-piece.js</a></li><li><a href="generalUtility.module_js.html">generalUtility.js</a></li><li><a href="imgLoader.module_js.html">imgLoader.js</a></li><li><a href="index.module_js.html">index.js</a></li><li><a href="king.module_js.html">king.js</a></li><li><a href="knight.module_js.html">knight.js</a></li><li><a href="line.module_js.html">line.js</a></li><li><a href="nqueens.module_js.html">nqueens.js</a></li><li><a href="nqueens-ng.module_js.html">nqueens-ng.js</a></li><li><a href="pawn.module_js.html">pawn.js</a></li><li><a href="point.module_js.html">point.js</a></li><li><a href="queen.module_js.html">queen.js</a></li><li><a href="rook.module_js.html">rook.js</a></li></ul><h3>Classes</h3><ul><li><a href="bishop.module_js-Bishop.html">Bishop</a></li><li><a href="chess-board.module_js-ChessBoard.html">ChessBoard</a></li><li><a href="ChessRepresentation.html">ChessRepresentation</a></li><li><a href="king.module_js-King.html">King</a></li><li><a href="knight.module_js-Knight.html">Knight</a></li><li><a href="line.module_js-Line.html">Line</a></li><li><a href="nqueens.module_js-NQueens.html">NQueens</a></li><li><a href="nqueens-ng.module_js-NQueensNG.html">NQueensNG</a></li><li><a href="pawn.module_js-Pawn.html">Pawn</a></li><li><a href="point.module_js-Point.html">Point</a></li><li><a href="queen.module_js-Queen.html">Queen</a></li><li><a href="rook.module_js-Rook.html">Rook</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="bishop.module_js.html">bishop.js</a></li><li><a href="canvas-utility.module_js.html">canvas-utility.js</a></li><li><a href="chess-board.module_js.html">chess-board.js</a></li><li><a href="chess-piece.module_js.html">chess-piece.js</a></li><li><a href="generalUtility.module_js.html">generalUtility.js</a></li><li><a href="imgLoader.module_js.html">imgLoader.js</a></li><li><a href="index.module_js.html">index.js</a></li><li><a href="king.module_js.html">king.js</a></li><li><a href="knight.module_js.html">knight.js</a></li><li><a href="line.module_js.html">line.js</a></li><li><a href="nqueens.module_js.html">nqueens.js</a></li><li><a href="nqueens-generalized.module_js.html">nqueens-generalized.js</a></li><li><a href="pawn.module_js.html">pawn.js</a></li><li><a href="point.module_js.html">point.js</a></li><li><a href="queen.module_js.html">queen.js</a></li><li><a href="rook.module_js.html">rook.js</a></li></ul><h3>Classes</h3><ul><li><a href="bishop.module_js-Bishop.html">Bishop</a></li><li><a href="chess-board.module_js-ChessBoard.html">ChessBoard</a></li><li><a href="chess-piece.module_js-ChessPiece.html">ChessPiece</a></li><li><a href="ChessRepresentation.html">ChessRepresentation</a></li><li><a href="king.module_js-King.html">King</a></li><li><a href="knight.module_js-Knight.html">Knight</a></li><li><a href="line.module_js-Line.html">Line</a></li><li><a href="nqueens.module_js-NQueens.html">NQueens</a></li><li><a href="nqueens-generalized.module_js-NQueensG.html">NQueensG</a></li><li><a href="pawn.module_js-Pawn.html">Pawn</a></li><li><a href="point.module_js-Point.html">Point</a></li><li><a href="queen.module_js-Queen.html">Queen</a></li><li><a href="rook.module_js-Rook.html">Rook</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon May 04 2020 16:13:46 GMT+0100 (GMT+01:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon May 04 2020 18:35:15 GMT+0100 (GMT+01:00)
 </footer>
 
 <script> prettyPrint(); </script>
