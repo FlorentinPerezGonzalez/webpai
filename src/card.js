@@ -59,6 +59,20 @@ const SPADES = 3;
  * @desc Clase que representa una carta de la baraja francesa.
  */
 class Card {
+  static suitDictionary = {
+    '0': 'C',
+    '1': 'D',
+    '2': 'H',
+    '3': 'S',
+  }
+
+  static valueDictionary = {
+    '1': 'A',
+    '11': 'J',
+    '12': 'Q',
+    '13': 'K', 
+  }
+
   _value;
   _suit;
   /**

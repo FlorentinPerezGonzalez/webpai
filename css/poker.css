@@ -10,17 +10,22 @@ body {
   height: 95vh;
   width: 100vw;
   align-items: stretch;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 #up-half {
+  display: flex;
+  flex-direction: row;
   background-color: springgreen;
   height: calc(50vh - 1rem);
   width: 100%;
 }
 
 #bot-half {
+  display: flex;
+  flex-direction: row;
   background-color: tomato;
   height: 50vh;
+  margin-top: 1rem;
   width: 100%;
 }
