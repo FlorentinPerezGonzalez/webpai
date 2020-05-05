@@ -62,6 +62,7 @@ const FOUR_OF_A_KIND_NUMBER = 4;
  * @default
  */
 const FLUSH_NUMBER = 5;
+const SIZE_DIFFERENCE = 20;
 
 let card;
 let hand;
@@ -352,13 +353,13 @@ class PokerHand extends hand.Hand {
   }
 
   draw(context, height, width) {
-    let startX = 20;
-    let startY = 20;
+    let startX = SIZE_DIFFERENCE;
+    let startY = SIZE_DIFFERENCE;
     let counter = 0;
     const widthIncrement = width/this._cards.length;
     for (const card of this._cards) {
       context.drawImage(card.img, startX + counter * widthIncrement, startY,
-        widthIncrement - 20 * 2, height - 20 * 2);
+        widthIncrement - SIZE_DIFFERENCE * 2, height - SIZE_DIFFERENCE * 2);
         counter++;
     }
   }
