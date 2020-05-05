@@ -1,7 +1,6 @@
 /**
  * @version 1.0.0
  * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
-<<<<<<< HEAD
  * @file Módulo principal. Gestiona el funcionamiento del programa a través
  * de la asignación de eventos y obtención de referencias a componentes
  * del DOM.
@@ -9,14 +8,6 @@
  * @since 03.05.2020
  * @exports waitCharge
  * @exports pieceImg
-=======
- * @file Contiene la implementación de un script que permite
- * representar un eje de coordanas sobre un canvas y representar
- * tiros parabólicos en el mismo.
- * @copyright Florentín Pérez Glez 2020
- * @since 28.04.2020
- * @exports Arrow
->>>>>>> 6f255971c8ae7993441026795b12f04cbabe9245
  * @desc
  * Universidad: Universidad de La Laguna.
  *
