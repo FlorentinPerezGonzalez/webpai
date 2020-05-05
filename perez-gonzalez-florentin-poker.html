@@ -10,22 +10,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer type="module" src="src/generalUtility.js"></script>
     <script defer type="module" src="src/canvas-utility.js"></script>
+    <script defer type="module" src="src/imgLoaderPoker.js"></script>
     <script defer type="module" src="src/card.js"></script>
     <script defer type="module" src="src/hand.js"></script>
     <script defer type="module" src="src/deck.js"></script>
     <script defer type="module" src="src/poker-hand.js"></script>
     <script defer type="module" src="src/poker-game.js"></script>
-    <script defer type="module" src="src/imgLoaderPoker.js"></script>
     <script defer type="module" src="src/poker.js"></script>
   </head>
   <body>
     <div id='flex-container'>
-      <div id='up-half'>
+      <canvas id='up-half'>
         
-      </div>
-      <div id='bot-half'>
+      </canvas>
+      <canvas id='bot-half'>
 
-      </div>
+      </canvas>
+      <button id='button'>Repartir Manos</button>
     </div>
   </body>
 </html>

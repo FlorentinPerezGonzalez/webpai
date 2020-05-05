@@ -34,6 +34,14 @@
  */
 
 'use strict'
+
+let imgLoaderPoker;
+if (typeof require !== 'undefined') {
+  imgLoaderPoker = require('../src/imgLoaderPoker.js').imgLoaderPoker
+} else {
+  imgLoaderPoker = window.imgLoaderPoker;
+}
+
 /**
  * @const {Number}
  * @default
@@ -84,6 +92,12 @@ class Card {
   constructor(value = 2, suit = CLUBS) {
     this._value = value;
     this._suit = suit;
+    let tempValue = value;
+    let tempSuit = Card.suitDictionary[suit];
+    if (value > 10 || value === 1) {
+      tempValue = Card.valueDictionary[value];
+    }
+    this._img = imgLoaderPoker.cardImg[tempSuit][tempValue];
   }
 
   /**
@@ -98,6 +112,9 @@ class Card {
     this._value = value;
   }
 
+  get img() {
+    return this._img;
+  }
   /**
    * @desc Getter.
    * @type {Number}

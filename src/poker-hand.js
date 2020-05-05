@@ -350,6 +350,19 @@ class PokerHand extends hand.Hand {
       this._label = 'Pair';
     }
   }
+
+  draw(context, height, width) {
+    let startX = 20;
+    let startY = 20;
+    let counter = 0;
+    const widthIncrement = width/this._cards.length;
+    for (const card of this._cards) {
+      context.drawImage(card.img, startX + counter * widthIncrement, startY,
+        widthIncrement - 20 * 2, height - 20 * 2);
+        counter++;
+    }
+  }
+
 };
 
 if (typeof exports !== 'undefined') {
