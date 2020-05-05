@@ -1,3 +1,31 @@
+/**
+ * @version 1.0.0
+ * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
+ * @file Módulo principal. Gestiona el funcionamiento del programa a través
+ * de la asignación de eventos y obtención de referencias a componentes
+ * del DOM.
+ * @copyright Florentín Pérez Glez 2020
+ * @since 03.05.2020
+ * @desc
+ * Universidad: Universidad de La Laguna.
+ *
+ * Asignatura: Programación de Aplicaciones Interactivas.
+ *
+ * Curso: 3º
+ *
+ * Práctica 11. Ajedrez.
+ *
+ * Contenido detallado: Módulo que contiene las funciones administrativas necesarias para hacer
+ * funcionar el programa que muestra dos manos de poker y las compara, indicando el ganador en
+ * cada situación.
+ * Referencias:
+ *    - Enunciado de la práctica:
+ *      https://github.com/fsande/PAI-P11-Chess/blob/master/2019-2020_p10_Chess.md
+ *
+ * Historial de revisiones:
+ *    - 05.05.2020 - Versión presentada para evaluación.
+ */
+
 'use strict';
 
 let card;
@@ -37,10 +65,17 @@ let botHalf = document.getElementById('bot-half');
 let upContext;
 let botContext;
 let button = document.getElementById('button');
+let display;
 
+/**
+ * @desc Función que gestiona e inicializa el programa.
+ * Obtiene referencias a elementos del DOM y asigna eventos
+ * convenientemente.
+ */
 function setup() {
   upHalf = document.getElementById('up-half');
   botHalf = document.getElementById('bot-half');
+  display = document.getElementById('display');
   CanvasModule.fixDpi(upHalf);
   CanvasModule.fixDpi(botHalf);
   upContext = upHalf.getContext('2d');
@@ -49,6 +84,10 @@ function setup() {
   button.addEventListener('click', playGame);
 }
 
+/**
+ * @desc Función que crear dos manos de póker, las muestra y compara,
+ * indicando ademas, la mano ganadora.
+ */
 function playGame() {
   CanvasModule.clearScreen(upContext, upHalf);
   CanvasModule.clearScreen(botContext, botHalf);
@@ -62,5 +101,33 @@ function playGame() {
   tempPokerHandTwo.draw(botContext, botHalf.clientHeight, botHalf.width);
   tempPokerHand.classify();
   tempPokerHandTwo.classify();
-  console.log(tempPokerHand.g)
+  determineWinner(tempPokerHand.label, tempPokerHandTwo.label);
+}
+
+/**
+ * @desc Función que compara dos manos, indicando la mano ganadora.
+ * @param {String} labelFirst Jugada de la primera mano.
+ * @param {String} labelSecond Jugada de la segunda mano.
+ */
+function determineWinner(labelFirst, labelSecond) {
+  const score = {
+    'Pair': 1,
+    'Two Pair': 2,
+    'Three of a Kind': 3,
+    'Straight': 4,
+    'Flush': 5,
+    'Full House': 6,
+    'Four of a Kind': 7,
+    'Straight Flush': 8,
+    'Simple Hand': 0,
+  };
+  const scoreFirst = score[labelFirst];
+  const scoreSecond = score[labelSecond];
+  if (scoreFirst > scoreSecond) {
+    display.innerText = 'Gana Jugador 1';
+  } else if (scoreSecond > scoreFirst) {
+    display.innerText = 'Gana Jugador 2';
+  } else {
+    display.innerText = 'Empate';
+  }
 }

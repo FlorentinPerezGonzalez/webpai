@@ -112,6 +112,10 @@ class Card {
     this._value = value;
   }
 
+  /**
+   * @desc Getter.
+   * @type {Object}
+   */
   get img() {
     return this._img;
   }

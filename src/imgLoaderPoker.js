@@ -24,6 +24,7 @@
  * constantemente si las imágenes han sido cargadas y solo en ese entonces, ejecutar la función
  * que se le pasa como argumento. Usando está función, nos garantizamos que las imágenes
  * se hayan cargado correctamente antes de poder ser utilizadas.
+ * Las imágenes que se cargan se corresponden con cartas de la mano de póker.
  *
  * Referencias:
  *    - Enunciado de la práctica:
@@ -61,14 +62,21 @@ const valueDictionary = {
 }
 
 let imgCharged = 0;
+
+/**
+ * @desc Función que construye el objeto que contendrá todas las imágenes
+ * cargadas.
+ */
 function buildImageDictionary() {
   for (const suit in suitDictionary) {
     cardImg[suitDictionary[suit]] = {};
     for (const value in valueDictionary) {
       cardImg[suitDictionary[suit]][valueDictionary[value]] = new Image();
       cardImg[suitDictionary[suit]][valueDictionary[value]].src =
-        `./img/pokerCards/poker-cards/${valueDictionary[value]}${suitDictionary[suit]}.png`;
-      cardImg[suitDictionary[suit]][valueDictionary[value]].addEventListener('load', () => {
+        `./img/pokerCards/poker-cards/${valueDictionary[value]}` +
+        `${suitDictionary[suit]}.png`;
+      cardImg[suitDictionary[suit]][valueDictionary[value]]
+      .addEventListener('load', () => {
         imgCharged++;
       });
     }

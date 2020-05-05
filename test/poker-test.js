@@ -406,13 +406,6 @@ describe('PokerHand class', () => {
       tempHand.addCard(new card.Card(5, 1));
       expect(tempHand.hasFlush()).to.be.equal(true);
     });
-    it('hasFourOfAkind should work correclty', () => {
-      tempHand.addCard(new card.Card(3, 1));
-      tempHand.addCard(new card.Card(3, 2));
-      tempHand.addCard(new card.Card(3, 3));
-      tempHand.addCard(new card.Card(3, 4));
-      expect(tempHand.hasFourOfAKind()).to.be.equal(true);
-    });
     it('hasFullHouse should work correclty', () => {
       tempHand.addCard(new card.Card(3, 1));
       tempHand.addCard(new card.Card(3, 2));
