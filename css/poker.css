@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 95vh;
+  width: 100vw;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+#up-half {
+  background-color: springgreen;
+  height: calc(50vh - 1rem);
+  width: 100%;
+}
+
+#bot-half {
+  background-color: tomato;
+  height: 50vh;
+  width: 100%;
+}
