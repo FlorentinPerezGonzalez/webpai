@@ -4,16 +4,19 @@ let expect;
 let Line;
 let Point;
 let Grid;
+let Cell;
 if (typeof require !== 'undefined') {
   expect = require('chai').expect;
   Line = require('../src/line.js').Line;
   Point = require('../src/point.js').Point;
   Grid = require('../src/grid.js').Grid;
+  Cell = require('../src/cell.js').Cell;
 } else {
   expect = chai.expect;
   Line = window.Line;
   Point = window.Point;
   Grid = window.Grid;
+  Cell = window.Cell;
 }
 
 describe('Class Point', () => {
@@ -109,6 +112,35 @@ describe('Class Grid', () => {
     });
     it('Should have a draw method', () => {
       expect(tempLine.draw).to.be.a('function');
+    });
+  });
+});
+
+describe('Class Cell', () => {
+  it('Should exist', () => {
+    expect(Cell).to.be.a('function');
+  });
+  context('Grid functionality', () => {
+    let tempCell;
+    beforeEach(() => {
+      tempCell = new Cell;
+    });
+    it('Should have a state', () => {
+      expect(tempCell).to.have.a.property('_state');
+    });
+    it('Should have a previous state', () => {
+      expect(tempCell).to.have.a.property('_previousState');
+    });
+    it('Should be able to get the state', () => {
+      expect(tempCell.state).to.be.eql(Cell.DEAD);
+    });
+    it('Should be able to get the previous state', () => {
+      expect(tempCell.previousState).to.be.eql(Cell.DEAD);
+    });
+    it('Should be able to modify the state', () => {
+      tempCell.changeState();
+      expect(tempCell.state).to.be.eql(Cell.ALIVE);
+      expect(tempCell.previousState).to.be.eql(Cell.DEAD);
     });
   });
 });
