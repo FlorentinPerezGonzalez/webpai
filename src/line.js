@@ -134,11 +134,14 @@ class Line {
    * @param {Number} lineWidth Grosor del punto
    */
   draw(context, lineWidth) {
+    const originalColor = context.strokeStyle;
     context.beginPath();
+    context.strokeStyle = this._colour;
     context.moveTo(this._initialPoint.x, this._initialPoint.y);
     context.lineTo(this._finalPoint.x, this._finalPoint.y);
     context.lineWidth = lineWidth;
     context.stroke();
+    context.strokeStyle = originalColor;
   }
 
    /**

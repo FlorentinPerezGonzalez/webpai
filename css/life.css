@@ -71,11 +71,11 @@ button:hover {
 }
 
 #canvas {
-  background-color: wheat;
+  background-color: #273746;
   flex-grow: 10;
   align-self: stretch;
   margin: 2rem;
-  border: 2px solid #212F3C;
+  outline: 0.3rem solid black;
 }
 
 footer {
