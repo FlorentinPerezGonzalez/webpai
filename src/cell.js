@@ -1,3 +1,5 @@
+'use strict';
+
 class Cell {
   static DEAD = 0;
   static ALIVE = 1;
@@ -12,6 +14,10 @@ class Cell {
 
   get previousState() {
     return this._previousState;
+  }
+
+  transferState() {
+    this._previousState = this._state;
   }
 
   changeState() {

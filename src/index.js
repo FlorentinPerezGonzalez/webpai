@@ -1,3 +1,5 @@
+'use strict';
+
 let Grid;
 let CanvasModule;
 /* istanbul ignore next */
