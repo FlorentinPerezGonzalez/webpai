@@ -1,0 +1,85 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  background: #566573 linear-gradient(to bottom, #34495E, #566573 116px) no-repeat;
+    color: #4d4d4d;
+  font-family: 'Noto Sans', Sans-Serif;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: 0;
+  margin-top: 2rem;
+  list-style: none;
+}
+
+button {
+  text-decoration: none;
+  background-color: #117A65;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  color: snow !important;
+  border: 2px solid #212F3C;
+}
+
+.cell-input {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  width: 8rem;
+  height: 2rem;
+}
+
+button:hover {
+  background-color: #FAEBD7;
+  color: black !important;
+}
+
+.flex-item {
+  width: 8rem;
+  height: 4rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.flex-container div {
+  background-color: #117A65;
+  border: 2px solid #212F3C;
+  border-radius: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  color: snow;
+  height: 4rem;
+  font-size: 1.5rem;
+}
+
+#button-section div {
+  flex-grow: 0;
+  background-color: aqua;
+}
+
+#canvas {
+  background-color: wheat;
+  flex-grow: 10;
+  align-self: stretch;
+  margin: 2rem;
+  border: 2px solid #212F3C;
+}
+
+footer {
+  background-color: tomato;
+  height: 3rem;
+  flex-grow: 1;
+}
