@@ -5,18 +5,21 @@ let Line;
 let Point;
 let Grid;
 let Cell;
+let LifeGame;
 if (typeof require !== 'undefined') {
   expect = require('chai').expect;
   Line = require('../src/line.js').Line;
   Point = require('../src/point.js').Point;
   Grid = require('../src/grid.js').Grid;
   Cell = require('../src/cell.js').Cell;
+  LifeGame = require('../src/life-game.js').LifeGame;
 } else {
   expect = chai.expect;
   Line = window.Line;
   Point = window.Point;
   Grid = window.Grid;
   Cell = window.Cell;
+  LifeGame = window.LifeGame;
 }
 
 describe('Class Point', () => {
@@ -141,6 +144,41 @@ describe('Class Cell', () => {
       tempCell.changeState();
       expect(tempCell.state).to.be.eql(Cell.ALIVE);
       expect(tempCell.previousState).to.be.eql(Cell.DEAD);
+    });
+  });
+});
+
+describe('Class LifeGame', () => {
+  it('Should exist', () => {
+    expect(LifeGame).to.be.a('function');
+  });
+  context('Grid functionality', () => {
+    let tempGame;
+    beforeEach(() => {
+      tempGame = new LifeGame(4, 4);
+    });
+    it('Should have rows', () => {
+      expect(tempGame).to.have.a.property('_rows');
+    });
+    it('Should have cols', () => {
+      expect(tempGame).to.have.a.property('_cols');
+    });
+    it('Should be able to get the rows', () => {
+      expect(tempGame.rows).to.be.eql(4);
+    });
+    it('Should be able to get the cols', () => {
+      expect(tempGame.cols).to.be.eql(4);
+    });
+    it('Should have a method to initialize the game', () => {
+      expect(tempGame.initialize).to.be.a('function');
+    });
+    it('Should have a method to produce a generation', () => {
+      expect(tempGame.generation).to.be.a('function');
+    });
+    it('Generation should not produce an exception', () => {
+      tempGame.initialize(4);
+      tempGame.generation();
+      //expect(tempGame.generation).not.to.throw(new Error);
     });
   });
 });
