@@ -3,14 +3,17 @@
 let expect;
 let Line;
 let Point;
+let Grid;
 if (typeof require !== 'undefined') {
   expect = require('chai').expect;
   Line = require('../src/line.js').Line;
   Point = require('../src/point.js').Point;
+  Grid = require('../src/grid.js').Grid;
 } else {
   expect = chai.expect;
   Line = window.Line;
   Point = window.Point;
+  Grid = window.Grid;
 }
 
 describe('Class Point', () => {
@@ -82,6 +85,30 @@ describe('Class Line', () => {
     it('Should calculate the distance between a point and the line', () => {
       const tempPoint = new Point(0, 1);
       expect(tempLine.distanceToLine(tempPoint)).to.be.equal(0.707);
+    });
+  });
+});
+
+describe('Class Grid', () => {
+  it('Should exist', () => {
+    expect(Line).to.be.a('function');
+  });
+  context('Grid functionality', () => {
+    const tempLine = new Grid(1, 2, {width: 2, heigth: 3});
+    it('Should have the cells width', () => {
+      expect(tempLine).to.have.a.property('_cellWidth');
+    });
+    it('Should have the cells height', () => {
+      expect(tempLine).to.have.a.property('_cellHeight');
+    });
+    it('Should have the number of cells (X axis)', () => {
+      expect(tempLine).to.have.a.property('_xCells');
+    });
+    it('Should have the number of cells (Y axis)', () => {
+      expect(tempLine).to.have.a.property('_yCells');
+    });
+    it('Should have a draw method', () => {
+      expect(tempLine.draw).to.be.a('function');
     });
   });
 });
