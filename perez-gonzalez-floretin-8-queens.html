@@ -9,23 +9,28 @@
     <link rel="stylesheet" type="text/css" href="css/life.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer type="module" src="./src/canvas-utility.js"></script>
+    <script defer type="module" src="./src/generalUtility.js"></script>
     <script defer type="module" src="./src/point.js"></script>
     <script defer type="module" src="./src/line.js"></script>
+    <script defer type="module" src="./src/rectangle.js"></script>
     <script defer type="module" src="./src/grid.js"></script>
+    <script defer type="module" src="./src/cell.js"></script>
+    <script defer type="module" src="./src/life-game.js"></script>
+    <script defer type="module" src="./src/life-game-display.js"></script>
     <script defer type="module" src="./src/index.js"></script>
   </head>
   <body>
     <div class="flex-container">
-      <button class="flex-item">Inicio</button>
-      <button class="flex-item">Fin</button>
-      <button class="flex-item">Pausa</button>
-      <button class="flex-item">Paso</button>
+      <button id='start' class="flex-item">Inicio</button>
+      <button id='end' class="flex-item">Fin</button>
+      <button id='pause' class="flex-item">Pausa</button>
+      <button id='steep' class="flex-item">Paso</button>
       <div class="">
-        <input type="range" id="volume" name="volume"
-               min="0" max="11">
-        <label for="volume">Speed</label>
+        <input type="range" id="speed" name="speed"
+               min="1" max="60">
+        <label for="speed">Speed</label>
       </div>
-      <input class="cell-input" type="text" id="fname" name="firstname" placeholder="Células...">
+      <input class="cell-input" type="text" id="cells" name="firstname" placeholder="Células...">
     </div>
     <canvas id="canvas"></canvas>
     <footer>a</footer>

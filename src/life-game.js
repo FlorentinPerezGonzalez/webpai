@@ -32,12 +32,16 @@ class LifeGame {
     return this._cols;
   }
 
+  getCell(row, col) {
+    return this._data[row][col];
+  }
+
   initialize(nCells) {
     const generatedPositions = [];
     let counter = 0;
     while (counter < nCells) {
-      const randomRow = generalUtility.getRandomInt(0, this._rows);
-      const randomCol = generalUtility.getRandomInt(0, this._cols);
+      const randomRow = generalUtility.getRandomInt(1, this._rows - 1);
+      const randomCol = generalUtility.getRandomInt(1, this._cols - 1);
       const position = generatedPositions.indexOf({row: randomRow, col: randomCol});
       if (position === -1) {
         counter++;
@@ -75,44 +79,25 @@ class LifeGame {
   }
 
   _cellInformation(row, col) {
-    let result = 0;
-    let rowCounter = row - 1;
-    while (rowCounter <= row + 1) {
-      if (rowCounter < this._rows && rowCounter >= 0) {
-        if (rowCounter === row -1 ) {
-          let colCounter = col - 1;
-          while (colCounter <= col + 1) {
-            if (colCounter < this._cols && colCounter >= 0) {
-              if (this._data[rowCounter, colCounter].state === Cell.ALIVE) {
-                result++;
-              }
-            }
-            colCounter++;
-          }
-        } else if (rowCounter === row) {
-          let colCounter = col - 1;
-          while (colCounter <= col + 1) {
-            if (colCounter < this._cols && colCounter >= 0 && colCounter !== col) {
-              if (this._data[rowCounter, colCounter].state === Cell.ALIVE) {
-                result++;
-              }
-            }
-            colCounter++;
-          }
+    function consultData(row, col) {
+      if (row >= 0 && row < this._rows && col >= 0 && col < this._cols) {
+        if (this._data[row][col].previousState === Cell.ALIVE) {
+          return 1;
         } else {
-          let colCounter = col - 1;
-          while (colCounter <= col + 1) {
-            if (colCounter < this._cols && colCounter >= 0) {
-              if (this._data[rowCounter, colCounter].state === Cell.ALIVE) {
-                result++;
-              }
-            }
-            colCounter++;
-          }
+          return 0;
         }
       }
-      rowCounter++;
+      return 3;
     }
+    let result = 0;
+    result += consultData.call(this, row - 1, col -1);
+    result += consultData.call(this, row - 1, col);
+    result += consultData.call(this, row - 1, col + 1);
+    result += consultData.call(this, row, col - 1);
+    result += consultData.call(this, row, col + 1);
+    result += consultData.call(this, row + 1, col - 1);
+    result += consultData.call(this, row + 1, col);
+    result += consultData.call(this, row + 1, col + 1);
     return result;
   }
 

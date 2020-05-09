@@ -18,10 +18,19 @@ class Grid {
     console.log(this._cellWidth);
     this._cellHeight = canvas.height / Math.round(yCells);
     console.log(this._cellHeight);
-    this._xCells = xCells;
-    this._yCells = yCells;
+    this._xCells = Math.round(xCells);
+    this._yCells = Math.round(yCells);
   }
-  draw(context) {
+
+  get yCells() {
+    return this._yCells;
+  }
+
+  get xCells() {
+    return this._xCells;
+  }
+
+  async draw(context) {
     // Horizontal Lines
     let currentY = this._cellHeight;
     for (let cell = 0; cell < this._yCells - 1; cell++) {
