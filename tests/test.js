@@ -7,6 +7,7 @@ let Grid;
 let Cell;
 let LifeGame;
 let Rectangle;
+let LifeGameDisplay;
 if (typeof require !== 'undefined') {
   expect = require('chai').expect;
   Line = require('../src/line.js').Line;
@@ -15,6 +16,7 @@ if (typeof require !== 'undefined') {
   Cell = require('../src/cell.js').Cell;
   LifeGame = require('../src/life-game.js').LifeGame;
   Rectangle = require('./rectangle.js').Rectangle;
+  LifeGameDisplay = require('../src/life-game-display.js').LifeGameDisplay;
 } else {
   expect = chai.expect;
   Line = window.Line;
@@ -23,6 +25,7 @@ if (typeof require !== 'undefined') {
   Cell = window.Cell;
   LifeGame = window.LifeGame;
   Rectangle = window.Rectangle;
+  LifeGameDisplay = window.LifeGameDisplay;
 }
 
 describe('Class Point', () => {
@@ -178,11 +181,6 @@ describe('Class LifeGame', () => {
     it('Should have a method to produce a generation', () => {
       expect(tempGame.generation).to.be.a('function');
     });
-    it('Generation should not produce an exception', () => {
-      tempGame.initialize(4);
-      tempGame.generation();
-      //expect(tempGame.generation).not.to.throw(new Error);
-    });
   });
 });
 
@@ -206,6 +204,25 @@ describe('Class Rectangle', () => {
     });
     it('Should calculate the perimeter', () => {
       expect(tempRectangle.perimeter()).to.be.equal(8)
+    });
+  });
+});
+
+describe('Class LifeGameDisplay', () => {
+  it('Should exist', () => {
+    expect(LifeGameDisplay).to.be.a('function');
+  });
+  context('Rectangle functionality', () => {
+    const tempGrid = new Grid(1, 2, {width: 2, heigth: 3});
+    const tempLifeGame = new LifeGameDisplay(tempGrid);
+    it('Should have a game property', () => {
+      expect(tempLifeGame).to.have.a.property('_game');
+    });
+    it('Should have a grid property', () => {
+      expect(tempLifeGame).to.have.a.property('_grid');
+    });
+    it('Should have a method to produce produce and show one generation of the game', () => {
+      expect(tempLifeGame.oneStep).to.be.a('function');
     });
   });
 });
