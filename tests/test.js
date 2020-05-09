@@ -6,6 +6,7 @@ let Point;
 let Grid;
 let Cell;
 let LifeGame;
+let Rectangle;
 if (typeof require !== 'undefined') {
   expect = require('chai').expect;
   Line = require('../src/line.js').Line;
@@ -13,6 +14,7 @@ if (typeof require !== 'undefined') {
   Grid = require('../src/grid.js').Grid;
   Cell = require('../src/cell.js').Cell;
   LifeGame = require('../src/life-game.js').LifeGame;
+  Rectangle = require('./rectangle.js').Rectangle;
 } else {
   expect = chai.expect;
   Line = window.Line;
@@ -20,6 +22,7 @@ if (typeof require !== 'undefined') {
   Grid = window.Grid;
   Cell = window.Cell;
   LifeGame = window.LifeGame;
+  Rectangle = window.Rectangle;
 }
 
 describe('Class Point', () => {
@@ -179,6 +182,30 @@ describe('Class LifeGame', () => {
       tempGame.initialize(4);
       tempGame.generation();
       //expect(tempGame.generation).not.to.throw(new Error);
+    });
+  });
+});
+
+describe('Class Rectangle', () => {
+  it('Should exist', () => {
+    expect(Rectangle).to.be.a('function');
+  });
+  context('Rectangle functionality', () => {
+    const tempRectangle = new Rectangle(new Point(0, 0), new Point(4, 4));
+    it('Should return the correct X', () => {
+      expect(tempRectangle.x).to.be.equal(0);
+    });
+    it('Should return the correct Y', () => {
+      expect(tempRectangle.y).to.be.equal(0);
+    });
+    it('Should return the correct width', () => {
+      expect(tempRectangle.width).to.be.equal(4);
+    });
+    it('Should return the correct height', () => {
+      expect(tempRectangle.height).to.be.equal(4);
+    });
+    it('Should calculate the perimeter', () => {
+      expect(tempRectangle.perimeter()).to.be.equal(8)
     });
   });
 });
