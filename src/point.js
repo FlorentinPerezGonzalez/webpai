@@ -4,7 +4,7 @@
  * @file Contiene la implementación de la clase Point, que representa
  * un punto.
  * @copyright Florentín Pérez Glez 2020
- * @since 03.05.2020
+ * @since 09.05.2020
  * @exports Point
  * @desc
  * Universidad: Universidad de La Laguna.
@@ -13,17 +13,18 @@
  *
  * Curso: 3º
  *
- * Práctica 11. Ajedrez.
+ * Práctica 12. Juego de la vida. Programación Gráfica, Orientada a Objetos y
+ * dirigida por eventos en JS.
  *
  * Contenido detallado: Contiene la implementación de la clase Point,
  * que permite representar un punto dada unas coordenada X e Y.
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P11-Chess/blob/master/2019-2020_p10_Chess.md
+ *      https://github.com/fsande/PAI-P12-Life/blob/master/2019-2020_p12_Life.md
  *
  * Historial de revisiones:
- *    - 05.05.2020 - Versión presentada para evaluación.
+ *    - 12.05.2020 - Versión presentada para evaluación.
  */
 
 'use strict';

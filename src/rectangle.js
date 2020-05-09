@@ -4,8 +4,8 @@
  * @file Contiene la implementació de la clase Rectangle, que representa
  * una línea.
  * @copyright Florentín Pérez Glez 2020
- * @since 08.04.2020
- * @exports Card
+ * @since 09.05.2020
+ * @exports Rectangle
  * @desc
  * Universidad: Universidad de La Laguna.
  *
@@ -13,16 +13,19 @@
  *
  * Curso: 3º
  *
- * Práctica 8. Poker. Programación orientada a objetos en JS.
+ * Práctica 12. Juego de la vida. Programación Gráfica, Orientada a Objetos y
+ * dirigida por eventos en JS.
  *
  * Contenido detallado: Contiene la implementación de la clase Rectangle,
  * que permite representar un rectángulo.
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P08-Poker/blob/master/2019-2020_p08_Poker.md
+ *      https://github.com/fsande/PAI-P12-Life/blob/master/2019-2020_p12_Life.md
  *
  */
+
+'use strict';
 
 let Point;
 let Line;
