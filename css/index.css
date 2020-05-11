@@ -1,20 +1,3 @@
-/**
- * Universidad de La Laguna
- * Escuela Superior de Ingeniería y Tecnología
- * Computer Ingenieering Degree
- * Subject: Interactive Application Programming
- *
- * @author Basilio Gómez Navarro
- * @since 2.may.2020
- * 
- * Assignment statement:
- * @link https://github.com/fsande/PAI-P11-Chess/blob/master/2019-2020_p10_Chess.md
- *
- * Git repository with the codes of the assignment:
- * @link https://github.com/ULL-ESIT-INF-PAI-2019-2020/pai-p10-chess-alu0101049151.git
- * 
- */
-
  body {
    margin: 0;
    font-family: "custom font";
@@ -58,10 +41,8 @@
   top: 0;
   left: 0;
   right: 0;
-
   font-size: 14px;
   padding: 20px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;

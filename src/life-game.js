@@ -92,8 +92,8 @@ class LifeGame {
     const generatedPositions = [];
     let counter = 0;
     while (counter < nCells) {
-      const randomRow = generalUtility.getRandomInt(1, this._rows - 1);
-      const randomCol = generalUtility.getRandomInt(1, this._cols - 1);
+      const randomRow = generalUtility.getRandomInt(0, this._rows);
+      const randomCol = generalUtility.getRandomInt(0, this._cols);
       const position = generatedPositions.indexOf({row: randomRow, col: randomCol});
       if (position === -1) {
         counter++;
@@ -152,7 +152,7 @@ class LifeGame {
           return 0;
         }
       }
-      return 3;
+      return 0;
     }
     let result = 0;
     result += consultData.call(this, row - 1, col -1);

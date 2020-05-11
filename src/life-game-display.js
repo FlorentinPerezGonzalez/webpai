@@ -49,10 +49,11 @@ class LifeGameDisplay {
    */
   constructor(grid) {
     this._grid = grid;
-    this._game = new LifeGame(grid.yCells + 2, grid.xCells + 2);
+    this._game = new LifeGame(grid.yCells, grid.xCells);
     this._firstIteration = true;
   }
 
+  /* istanbul ignore next */
   /**
    * @desc Método que permite calcular y representar la siguiente
    * generación del juego de la vida.
@@ -67,6 +68,7 @@ class LifeGameDisplay {
     this._displayGame(context);
   }
 
+  /* istanbul ignore next */
   /**
    * @desc MÉTODO PROTEGIO. Muestra sobre un canvas el estado actual del
    * "Juego de la vida".
@@ -76,11 +78,11 @@ class LifeGameDisplay {
   _displayGame(context) {
     const xIncrement = this._grid._cellWidth;
     const yIncrement = this._grid._cellHeight;
-    for (let row = 1; row < this._game.rows - 1; row++) { // Comprobar
-      for (let col = 1; col < this._game.cols - 1; col++) {
+    for (let row = 0; row < this._game.rows; row++) { // Comprobar
+      for (let col = 0; col < this._game.cols; col++) {
         if (this._game.getCell(row, col).state === 1) {
-          const upLeftPoint = new Point((col - 1) * xIncrement, (row - 1) * yIncrement);
-          const botRightPoint = new Point((col - 1) * xIncrement + xIncrement, (row - 1) * yIncrement + yIncrement);
+          const upLeftPoint = new Point(col * xIncrement, row * yIncrement);
+          const botRightPoint = new Point(col * xIncrement + xIncrement, row * yIncrement + yIncrement);
           (new Rectangle(upLeftPoint, botRightPoint, 'red')).draw(context, true);
         }
       }

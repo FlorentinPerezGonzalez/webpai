@@ -49,9 +49,7 @@ class Grid {
    */
   constructor(xCells, yCells, canvas) {
     this._cellWidth = canvas.width / Math.round(xCells);
-    console.log(this._cellWidth);
     this._cellHeight = canvas.height / Math.round(yCells);
-    console.log(this._cellHeight);
     this._xCells = Math.round(xCells);
     this._yCells = Math.round(yCells);
   }
@@ -71,6 +69,7 @@ class Grid {
     return this._xCells;
   }
 
+  /* istanbul ignore next */
   /**
    * @desc Método que permite dibujar la malla sobre un Canvas.
    * @param {Context} context Contexto del canvas sobre el que se

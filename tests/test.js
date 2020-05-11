@@ -15,7 +15,7 @@ if (typeof require !== 'undefined') {
   Grid = require('../src/grid.js').Grid;
   Cell = require('../src/cell.js').Cell;
   LifeGame = require('../src/life-game.js').LifeGame;
-  Rectangle = require('./rectangle.js').Rectangle;
+  Rectangle = require('../src/rectangle.js').Rectangle;
   LifeGameDisplay = require('../src/life-game-display.js').LifeGameDisplay;
 } else {
   expect = chai.expect;
@@ -180,6 +180,9 @@ describe('Class LifeGame', () => {
     });
     it('Should have a method to produce a generation', () => {
       expect(tempGame.generation).to.be.a('function');
+    });
+    it('Generation should not throw an excepction', () => {
+      expect(() => tempGame.generation()).not.to.throw(Error);
     });
   });
 });

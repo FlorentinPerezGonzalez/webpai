@@ -93,6 +93,7 @@ class Rectangle {
     this._rightBottomPoint = point;
   }
 
+  /* istanbul ignore next */
   /**
    * @desc Función que permite dibujar un rectángulo en un CANVAS
    * @param {Context} context Contexto asociado a un canvas.
@@ -122,20 +123,6 @@ class Rectangle {
       new Point(this._rightBottomPoint.x, this._leftUpperPoint.y))).length()) * 2;
     result = result + ((new Line(this._leftUpperPoint,
       new Point(this._leftUpperPoint.x, this._rightBottomPoint.y))).length()) * 2;
-    return result;
-  }
-
-  /**
-   * @desc Función que permite calcular el área del rectángulo.
-   * @return {Number} Área del rectángulo.
-   */
-  area() { // WIP
-    let result = 0;
-    result = result + (new Line(this._leftUpperPoint,
-      new Point(this._rightBottomPoint.x, this._leftUpperPoint.y))).length();
-    console.log(result);
-    result = result * (new Line(this._leftUpperPoint,
-      new Point(this._leftUpperPoint.x, this._rightBottomPoint.y))).length();
     return result;
   }
 };
