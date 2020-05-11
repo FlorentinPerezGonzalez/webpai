@@ -79,7 +79,11 @@ button:hover {
 }
 
 footer {
-  background-color: tomato;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: #17202A;
   height: 3rem;
   flex-grow: 1;
+  color: snow;
 }
