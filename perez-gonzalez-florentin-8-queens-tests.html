@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Pérez González Florentín Tests</title>
+    <link rel="stylesheet" href="test-js-css/mocha.css" />
+    <script src="test-js-css/mocha.js"></script>
+    <script src="test-js-css/chai.js"></script>
+    <!-- JS Files -->
+    <script defer type="module" src="./src/point.js"></script>
+    <script defer type="module" src="./src/line.js"></script>
+    <script defer type="module" src="./src/generalUtility.js"></script>
+    <script defer type="module" src="./src/chess-board.js"></script>
+    <script defer type="module" src="./src/imgLoader.js"></script>
+    <script defer type="module" src="./src/chess-piece.js"></script>
+    <script defer type="module" src="./src/pawn.js"></script>
+    <script defer type="module" src="./src/queen.js"></script>
+    <script defer type="module" src="./src/nqueens.js"></script>
+    <script defer type="module" src="./src/nqueens-generalized.js"></script>
+    <script defer type="module" src="./src/rook.js"></script>
+    <script defer type="module" src="./src/bishop.js"></script>
+    <script defer type="module" src="./src/king.js"></script>
+    <script defer type="module" src="./src/knight.js"></script>
+    <script defer type="module" src="./src/chess-representation.js"></script>
+  </head>
+  <body onload="mocha.run()">
+    <h1>Practica 11</h1>
+    <h1>Florentín Pérez González</h1>
+    <div id="mocha"></div>
+    <script>
+      mocha.setup("bdd");
+    </script>
+    <!-- load your test files here -->
+    <script defer type="module" src="./test/test.js"></script>
+  </body>
+</html>
