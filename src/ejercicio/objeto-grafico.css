@@ -45,3 +45,8 @@ button {
   font-size: 1.5rem;
   text-align: center;
 }
+
+button:hover {
+  background-color: #FAEBD7;
+  color: black !important;
+}

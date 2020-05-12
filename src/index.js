@@ -19,7 +19,6 @@ if (typeof require !== 'undefined') {
   LifeGameDisplay = window.LifeGameDisplay;
 }
 
-
 const CANVAS = document.getElementById('canvas');
 CanvasModule.fixDpi(CANVAS);
 const CONTEXT = CANVAS.getContext("2d");
