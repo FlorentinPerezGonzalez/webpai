@@ -27,18 +27,20 @@
 
 'use strict';
 
-
 let CanvasModule;
 let Circle;
 let DrawFigures;
+let Move;
 if (typeof require !== 'undefined') {
   Circle = require('./circle.js').Circle;
   DrawFigures = require('./drawFigures.js').DrawFigures;
   CanvasModule = require('./canvas-utility.js').canvasModule;
+  Move = require('./move.js').Move;
 } else {
   Circle = window.Circle;
   DrawFigures = window.DrawFigures;
   CanvasModule = window.canvasModule;
+  Move = window.Move;
 }
 
 const LINE_WIDTH = 5;
@@ -56,11 +58,12 @@ let width = CANVAS.width / 2;
 let height = CANVAS.height / 2;
 let ball = new Circle(new Point(width, height), RADIUS);
 const DRAW = new DrawFigures(CONTEXT);
+const MOVE_UNIT = new Move(new Point(CANVAS.width, CANVAS.height));
 DRAW.drawCircle(ball, true, LINE_WIDTH, 'red');
 
 NORTH_BUTTON.addEventListener('click', () => {
   const PIXELS = parseInt(SLIDER.value);
-  height = (height - PIXELS - RADIUS) < 0 ? 0 + RADIUS : height - PIXELS;
+  height = MOVE_UNIT.moveNorth(RADIUS, PIXELS, height);
   canvasModule.clearScreen(CONTEXT, CANVAS);
   ball = new Circle(new Point(width, height), RADIUS);
   DRAW.drawCircle(ball, true, PIXELS, 'red');
@@ -68,8 +71,7 @@ NORTH_BUTTON.addEventListener('click', () => {
 
 SOUTH_BUTTON.addEventListener('click', () => {
   const PIXELS = parseInt(SLIDER.value);
-  height = (height + PIXELS + RADIUS) > CANVAS.height ?
-    CANVAS.height - RADIUS : height + PIXELS;
+  height = MOVE_UNIT.moveSouth(RADIUS, PIXELS, height);
   canvasModule.clearScreen(CONTEXT, CANVAS);
   ball = new Circle(new Point(width, height), RADIUS);
   DRAW.drawCircle(ball, true, PIXELS, 'red');
@@ -78,7 +80,7 @@ SOUTH_BUTTON.addEventListener('click', () => {
 
 WEST_BUTTON.addEventListener('click', () => {
   const PIXELS = parseInt(SLIDER.value);
-  width = (width - PIXELS - RADIUS) < 0 ? 0 + RADIUS : width - PIXELS;
+  width = MOVE_UNIT.moveWest(RADIUS, PIXELS, width);
   canvasModule.clearScreen(CONTEXT, CANVAS);
   ball = new Circle(new Point(width, height), RADIUS);
   DRAW.drawCircle(ball, true, PIXELS, 'red');
@@ -86,8 +88,7 @@ WEST_BUTTON.addEventListener('click', () => {
 
 EAST_BUTTON.addEventListener('click', () => {
   const PIXELS = parseInt(SLIDER.value);
-  width = (width + PIXELS + RADIUS) > CANVAS.width ?
-    CANVAS.width - RADIUS : width + PIXELS;
+  width = MOVE_UNIT.moveEast(RADIUS, PIXELS, width);
   canvasModule.clearScreen(CONTEXT, CANVAS);
   ball = new Circle(new Point(width, height), RADIUS);
   DRAW.drawCircle(ball, true, PIXELS, 'red');

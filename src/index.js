@@ -1,3 +1,29 @@
+/**
+ * @version 1.0.0
+ * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
+ * @file Módulo principal que gestiona la ejecución de un programa destinado
+ * a realizar el Juego de la Vida.
+ * @copyright Florentín Pérez Glez 2020
+ * @since 12.05.2020
+ * @desc
+ * Universidad: Universidad de La Laguna.
+ *
+ * Asignatura: Programación de Aplicaciones Interactivas.
+ *
+ * Curso: 3º
+ *
+ * Práctica 12. Juego de la vida. Programación Gráfica, Orientada a Objetos y
+ * dirigida por eventos en JS.
+ *
+ * Contenido detallado: Se trata de un fichero JS cuya finalidad radica en permitir
+ * la ejecución del Juego de la Vida. En concreto, se encarga de obtener referencias
+ * del DOM y de inicializar el proceso.
+ *
+ * Referencias:
+ *    - Enunciado de la práctica:
+ *      https://github.com/fsande/PAI-P12-Life/blob/master/2019-2020_p12_Life.md
+ */
+
 'use strict';
 
 let GeneralModule;
