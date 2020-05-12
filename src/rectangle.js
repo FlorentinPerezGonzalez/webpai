@@ -111,7 +111,7 @@ class Rectangle {
       context.strokeRect(this.x, this.y, this.width,
         this.height);
     }
-  }
+  } 
 
   /**
    * @desc Función que permite calcular el perímetro del rectángulo.
