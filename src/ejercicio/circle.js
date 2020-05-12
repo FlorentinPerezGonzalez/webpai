@@ -13,14 +13,11 @@
  *
  * Curso: 3º
  *
- * Práctica 10. Tiro parabólico.
+ * Práctica 12. Juego de la vida. Programación Gráfica, Orientada a Objetos y
+ * dirigida por eventos en JS.
  *
  * Contenido detallado: Contiene la implementación de la clase Circle,
  * que permite representar un círculo dado su posición central y su radio.
- *
- * Referencias:
- *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
  *
  * Historial de revisiones:
  *    - 28.04.2020 - Versión presentada para evaluación.

@@ -41,41 +41,49 @@ if (typeof require !== 'undefined') {
   CanvasModule = window.canvasModule;
 }
 
-const PIXELS = 5;
+const LINE_WIDTH = 5;
 const RADIUS = 50;
 const NORTH_BUTTON = document.getElementById('north');
 const SOUTH_BUTTON = document.getElementById('south');
 const WEST_BUTTON = document.getElementById('west');
 const EAST_BUTTON = document.getElementById('east');
+const SLIDER = document.getElementById('pixels');
+console.log(SLIDER);
 const CANVAS = document.getElementById('canvas');
 const CONTEXT = CANVAS.getContext('2d');
-canvasModule.fixDpi(CANVAS);
+CANVAS.width = window.innerWidth * 3 / 3;
+CANVAS.height = window.innerHeight * 2.5 / 4;
+console.log(CANVAS.height);
 let width = CANVAS.width / 2;
 let height = CANVAS.height / 2;
+console.log(height);
 let ball = new Circle(new Point(width, height), RADIUS);
 const DRAW = new DrawFigures(CONTEXT);
-DRAW.drawCircle(ball, true, PIXELS, 'red');
+DRAW.drawCircle(ball, true, LINE_WIDTH, 'red');
 NORTH_BUTTON.addEventListener('click', () => {
+  const PIXELS = parseInt(SLIDER.value);
   height = (height - PIXELS) < 0 ? 0 : height - PIXELS;
   canvasModule.clearScreen(CONTEXT, CANVAS);
   ball = new Circle(new Point(width, height), RADIUS);
   DRAW.drawCircle(ball, true, PIXELS, 'red');
 });
 SOUTH_BUTTON.addEventListener('click', () => {
-  console.log(height);
-  height = (height + PIXELS) > CANVAS.height ? CANVAS.height : height + PIXELS;
+  const PIXELS = parseInt(SLIDER.value);
+  height = (height + PIXELS + RADIUS) > CANVAS.height ? CANVAS.height - RADIUS : height + PIXELS;
   canvasModule.clearScreen(CONTEXT, CANVAS);
   ball = new Circle(new Point(width, height), RADIUS);
   DRAW.drawCircle(ball, true, PIXELS, 'red');
   console.log(height);
 });
 WEST_BUTTON.addEventListener('click', () => {
+  const PIXELS = parseInt(SLIDER.value);
   width = (width - PIXELS) < 0 ? 0 : width - PIXELS;
   canvasModule.clearScreen(CONTEXT, CANVAS);
   ball = new Circle(new Point(width, height), RADIUS);
   DRAW.drawCircle(ball, true, PIXELS, 'red');
 });
 EAST_BUTTON.addEventListener('click', () => {
+  const PIXELS = parseInt(SLIDER.value);
   width = (width + PIXELS) > CANVAS.width ? CANVAS.width : width + PIXELS;
   canvasModule.clearScreen(CONTEXT, CANVAS);
   ball = new Circle(new Point(width, height), RADIUS);
