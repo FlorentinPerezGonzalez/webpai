@@ -42,7 +42,7 @@ if (typeof require !== 'undefined') {
 }
 
 const PIXELS = 5;
-const RADIUS = 10;
+const RADIUS = 50;
 const NORTH_BUTTON = document.getElementById('north');
 const SOUTH_BUTTON = document.getElementById('south');
 const WEST_BUTTON = document.getElementById('west');
