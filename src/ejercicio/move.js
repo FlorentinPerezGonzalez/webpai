@@ -28,7 +28,6 @@ class Move {
    * @return {Number} Nueva coordeanda con el desplazamiento.
    */
   moveSouth(RADIUS, PIXELS, height) {
-    let height = this._center.y;
     height = (height + PIXELS + RADIUS) > this._center.y ?
       this._center.y - RADIUS : height + PIXELS;
     return height;
