@@ -93,6 +93,16 @@ class Ball extends Circle {
     this._ySpeed = speed;
   }
 
+  /**
+   * @desc Actualiza la posición de la bola a su siguiente frame.
+   * Para ello modifica las posiciones actuales en ambos ejes en función
+   * de la velocidad (píxeles por frame) que tiene asignado el objeto.
+   */
+  update(){
+    this._xPosition += this._xSpeed;
+    this._yPosition += this._ySpeed;
+  }
+
 };
 
 /* istanbul ignore next */
