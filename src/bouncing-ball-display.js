@@ -28,7 +28,22 @@
 
 'use strict'
 
+let Ball;
+let Point;
+let GeneralUtility;
+/* istanbul ignore next */
+if (typeof require !== 'undefined') {
+  Ball = require('../src/ball.js').Ball;
+  Point = require('../src/point.js').Point;
+  GeneralUtility = require('../src/generalUtility.js').generalUtility
+} else {
+  Ball = window.Ball;
+  Point = window.Point;
+  GeneralUtility = window.generalUtility
+}
+
 class BouncingBall {
+  static RADIUS = 10;
   /**
    * @desc Constructor de la clase BouncingBall.
    * @param {Canvas} canvas Canvas sobre el que se realizará la representación. 
@@ -36,11 +51,12 @@ class BouncingBall {
    * entorno bidimensional. 
    * @param {Number} fps Frames por segundo deseados. 
    */
-  constructor(canvas, ball, fps = 30) {
+  constructor(canvas, fps = 30, xSpeed = 20, ySpeed = 20) {
     this._maxWidth = canvas.width;
     this._maxHeight = canvas.height;
-    this._ball = ball;
     this._fps = fps;
+    this._xSpeed = xSpeed;
+    this._ySpeed = ySpeed;
     if (typeof exports !== 'undefined') {
       this._context = canvas.getContext('2d');
     }
@@ -56,6 +72,41 @@ class BouncingBall {
 
   set fps(newFps) {
     this._fps = newFps;
+  }
+
+    /**
+   * @desc Getter y setter.
+   * @type {Number}
+   */
+  get xSpeed() {
+    return this._xSpeed;
+  }
+
+  /**
+   * @desc Getter y setter.
+   * @type {Number}
+   */
+  get ySpeed() {
+    return this._ySpeed;
+  }
+
+  set xSpeed(speed) {
+    this._xSpeed = speed;
+  }
+
+  set ySpeed(speed) {
+    this._ySpeed = speed;
+  }
+
+  startGame() {
+    const color = GeneralUtility.getRandomRGBColor;
+    const initialX = GeneralUtility.getRandomInt(Math.round(this._maxWidth / 3),
+                      Math.round(this._maxWidth / (3/2)));
+    const initialY = GeneralUtility.getRandomInt(Math.round(this._maxHeight / 3),
+                      Math.round(this._maxHeight / (3/2)));
+    this._ball = new Ball(new Point(initialX, initialY), BouncingBall.RADIUS,
+                          this._xSpeed, this._ySpeed, color);
+    
   }
 
 };
