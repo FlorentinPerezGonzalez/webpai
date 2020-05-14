@@ -108,5 +108,13 @@ describe('Class Ball', () => {
     it('Should allow to get the current Y position', () => {
       expect(tempBall.yPosition).to.be.equal(110);
     });
+    it('Should have a method to update the ball position', () => {
+      expect(tempBall.update).to.be.a('function');
+    });
+    it('The update method should work correctly', () => {
+      tempBall.update();
+      expect(tempBall.xPosition).to.be.equal(105);
+      expect(tempBall.yPosition).to.be.equal(116);
+    });
   });
 });
