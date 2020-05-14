@@ -5,18 +5,21 @@ let canvasModule;
 let expect;
 let Circle;
 let Ball;
+let BouncingBall;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   canvasModule = require('../src/canvas-utility.js').canvasModule;
   expect = require('chai').expect;
   Circle = require('../src/circle.js').Circle;
   Ball = require('../src/ball.js').Ball;
+  BouncingBall = require('../src/bouncing-ball-display.js').BouncingBall;
 } else {
   Point = window.Point;
   canvasModule = window.canvasModule;
   expect = chai.expect;
   Circle = window.Circle;
   Ball = window.Ball;
+  BouncingBall = window.BouncingBall;
 }
 
 describe('canvasModule', () => {
@@ -118,6 +121,22 @@ describe('Class Ball', () => {
       tempBall.update();
       expect(tempBall.xPosition).to.be.equal(105);
       expect(tempBall.yPosition).to.be.equal(116);
+    });
+  });
+});
+
+describe('Class BouncingBall', () => {
+  it('Should exist', () => {
+    expect(BouncingBall).to.be.a('function');
+  });
+  context('BouncingBall functionality', () => {
+    let tempBouncing;
+    beforeEach(() => {
+      tempBouncing = new BouncingBall({height: 10, width: 20},
+                                      new Ball(new Point(100, 110), 10, 5, 6));
+    });
+    it('Should return the FPS', () => {
+      expect(tempBouncing.fps).to.be.eql(30);
     });
   });
 });
