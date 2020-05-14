@@ -34,9 +34,10 @@ class Circle {
    * @param {Object} middlePoint Punto medio del círculo.
    * @param {Number} radius Radio del círculo.
    */
-  constructor(middlePoint, radius) {
+  constructor(middlePoint, radius, color = 'Black') {
     this._middlePoint = middlePoint;
     this._radius = radius;
+    this._color = color;
   }
 
   /**
@@ -55,12 +56,41 @@ class Circle {
     return this._radius;
   }
 
+  /**
+   * @desc Getter y setter.
+   * @type {Color}
+   */
+  get color() {
+    return this._color;
+  }
+
+  set color(newColor) {
+    this._color = newColor;
+  }
+
   set middlePoint(point) {
     this._middlePoint = point;
   }
   
   set radius(newRadius) {
     this._radius = newRadius;
+  }
+
+  draw(circle, fillRequire = false, lineWidth = 1) {
+    if (fillRequire) {
+      this._context.fillStyle = this._color;
+      this._context.beginPath();
+      this.context.arc(circle.middlePoint.x, circle.middlePoint.y, circle.radius,
+        0, 2 * Math.PI);
+      this._context.fill();
+    } else {
+      this._context.strokeStyle = this._color;
+      this._context.beginPath();
+      this._context.lineWidth = lineWidth;
+      this.context.arc(circle.middlePoint.x, circle.middlePoint.y, circle.radius,
+        0, 2 * Math.PI);
+      this._context.stroke();
+    }
   }
 }
 

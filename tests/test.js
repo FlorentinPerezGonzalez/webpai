@@ -74,6 +74,10 @@ describe('Class Circle', () => {
     it('Should return the radius', () => {
       expect(tempCircle.radius).to.be.eql(10);
     });
+    it('Should be possible to set the color', () => {
+      tempCircle.color = 'red';
+      expect(tempCircle.color).to.be.eql('red');
+    });
     it('Should allow to change the middle point', () => {
       tempCircle.middlePoint = new Point(110, 50);
       expect(tempCircle.middlePoint).to.be.eql(new Point(110, 50));

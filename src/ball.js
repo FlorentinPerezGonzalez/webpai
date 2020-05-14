@@ -29,11 +29,14 @@
 'use strict'
 
 let Circle;
+let Point;
 /* istanbul ignore next */
 if (typeof require !== 'undefined') {
   Circle = require('../src/circle.js').Circle;
+  Point = require('../src/point.js').Point;
 } else {
   Circle = window.Circle;
+  Point = window.Point;
 }
 
 class Ball extends Circle {
@@ -45,8 +48,8 @@ class Ball extends Circle {
    * @param {Number} xSpeed Velocidad en el eje X de la bola. 
    * @param {Number} ySpeed Velocidad en el eje Y de la bola.
    */
-  constructor(initialPoint, radius, xSpeed, ySpeed) {
-    super(initialPoint, radius);
+  constructor(initialPoint, radius, xSpeed, ySpeed, color) {
+    super(initialPoint, radius, color);
     this._xSpeed = xSpeed;
     this._ySpeed = ySpeed;
     this._xPosition = initialPoint.x;
@@ -101,6 +104,7 @@ class Ball extends Circle {
   update(){
     this._xPosition += this._xSpeed;
     this._yPosition += this._ySpeed;
+    this._middlePoint = new Point(this._xPosition, this._yPosition);
   }
 
 };
