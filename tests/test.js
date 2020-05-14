@@ -136,11 +136,18 @@ describe('Class BouncingBall', () => {
   context('BouncingBall functionality', () => {
     let tempBouncing;
     beforeEach(() => {
-      tempBouncing = new BouncingBall({height: 10, width: 20},
-                                      new Ball(new Point(100, 110), 10, 5, 6));
+      tempBouncing = new BouncingBall({height: 10, width: 20});
     });
     it('Should return the FPS', () => {
       expect(tempBouncing.fps).to.be.eql(30);
+    });
+    it('Should allow to get and set the speed in the X axis', () => {
+      tempBouncing.xSpeed = 20;
+      expect(tempBouncing.xSpeed).to.be.eql(20);
+    });
+    it('Should allow to get and set the speed in the Y axis', () => {
+      tempBouncing.ySpeed = 30;
+      expect(tempBouncing.ySpeed).to.be.equal(30);
     });
   });
 });
