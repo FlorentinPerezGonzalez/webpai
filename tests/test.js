@@ -4,16 +4,19 @@ let Point;
 let canvasModule;
 let expect;
 let Circle;
+let Ball;
 if (typeof require !== 'undefined') {
   Point = require('../src/point.js').Point;
   canvasModule = require('../src/canvas-utility.js').canvasModule;
   expect = require('chai').expect;
   Circle = require('../src/circle.js').Circle;
+  Ball = require('../src/ball.js').Ball;
 } else {
   Point = window.Point;
   canvasModule = window.canvasModule;
   expect = chai.expect;
   Circle = window.Circle;
+  Ball = window.Ball;
 }
 
 describe('canvasModule', () => {
@@ -75,6 +78,35 @@ describe('Class Circle', () => {
     it('Should allow to change the radius', () => {
       tempCircle.radius = 20;
       expect(tempCircle.radius).to.be.equal(20);
+    });
+  });
+});
+
+describe('Class Ball', () => {
+  it('Should exist', () => {
+    expect(Ball).to.be.a('function');
+  });
+  context('Ball functionality', () => {
+    const tempBall = new Ball(new Point(100, 110), 10, 5, 6);
+    it('Should return the initial Point', () => {
+      expect(tempBall.middlePoint).to.be.eql(new Point(100, 110));
+    });
+    it('Should return the radius', () => {
+      expect(tempBall.radius).to.be.eql(10);
+    });
+    it('Should allow to get and set the speed in the X axis', () => {
+      tempBall.xSpeed = 20;
+      expect(tempBall.xSpeed).to.be.eql(20);
+    });
+    it('Should allow to get and set the speed in the Y axis', () => {
+      tempBall.ySpeed = 30;
+      expect(tempBall.ySpeed).to.be.equal(30);
+    });
+    it('Should allow to get the current X position', () => {
+      expect(tempBall.xPosition).to.be.equal(100);
+    });
+    it('Should allow to get the current Y position', () => {
+      expect(tempBall.yPosition).to.be.equal(110);
     });
   });
 });
