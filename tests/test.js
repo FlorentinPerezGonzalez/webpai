@@ -87,7 +87,10 @@ describe('Class Ball', () => {
     expect(Ball).to.be.a('function');
   });
   context('Ball functionality', () => {
-    const tempBall = new Ball(new Point(100, 110), 10, 5, 6);
+    let tempBall;
+    beforeEach(() => {
+      tempBall = new Ball(new Point(100, 110), 10, 5, 6);
+    });
     it('Should return the initial Point', () => {
       expect(tempBall.middlePoint).to.be.eql(new Point(100, 110));
     });
