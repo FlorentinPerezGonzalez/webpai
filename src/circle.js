@@ -76,20 +76,20 @@ class Circle {
     this._radius = newRadius;
   }
 
-  draw(circle, fillRequire = false, lineWidth = 1) {
+  draw(context, fillRequire = false, lineWidth = 1) {
     if (fillRequire) {
-      this._context.fillStyle = this._color;
-      this._context.beginPath();
-      this.context.arc(circle.middlePoint.x, circle.middlePoint.y, circle.radius,
+      context.fillStyle = this._color;
+      context.beginPath();
+      context.arc(this._middlePoint.x, this._middlePoint.y, this._radius,
         0, 2 * Math.PI);
-      this._context.fill();
+      context.fill();
     } else {
-      this._context.strokeStyle = this._color;
-      this._context.beginPath();
-      this._context.lineWidth = lineWidth;
-      this.context.arc(circle.middlePoint.x, circle.middlePoint.y, circle.radius,
+      context.strokeStyle = this._color;
+      context.beginPath();
+      context.lineWidth = lineWidth;
+      context.arc(this._middlePoint.x, this._.middlePoint.y, this._radius,
         0, 2 * Math.PI);
-      this._context.stroke();
+      context.stroke();
     }
   }
 }
