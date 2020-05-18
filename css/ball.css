@@ -1,11 +1,9 @@
 body {
   height: 100vh;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
-  background: #566573 linear-gradient(to bottom, #34495E, #566573 116px) no-repeat;
-    color: #4d4d4d;
+  color: #4d4d4d;
   font-family: 'Noto Sans', Sans-Serif;
 }
 
@@ -22,16 +20,6 @@ body {
   width: 100%;
 }
 
-footer {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  background-color: #17202A;
-  height: 3rem;
-  flex-grow: 1;
-  color: snow;
-}
-
 #icon {
   font-size: 3rem;
   margin-top: 0.5rem;
@@ -46,4 +34,10 @@ footer {
   color: snow;
   margin-bottom: 0 !important;
   margin-top: 1rem !important;
+}
+
+#space {
+  margin-top: 0rem;
+  background-color: hsl(204, 86%, 53%);
+  border-radius: 2rem;
 }

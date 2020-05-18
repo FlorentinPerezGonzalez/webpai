@@ -137,3 +137,8 @@ footer {
 .result {
   font-size: 3rem !important;
 }
+
+#icon {
+  font-size: 3rem;
+  margin-top: 0.5rem;
+}

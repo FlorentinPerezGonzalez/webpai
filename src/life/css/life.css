@@ -78,7 +78,7 @@ button:hover {
   outline: 0.3rem solid black;
 }
 
-footer {
+#footer {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -86,4 +86,23 @@ footer {
   height: 3rem;
   flex-grow: 1;
   color: snow;
+}
+
+.title {
+  font-size: 3.5rem !important;
+}
+
+#icon {
+  font-size: 3rem;
+  margin-top: 0.5rem;
+}
+
+#space {
+  margin-top: 2rem;
+  background-color: hsl(171, 100%, 41%);
+  border-radius: 2rem;
+}
+
+#initial {
+  margin-top: 1rem;
 }

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/life.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script defer type="module" src="./src/canvas-utility.js"></script>
     <script defer type="module" src="./src/generalUtility.js"></script>
     <script defer type="module" src="./src/point.js"></script>
@@ -20,6 +22,24 @@
     <script defer type="module" src="./src/index.js"></script>
   </head>
   <body>
+
+    <div class="columns" id="initial">
+      <div class="column is-1 has-text-centered">  
+        <a class="icon is-large has-text-success" id="icon" href="../../../index.html">
+          <i class="fas fa-reply"></i>
+        </a>
+      </div>
+      <div class="column is-10 has-text-centered">
+        <p class="title has-text-light">Life Game</p>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-10" id="space"></div>
+      <div class="column is-1"></div>
+    </div>
+
     <div class="flex-container">
       <button id='start' class="flex-item">Inicio</button>
       <button id='end' class="flex-item">Fin</button>
@@ -33,10 +53,10 @@
       <input class="cell-input" type="text" id="cells" name="firstname" placeholder="Células...">
     </div>
     <canvas id="canvas"></canvas>
-    <footer>
+    <div id="footer">
       <h3>Universidad de La Laguna</h3>
       <h3>Programación de Aplicaciones interactivas</h3>
       <h3>Curso 2019/2020</h3>
-    </footer>
+    </div>
   </body>
 </html>
