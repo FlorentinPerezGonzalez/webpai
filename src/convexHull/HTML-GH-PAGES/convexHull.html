@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./../css/hull.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" href="https:/cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https:/cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https:/use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script defer type="module" src="../js/convexhull.js"></script>
+    <style>
+    </style>
+  </head>
+<body>
+
+  <div class="columns">
+    <div class="column is-1 has-text-centered">  
+      <a class="icon is-large has-text-success" id="icon" href="../../../index.html">
+        <i class="fas fa-reply"></i>
+      </a>
+    </div>
+    <div class="column is-10 has-text-centered">
+      <p class="title">Convex Hull</p>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column is-2 is-offset-4 has-text-centered">
+      <input class="button is-medium is-info is-rounded" type="button" value="Enviar" id="buttonPoint">
+    </div>
+    <div class="column is-2 has-text-centered">
+      <input class="input is-rounded is-hovered is-primary" type="text" id="numberOfPoints" placeholder="Número de puntos...">
+    </div>
+  </div>
+
+  <div class="column has-text-centered" id="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
+
+    <footer class="columns footer">
+      <div class="column is-4 has-text-centered">
+        <h3>Universidad de La Laguna</h3>
+      </div>
+      <div class="column is-4 has-text-centered">
+        <h3>Programación de Aplicaciones interactivas</h3>
+      </div>
+      <div class="column is-4 has-text-centered">
+        <h3>Curso 2019/2020</h3>
+      </div>
+    </footer>
+
+</body>
+</html>

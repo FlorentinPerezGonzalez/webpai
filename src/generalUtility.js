@@ -24,7 +24,7 @@
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
+ *      https://github.com/fsande/PAI-P13-BouncingBall/blob/master/2019-2020_p13_BouncingBall.md
  *
  * Historial de revisiones:
  *    - 14.04.2020 - Versión presentada para evaluación.

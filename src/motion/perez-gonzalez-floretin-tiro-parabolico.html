@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="css/proyectil.css">
+    <meta charset="UTF-8">
+    <title>Pérez González Florentín Random Walk</title>
+    <script defer type="module" src="./src/point.js"></script>
+    <script defer type="module" src="./src/line.js"></script>
+    <script defer type="module" src="./src/arrow.js"></script>
+    <script defer type="module" src="./src/axis.js"></script>
+    <script defer type="module" src="./src/canvas-utility.js"></script>
+    <script defer type="module" src="./src/generalUtility.js"></script>
+    <script defer type="module" src="./src/parabol-movement.js"></script>
+    <script defer type="module" src="./src/physics.js"></script>
+    <script defer type="module" src="./src/coordinate-axis.js"></script>
+    <script defer type="module" src="./src/index.js"></script>
+    <script defer type="module" src="src/index.js"></script>
+    <script defer type="module">
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+      window.addEventListener("load", async function() {
+        await sleep(5);
+        main.setup();
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Florentín Pérez González</h1>
+    </header>
+    <canvas id="canvas"></canvas>
+    <canvas id="dataCanvas"></canvas>
+    <div id="inputSection">
+      <div>
+        <label><input type="checkbox" id="checkBox" value="first_checkbox">No dibujar trayectoria</label><br>
+      </div>
+      <div>
+        <label for="fname">Altura inicial:</label>
+        <input type="text" id="initialHeight" name="fname"><br><br>
+      </div>
+      <div>
+        <label for="fname">Velocidad inicial:</label>
+        <input type="text" id="initialSpeed" name="fname"><br><br>
+      </div>
+      <div>
+        <label for="fname">Ángulo inicial:</label>
+        <input type="text" id="angle" name="fname"><br><br>
+      </div>
+      <button id="sendData" name="button">Enviar datos</button>
+    </div>
+    <div id="information">
+      <h1>Tiro parabólico</h1>
+      <p>Se denomina movimiento parabólico al movimiento realizado por cualquier objeto cuya 
+        trayectoria describe una parábola, el cual corresponde con la trayectoria ideal 
+        de un proyectil que se mueve en un medio que no ofrece resistencia al avance y que 
+        está sujeto a un campo gravitatorio uniforme. <br><br>El movimiento parabólico es un ejemplo 
+        de un movimiento realizado por un objeto en dos dimensiones o sobre un plano. 
+        Puede considerarse como la combinación de dos movimientos que son un movimiento 
+        horizontal uniforme y un movimiento vertical acelerado.</p>
+      <h2>Características</h2>
+      <p>El tiro parabólico posee las siguientes características:
+        <ul>
+          <li>Conociendo la velocidad de salida (inicial), el ángulo de inclinación inicial y la diferencia de alturas 
+            (entre salida y llegada) se conocerá toda la trayectoria.</li>
+          <li>Los ángulos de salida y llegada son iguales (siempre que la altura de salida y de llegada sean iguales).</li>
+          <li>La mayor distancia cubierta o alcance se logra con ángulos de salida de 45º.</li>
+          <li>Para lograr la mayor distancia fijado el ángulo el factor más importante es la velocidad.</li>
+          <li>Se puede analizar el movimiento en vertical independientemente del horizontal.</li>
+        </ul>
+      </p>
+      <h2>Enlaces de interés</h2>
+      <a href="https://en.wikipedia.org/wiki/Projectile_motion">Wikipedia</a>
+      <a href="https://www.fisicalab.com/apartado/movimiento-parabolico">Fórmulas</a>
+      <a href="http://recursostic.educacion.es/descartes/web/materiales_didacticos/comp_movimientos/parabolico.htm">Descartes 2D - Cálculo del tiro parabólico</a>
+    </div>
+    <footer>
+      <h3>Universidad de La Laguna</h3>
+      <h3>Programación de Aplicaciones Interactivas 2019/2020</h3>
+      <h3>Grado en Ingeniería Informática</h3>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+body, html {
+  height: 100%;
+}
+
+canvas {
+  height: 95%;
+  width: 95%;
+  border: ridge 0.5rem #F5B041;
+  display: block;
+  margin: auto;
+  align-self: center;
+  box-shadow: -17px -6px 23px -6px rgba(0,0,0,0.75)
+}
+
+div {
+  text-align: center;
+  padding-top: 1.5rem;
+}
+
+div ul {
+  display: block;
+}
+
+div ul li {
+  display: block;
+  padding-top: 1rem;
+}
+
+div li a {
+  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  letter-spacing: 0.2rem;
+  font-size: 1.5rem;
+  color: blue;
+}
+
+div li a:hover{
+  color: #F5B041;
+  font-style: italic;
+  font-weight: bold;
+}
+
+div p {
+  font-size: 1.5rem;
+  margin-right: 7rem;
+  margin-left: 7rem;
+  text-align: justify;
+}
+
+div h1 {
+  display: inline-block;
+  margin: auto;
+  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  background-color: rgb(255,165,0, 85%);
+  letter-spacing: 0.7rem;
+  font-size: 2.3rem;
+  color: whitesmoke;
+  width: 85%;
+  padding-top: 0.5rem;
+  box-shadow: -17px -6px 23px -6px rgba(0,0,0,0.75);
+  border-radius: 25px;
+}
+
+.row {
+  display: flex;
+  margin-right: 7rem;
+  margin-left: 7rem;
+  background-color: rgb(255,165,0, 85%);
+  box-shadow: -17px -6px 23px -6px rgba(0,0,0,0.75);
+  padding-left: 2rem;
+  border-radius: 25px;
+  padding-right: 2rem;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+.column h3 {
+  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  letter-spacing: 0.13rem;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+
+img {
+  height: 300px;
+  min-height: 300px;
+  box-shadow: -26px 3px 22px -24px rgba(0, 0, 0, 0.74);
+}
+
+#name {
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
+}

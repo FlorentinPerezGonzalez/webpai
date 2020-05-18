@@ -13,7 +13,7 @@
  *
  * Curso: 3º
  *
- * Práctica 10. Tiro parabólico.
+ * Práctica 13. BouncingBall.
  *
  * Contenido detallado: Contiene la implementación de la clase Circle,
  * que permite representar un círculo dado su posición central y su radio.
@@ -26,7 +26,7 @@
  *    - 28.04.2020 - Versión presentada para evaluación.
  */
 
-'use strict' 
+'use strict';
 
 class Circle {
   /**

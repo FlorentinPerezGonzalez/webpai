@@ -1,11 +1,11 @@
 /**
  * @version 1.0.0
  * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
- * @file Contiene la implementación de la clase Circle, que representa
- * un círculo.
+ * @file Contiene la implementación de la clase BouncingBall, que permite
+ * la representación visual de una bola que rebota.
  * @copyright Florentín Pérez Glez 2020
  * @since 28.04.2020
- * @exports Circle
+ * @exports BouncingBall
  * @desc
  * Universidad: Universidad de La Laguna.
  *
@@ -13,20 +13,22 @@
  *
  * Curso: 3º
  *
- * Práctica 10. Tiro parabólico.
+ * Práctica 13. BouncingBall.
  *
- * Contenido detallado: Contiene la implementación de la clase Circle,
- * que permite representar un círculo dado su posición central y su radio.
+ * Contenido detallado: Contiene la implementación de la clase
+ * BouncingBall que representa sobre un canvas una bola que se desplaza
+ * por el espacio disponible del mismo. Gestiona de manera activa
+ * las colisiones y la velocidad del objeto.
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
+ *      https://github.com/fsande/PAI-P13-BouncingBall/blob/master/2019-2020_p13_BouncingBall.md
  *
  * Historial de revisiones:
- *    - 28.04.2020 - Versión presentada para evaluación.
+ *    - 19.05.2020 - Versión presentada para evaluación.
  */
 
-'use strict'
+'use strict';
 
 let Ball;
 let Point;
@@ -117,10 +119,21 @@ class BouncingBall {
     }, 1000 / this._fps);
   }
 
+  /**
+   * @desc MÉTODO PROTEGIDO. Determina si la velocidad del objeto será negativo
+   * o positiva. El módulo de la misma no cambia.
+   * @param {Number} speed Velocidad original.
+   * @return {Number} Nueva velocidad.
+   */
   _realSpeed(speed) {
     return GeneralUtility.getRandomInt(0, 2) === 0 ? speed : -speed;
   }
 
+  /**
+   * @desc Produce el movimiento de la bola para un frame. Gestiona
+   * si esta choca con los bordes especificados y, en dicho caso,
+   * modifica convenientemente la velocidad.
+   */
   _moveBall() {
     this._ball.update();
     const currentX = this._ball.xPosition;

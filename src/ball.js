@@ -1,11 +1,11 @@
 /**
  * @version 1.0.0
  * @author Florentín Pérez Glez. <alu0101100654@ull.edu.es>
- * @file Contiene la implementación de la clase Circle, que representa
+ * @file Contiene la implementación de la clase Ball, que representa
  * un círculo.
  * @copyright Florentín Pérez Glez 2020
- * @since 28.04.2020
- * @exports Circle
+ * @since 16.05.2020
+ * @exports Ball
  * @desc
  * Universidad: Universidad de La Laguna.
  *
@@ -13,20 +13,21 @@
  *
  * Curso: 3º
  *
- * Práctica 10. Tiro parabólico.
+ * Práctica 13. Bouncing Ball.
  *
- * Contenido detallado: Contiene la implementación de la clase Circle,
- * que permite representar un círculo dado su posición central y su radio.
+ * Contenido detallado: Contiene la implementación de la clase Ball que representa un objeto
+ * circular con capacidad de moverse. A tal fin, se le asigna una velocidad y una posición
+ * inicial. Para cada frame, el objeto es capaz de calcular su nueva posición.
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P10-Projectile/blob/master/2019-2020_p10_Projectile.md
+ *      https://github.com/fsande/PAI-P13-BouncingBall/blob/master/2019-2020_p13_BouncingBall.md
  *
  * Historial de revisiones:
- *    - 28.04.2020 - Versión presentada para evaluación.
+ *    - 19.05.2020 - Versión presentada para evaluación.
  */
 
-'use strict'
+'use strict';
 
 let Circle;
 let Point;

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Pérez González Florentín Tests</title>
+    <link rel="stylesheet" href="../../test-js-css/mocha.css" />
+    <script src="../../test-js-css/mocha.js"></script>
+    <script src="../../test-js-css/chai.js"></script>
+    <!-- JS Files -->
+    <script defer type="module" src="./src/point.js"></script>
+    <script defer type="module" src="./src/line.js"></script>
+    <script defer type="module" src="./src/rectangle.js"></script>
+    <script defer type="module" src="./src/grid.js"></script>
+    <script defer type="module" src="./src/cell.js"></script>
+    <script defer type="module" src="./src/generalUtility.js"></script>
+    <script defer type="module" src="./src/life-game.js"></script>
+    <script defer type="module" src="./src/life-game-display.js"></script>
+  </head>
+  <body onload="mocha.run()">
+    <h1>Practica 11</h1>
+    <h1>Florentín Pérez González</h1>
+    <div id="mocha"></div>
+    <script>
+      mocha.setup("bdd");
+    </script>
+    <!-- load your test files here -->
+    <script defer type="module" src="./tests/test.js"></script>
+  </body>
+</html>

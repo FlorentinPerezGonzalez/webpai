@@ -13,17 +13,17 @@
  *
  * Curso: 3º
  *
- * Práctica 11. Ajedrez.
+ * Práctica 13. BouncingBall.
  *
  * Contenido detallado: Contiene la implementación de la clase Point,
  * que permite representar un punto dada unas coordenada X e Y.
  *
  * Referencias:
  *    - Enunciado de la práctica:
- *      https://github.com/fsande/PAI-P11-Chess/blob/master/2019-2020_p10_Chess.md
+ *      https://github.com/fsande/PAI-P13-BouncingBall/blob/master/2019-2020_p13_BouncingBall.md
  *
  * Historial de revisiones:
- *    - 05.05.2020 - Versión presentada para evaluación.
+ *    - 19.05.2020 - Versión presentada para evaluación.
  */
 
 'use strict';

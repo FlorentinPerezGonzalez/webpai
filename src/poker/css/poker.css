@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+}
+/*
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+  height: 95vh;
+  width: 100vw;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+#up-half {
+  display: flex;
+  flex-direction: row;
+  background-color: gainsboro;
+  height: calc(50vh - 1rem);
+  width: 100%;
+}
+
+#bot-half {
+  display: flex;
+  flex-direction: row;
+  background-color: gainsboro;
+  height: 50vh;
+  width: 100%;
+}
+
+button {
+  margin-top: 1rem;
+  width: 8rem;
+  height: 4rem;
+  font-size: 1rem;
+}
+
+#flex-container div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#display {
+  margin-top: 3rem;
+  display: block;
+  width: 15rem;
+  font-size: 2rem;
+  text-align: center;
+}
+*/
+
+#up-half-div, #bot-half-div {
+  background-color: #35654d;
+  border-radius: 1rem;
+  border-style: solid !important;
+}
+
+#up-half, #bot-half {
+  height: calc(30vh - 1rem);
+  width: 100%;
+}
+
+#main-display {
+  margin-left: 2rem;
+  margin-right: 2.5rem;
+}
+
+#canvas-container {
+  margin-right: 1rem;
+}
+
+#title-container {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+span {
+  height: 10rem !important;
+  background-color: violet;
+}
+
+i {
+  height: 10rem !important;
+  background-color: violet;
+}
+
+footer {
+  background-color: #17202A !important;
+  color: snow;
+  margin-bottom: 0 !important;
+  margin-top: 2rem !important;
+}
+
+#result-display {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: honeydew;
+  border-style: solid !important;
+}
+
+#title-container {
+  letter-spacing: 1rem;
+}
+
+#titlePoker {
+  letter-spacing: 1rem;
+  font-size: 5rem !important;
+}
+
+#button-div {
+  margin-top: 2rem;
+}
+
+#display {
+  margin-top: 2rem !important;
+  border-radius: 1rem;
+  border-style: solid !important; 
+  background-color: white;
+  height: 28rem;
+}
+
+.div-margin {
+  height: 10rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem !important;
+}
+
+.player {
+  font-size: 2rem !important;
+  letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.result {
+  font-size: 3rem !important;
+}

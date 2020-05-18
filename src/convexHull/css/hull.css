@@ -1,0 +1,40 @@
+canvas {
+  background-color: white;
+}
+
+#buttonDiv {
+  margin-left: 0rem;
+}
+
+.title {
+  font-size: 3.5rem !important;
+}
+
+#canvas-container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 70vh;
+  border-radius: 4rem;
+  border: solid black !important;
+  background-color: hsl(0, 0%, 71%);
+}
+
+#canvas-container canvas {
+  margin-top: 0.5rem;
+  height: 95% !important;
+  width: 95% !important;
+  border: solid #17202A;
+  border-radius: 1rem;
+}
+
+footer {
+  background-color: #17202A !important;
+  color: snow;
+  margin-bottom: 0 !important;
+  margin-top: 1rem !important;
+}
+
+#icon {
+  font-size: 3rem;
+  margin-top: 0.5rem;
+}

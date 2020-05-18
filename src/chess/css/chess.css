@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  background: #edebe9 linear-gradient(to bottom, #dbd7d1, #edebe9 116px) no-repeat;
+    color: #4d4d4d;
+  font-family: 'Noto Sans', Sans-Serif;
+}
+
+header {
+  margin-left: 1.5rem;
+}
+
+#nav-bar {
+  height: 3rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#izquierdaBar > *{
+  margin-right: 2rem;
+}
+
+#derechaBar > *{
+  margin-right: 1.5rem;
+}
+
+#nav-bar div {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.linkSesion {
+  color: royalblue;
+}
+
+#nav-bar div a{
+  margin: auto;
+}
+
+#nav-bar .link:hover {
+  background-color: white;
+  border-left: solid lightskyblue;
+}
+
+#nav-bar h1:hover {
+  color: royalblue;
+}
+
+.endIcon {
+  color: #4d4d4d !important;
+  font-size: 20px;
+  margin-right: 1rem !important;
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  padding:5px; 
+}
+
+#izquierda {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  width: 35vh;
+  height: 70%;
+  order: 1;
+  margin-right: 1rem;
+}
+
+#izquierda > * {
+  align-self: center;
+  width: 70%;
+  margin-bottom: 3rem;
+}
+
+#canvas {
+  width: 70vh;
+  height: 100%;
+  order: 2;
+}
+
+#steps {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  order: 3;
+  height: 50%;
+  width: 35vh;
+  margin-left: 15px;
+}
+
+#steps > * {
+  align-self: center;
+  width: 70%;
+  margin-bottom: 1.5rem;
+}
+
+.container {
+  box-shadow: 1px 1px 5px #aaaaaa;
+  background-color: snow !important;
+}
+
+button {
+  border: 2px solid #555555;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555555;
+  color: white;
+}
+
+#notacion {
+  flex-grow: 3;
+  text-align: justify;
+  width: 85%;
+  overflow-y: scroll;
+  border: 0.2rem solid #555555
+}
+
+hr {
+  border-top: 4px solid #555555;
+  border-radius: 2px;
+}
+
+footer {
+  width: 100vw;
+  display: block;
+  justify-content: center;
+  position: absolute;
+  bottom: 0 !important;
+  background-color: snow;
+  box-shadow: 1px 1px 10px 5px #aaaaaa;
+}
+
+footer > * {
+  display: inline-block;
+  justify-content: center;
+  margin-left: 12rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555555; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #140f0f; 
+}

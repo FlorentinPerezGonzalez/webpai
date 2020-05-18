@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Pérez González Florentín Ejercicio</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./objeto-grafico.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" href="https:/cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https:/cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https:/use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script defer type="module" src="./point.js"></script>
+    <script defer type="module" src="./circle.js"></script>
+    <script defer type="module" src="./move.js"></script>
+    <script defer type="module" src="./drawFigures.js"></script>
+    <script defer type="module" src="./canvas-utility.js"></script>
+    <script defer type="module" src="./index.js"></script>
+  </head>
+  <body>
+
+    <div class="columns">
+      <div class="column is-1 has-text-centered">  
+        <a class="icon is-large has-text-success" id="icon" href="../../../index.html">
+          <i class="fas fa-reply"></i>
+        </a>
+      </div>
+      <div class="column is-10 has-text-centered">
+        <p class="title">Movable Ball</p>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-10" id="space"></div>
+      <div class="column is-1"></div>
+    </div>
+
+    <div class="columns">
+      <div class="column notification is-info is-9" id="canvas-div">
+        <canvas id="canvas"></canvas>
+      </div>
+      <div class="column notification is-white is-3 has-text-centered" id="buttonContainer">
+        <div class="north">
+          <button id='north' class="button is-primary is-large is-outlined is-rounded">North</button>
+        </div>
+        <div class="west-east">
+          <button id='west' class="button is-primary is-large is-outlined is-rounded">West</button>
+          <button id='east' class="button is-primary is-large is-outlined is-rounded">East</button>
+        </div>
+        <div class="south">
+          <button id='south' class="button is-primary is-large is-outlined is-rounded">South</button>
+        </div>
+        <div class="slider has-text-centered">
+          <input type="range" id="pixels" name="speed"
+                 min="1" max="30">
+          <label for="speed">Pixels</label>
+        </div>
+      </div>
+    </div>
+
+    <footer class="columns footer">
+      <div class="column is-4 has-text-centered">
+        <h3>Universidad de La Laguna</h3>
+      </div>
+      <div class="column is-4 has-text-centered">
+        <h3>Programación de Aplicaciones interactivas</h3>
+      </div>
+      <div class="column is-4 has-text-centered">
+        <h3>Curso 2019/2020</h3>
+      </div>
+    </footer>
+
+  </body>
+</html>
