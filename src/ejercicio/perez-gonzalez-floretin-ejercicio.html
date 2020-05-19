@@ -21,24 +21,39 @@
           <div class="column notification is-warning"></div>
 
           <div class="column is-one-third notification is-success is-marginless" id="">
-            <div class="columns is-marginless notification is-danger" id="buttonDisplay">
-              <div class="columns">
+              <div class="columns buttonDisplay">
                 <button class="button is-small">Start</button>
                 <button class="button is-small">Step</button>
                 <button class="button is-small">Restar</button>
               </div>
-            </div>
-            <div class="columns is-marginless notification is-danger" id="buttonDisplay">
-              <div class="columns">
-                <button class="button is-small">Start</button>
-                <button class="button is-small">Step</button>
-                <button class="button is-small">Restar</button>
+              <div class="columns buttonDisplay">
+                <button class="button is-small">Slower</button>
+                <button class="button is-small numericButton">-1%</button>
+                <button class="button is-small numericButton">+1%</button>
+                <button class="button is-small">Faster</button>
               </div>
-            </div>
+              <div class="columns buttonDisplay">
+                <button class="button is-small">Freeze</button>
+                <button class="button is-small">Reverse</button>
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                  <span>Bonds</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="column">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" id="presets">
+                  <span>Presets</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
           </div>
         </div>
       </div>
-      <div class="column is-4"></div>
+      <div class="column is-3"></div>
     </div>
   </body>
 </html>

@@ -1,3 +1,23 @@
 .button {
   margin: 0.15rem;
+  width: 4rem !important;
+  font-size: 0.75rem !important;
+}
+
+.numericButton {
+  width: 1.85rem !important;
+}
+
+#presets {
+  width: 8rem !important;
+  text-align: left;
+}
+
+.center {
+
+}
+
+.buttonDisplay {
+  margin-left: 0.25rem !important;
+  margin-right: 0.25rem !important;
 }
