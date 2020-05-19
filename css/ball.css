@@ -41,3 +41,12 @@ footer {
   background-color: hsl(204, 86%, 53%);
   border-radius: 2rem;
 }
+
+.symbol {
+  width: 0.1rem !important;
+  height: 1.5rem !important;
+}
+
+.numericButton {
+  width: 1.85rem !important;
+}
