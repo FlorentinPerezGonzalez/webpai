@@ -35,3 +35,11 @@
 #canvas {
   width: 100%;
 }
+
+.column {
+  margin: 0 !important;
+}
+
+.center {
+  margin-top: 25% !important;
+}
