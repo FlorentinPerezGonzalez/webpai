@@ -23,11 +23,11 @@
     </div>
     <div class="columns">
       <div class="column is-3"></div>
-      <div class="column notification is-info">
+      <div class="column notification">
         <div class="columns">
-          <div class="column notification is-warning"></div>
-
-          <div class="column is-one-third notification is-success is-marginless" id="">
+          <div class="column" id="canvas-column"></div>
+            <canvas id="canvas"></canvas>
+          <div class="column is-one-third notification is-dark is-marginless" id="">
             <div class="column">
               <div class="columns">
                 <button class="button">Start</button>
@@ -83,12 +83,67 @@
                 </div>
               </div>
             </div>
-            <input class="slider is-fullwidth" step="1" min="0" max="100" value="50" type="range">
+
+            <div class="column has-text-centered">
+              <input class="slider is-fullwidth" step="1" min="0" max="100" value="50" type="range">
+            </div>
+
             <div class="columns">
               <div class="column is-8">
                 <p>Box Size = 0</p>
               </div>
             </div>
+
+            <div class="column has-text-centered">
+              <input class="slider is-fullwidth" step="1" min="0" max="100" value="50" type="range">
+            </div>
+
+            <div class="columns">
+              <div class="column is-8">
+                <p>Gravity = 0</p>
+              </div>
+              <div class="column is-2">
+                <div class="columns">
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    x10
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="column has-text-centered">
+              <input class="slider is-fullwidth" step="1" min="0" max="100" value="50" type="range">
+            </div>
+
+            <div class="columns">
+              <div class="column is-8">
+                <p>Time step = 0</p>
+              </div>
+              <div class="column is-3">
+                <div class="columns">
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    Fixed
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="column has-text-centered">
+              <input class="slider is-fullwidth" step="1" min="0" max="100" value="50" type="range">
+            </div>
+
+            <div class="columns">
+              <div class="column is-8">
+                <p>Steps per frame = 0</p>
+              </div>
+            </div>
+
+            <div class="column has-text-centered">
+              <input class="slider is-fullwidth" step="1" min="0" max="100" value="50" type="range">
+            </div>
+
           </div>
 
         </div>
